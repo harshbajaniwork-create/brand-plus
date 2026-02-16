@@ -69,7 +69,7 @@ export function ServicesSection() {
               <div className="relative bg-card border rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-2xl hover:border-primary/20">
                 {/* Icon */}
                 <div className="mb-6">
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} p-0.5`}>
+                  <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${service.color} p-0.5`}>
                     <div className="w-full h-full bg-background rounded-xl flex items-center justify-center">
                       <service.icon className="w-8 h-8 text-foreground" />
                     </div>
@@ -91,7 +91,7 @@ export function ServicesSection() {
                 </Button>
 
                 {/* Hover Gradient Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-linear-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
               </div>
             </motion.div>
           ))}

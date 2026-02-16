@@ -45,7 +45,7 @@ export function AboutSection() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-center gap-4 group"
                 >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                  <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                     <Check className="w-4 h-4 text-primary group-hover:text-primary-foreground" />
                   </div>
                   <div className="flex items-center gap-3">
@@ -67,14 +67,14 @@ export function AboutSection() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+            <div className="relative aspect-4/5 rounded-2xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=1000&fit=crop"
                 alt="Architecture"
                 className="w-full h-full object-cover"
               />
               {/* Overlay Pattern */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent" />
             </div>
 
             {/* Floating Card */}

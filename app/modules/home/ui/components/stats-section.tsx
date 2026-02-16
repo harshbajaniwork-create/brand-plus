@@ -104,7 +104,7 @@ export function StatsSection() {
               <div className="relative bg-card border rounded-2xl p-8 text-center h-full transition-all duration-300 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2">
                 {/* Icon */}
                 <div className="mb-6 flex justify-center">
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${stat.color} p-0.5`}>
+                  <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${stat.color} p-0.5`}>
                     <div className="w-full h-full bg-background rounded-xl flex items-center justify-center">
                       <stat.icon className="w-8 h-8 text-foreground" />
                     </div>
@@ -120,7 +120,7 @@ export function StatsSection() {
                 <p className="text-muted-foreground font-medium">{stat.label}</p>
 
                 {/* Hover Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-linear-to-br ${stat.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
               </div>
             </motion.div>
           ))}
