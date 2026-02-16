@@ -69,7 +69,7 @@ export function AboutSection() {
           >
             <div className="relative aspect-4/5 rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=1000&fit=crop"
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
                 alt="Architecture"
                 className="w-full h-full object-cover"
               />

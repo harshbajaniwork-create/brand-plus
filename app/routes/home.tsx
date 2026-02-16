@@ -5,8 +5,8 @@ import { HomeView } from "@/modules/home/ui/view/home-view";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Archo - Architecture & Interior Design" },
-    { name: "description", content: "Creating innovative architectural solutions and stunning interior designs that inspire and transform spaces." },
+    { title: "brand + | Innovative Branding & Design" },
+    { name: "description", content: "Creating innovative branding solutions and design services that inspire and transform businesses." },
   ];
 }
 
