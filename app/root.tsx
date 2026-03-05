@@ -31,9 +31,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {/* Inline script: sets --vh and --vw CSS custom properties */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function setViewportVars() {
+                  var vh = window.innerHeight * 0.01;
+                  var vw = window.innerWidth;
+                  document.documentElement.style.setProperty('--vh-initial', vh + 'px');
+                  document.documentElement.style.setProperty('--vw', vw + 'px');
+                }
+                setViewportVars();
+                window.addEventListener('resize', setViewportVars);
+              })();
+            `,
+          }}
+        />
       </head>
       <body>
-        {children}
+        {/* #app — scrollable container (replaces window scroll for Lenis-style) */}
+        <div id="app">
+          {/* #wrapper — white background page content */}
+          <div id="wrapper">{children}</div>
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>

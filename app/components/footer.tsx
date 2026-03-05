@@ -1,121 +1,276 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { initFooterAnim } from "@/lib/animations/footer-anim";
 
+/**
+ * Footer
+ * Exact recreation of the inspo footer using Tailwind CSS.
+ *
+ * Structure:
+ *  - TOP (White): Contact CTA, Newsletter, Nav links, Address/Phone/Email, Socials.
+ *  - BOTTOM (Black Sticky): Large brand+ SVG, Copyright, Legal links.
+ */
 export function Footer() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6 },
+  const emailRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    initFooterAnim();
+  }, []);
+
+  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!emailRef.current?.value || !emailRef.current.value.includes("@")) {
+      formRef.current?.classList.add("error");
+      return;
+    }
+    formRef.current?.classList.remove("error");
+    // Show success message
+    const successEl = formRef.current?.querySelector<HTMLElement>(
+      ".newsletter-form-success-message",
+    );
+    if (successEl) {
+      successEl.style.transition =
+        "transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)";
+      successEl.style.transform = "translateY(0%)";
+    }
+  };
+
+  const scrollToTop = () => {
+    const appEl = document.getElementById("app");
+    if (appEl) {
+      appEl.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
-    <footer className="bg-muted/30 border-t">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Company Info */}
-          <motion.div {...fadeInUp}>
-            <h3 className="text-2xl font-bold font-id mb-4">brand+</h3>
-            <p className="text-muted-foreground mb-6">
-              Creating innovative branding solutions and design services that inspire and transform businesses.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin size={20} />
-              </a>
+    <footer className="footer -mt-px">
+      {/* ================================================================
+          TOP SECTION — white background
+          ================================================================ */}
+      <div className="relative w-full flex-1 grid grid-cols-6 md:grid-cols-12 gap-x-(--gutter) px-(--margin) items-end pt-40 pb-(--margin) bg-white z-1 overflow-hidden">
+        {/* Col 1–5: Contact CTA + Newsletter */}
+        <div className="col-span-full xl:col-span-5 flex flex-col items-start justify-between gap-12 mb-8 xl:mb-0">
+          {/* Talk to us */}
+          <div className="flex flex-col items-start gap-4">
+            <div className="body-24 text-(--color-mist)">
+              Talk to us about your project
             </div>
-          </motion.div>
+            <a
+              href="/contact"
+              className="link-underline body-24 text-black no-underline"
+            >
+              Contact us
+            </a>
+          </div>
 
-          {/* Contact Info */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.1, duration: 0.6 }}>
-            <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin size={18} className="text-primary mt-1 shrink-0" />
-                <p className="text-sm text-muted-foreground">
-                  Dieffenbachstraße 37 2.HH Fabrik<br />
-                  10967 Berlin
-                </p>
+          {/* Newsletter */}
+          <div className="w-full flex flex-col gap-2">
+            <div className="body-14">Subscribe to our newsletter</div>
+            <form
+              id="newsletter-form"
+              ref={formRef}
+              noValidate
+              onSubmit={handleNewsletterSubmit}
+              className="relative flex justify-between gap-8 min-w-[24rem] border-b border-black overflow-hidden"
+            >
+              <input
+                ref={emailRef}
+                type="email"
+                name="EMAIL"
+                placeholder="Enter your email"
+                className="body-14 block outline-none rounded-none border-0 bg-transparent flex-1 py-3 text-inherit font-inherit"
+              />
+              {/* Success message */}
+              <div className="newsletter-form-success-message body-14 absolute top-0 left-0 py-3 translate-y-full">
+                Thanks for joining!
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail size={18} className="text-primary shrink-0" />
-                <a href="mailto:info@brandplus.berlin" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  info@brandplus.berlin
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone size={18} className="text-primary shrink-0" />
-                <a href="tel:+493012345678" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  +49 30 1234 5678
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Quick Links */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.2, duration: 0.6 }}>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {["Nachhaltigkeit", "Projekte", "Service", "Awards", "Events", "Kontakt"].map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Recent News */}
-          <motion.div {...fadeInUp} transition={{ delay: 0.3, duration: 0.6 }}>
-            <h4 className="text-lg font-semibold mb-4">Recent News</h4>
-            <div className="space-y-4">
-              <div>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors line-clamp-2">
-                  The Ultimate Guide to Modern Architecture
-                </a>
-                <p className="text-xs text-muted-foreground/60 mt-1">14 Jan 2024</p>
-              </div>
-              <div>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors line-clamp-2">
-                  Interior Design Trends for 2024
-                </a>
-                <p className="text-xs text-muted-foreground/60 mt-1">10 Jan 2024</p>
-              </div>
-            </div>
-          </motion.div>
+              <button
+                type="submit"
+                aria-label="Submit"
+                className="relative w-6 h-6 flex items-center justify-center cursor-pointer bg-transparent border-0 text-inherit py-3"
+              >
+                <svg
+                  width="13"
+                  height="10"
+                  viewBox="0 0 13 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.19922 0C1.42013 0 1.59961 0.179477 1.59961 0.400391V3.9502C1.59967 4.08821 1.71158 4.2002 1.84961 4.2002H9.60352C9.5349 4.0811 9.45139 3.96801 9.34961 3.86621L6.73047 1.24805C6.555 1.07238 6.55504 0.787026 6.73047 0.611328L7.13867 0.204102C7.31436 0.028412 7.59964 0.0285033 7.77539 0.204102L12.1094 4.53809C12.3632 4.79193 12.3632 5.20417 12.1094 5.45801L7.77539 9.79199C7.59964 9.96759 7.31436 9.96768 7.13867 9.79199L6.73047 9.38477C6.55506 9.20908 6.55504 8.92372 6.73047 8.74805L9.34961 6.12988C9.45019 6.02929 9.53239 5.91733 9.60059 5.7998H0.5C0.223897 5.7998 6.33352e-05 5.57589 0 5.2998V0.400391C0 0.179477 0.179477 0 0.400391 0H1.19922Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
 
-        {/* Copyright */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-12 pt-8 border-t text-center"
-        >
-          <p className="text-sm text-muted-foreground">
-            © 2024 brand+. Made with passion in Berlin.{" "}
-            <a href="/datenschutz" className="text-primary hover:underline">
-              Datenschutz
+        {/* Col 7–8: Nav links + Back to top */}
+        <div className="col-span-full xl:col-start-7 xl:col-end-9 flex flex-col items-start gap-40 mb-8 xl:mb-0">
+          <div className="w-full flex justify-between">
+            <div className="flex flex-col gap-1.5 items-start">
+              {["Home", "Work", "Studio", "Process", "Contact"].map((link) => (
+                <a
+                  key={link}
+                  href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
+                  className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <button
+            className="body-14 flex gap-4 cursor-pointer text-(--color-mist) bg-transparent border-0 font-inherit p-0 hover:text-black transition-colors duration-300"
+            onClick={scrollToTop}
+          >
+            Back to top
+          </button>
+        </div>
+
+        {/* Col 10–13: Address + Phone + Email + Socials */}
+        <div className="col-span-full xl:col-start-10 xl:col-end-13 flex flex-col justify-between mb-8 xl:mb-0">
+          <div className="flex flex-col gap-1.5">
+            {/* Location */}
+            <div className="flex gap-12">
+              <div className="body-14 opacity-40">L</div>
+              <p className="body-14 m-0 leading-relaxed">
+                Dieffenbachstraße 37 2.HH Fabrik
+                <br />
+                10967 Berlin
+              </p>
+            </div>
+
+            {/* Phone */}
+            <div className="flex gap-12">
+              <div className="body-14 opacity-40">P</div>
+              <a
+                href="tel:+493012345678"
+                className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
+              >
+                +49 30 1234 5678
+              </a>
+            </div>
+
+            {/* Email */}
+            <div className="flex gap-12">
+              <div className="body-14 opacity-40">C</div>
+              <a
+                href="mailto:contact@brandplus.berlin"
+                className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
+              >
+                contact@brandplus.berlin
+              </a>
+            </div>
+          </div>
+
+          {/* Socials */}
+          <div className="flex gap-2.5 mt-5">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
+            >
+              Instagram,
             </a>
-            {" · "}
-            <a href="/impressum" className="text-primary hover:underline">
-              Impressum
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
+            >
+              Linkedin
             </a>
-          </p>
-        </motion.div>
+          </div>
+        </div>
+
+        {/* Mobile: copyright + legal */}
+        <div className="xl:hidden col-span-3 mt-6 body-12 text-(--color-mist)">
+          All rights reserved
+          <br />© brand+ 2025
+        </div>
+        <div className="xl:hidden col-span-3 flex justify-end mt-6">
+          <div className="flex flex-col items-end text-(--color-mist)">
+            <a
+              href="/privacy-policy"
+              className="body-12 no-underline text-inherit"
+            >
+              Privacy policy
+            </a>
+            <a
+              href="/terms-of-service"
+              className="body-12 no-underline text-inherit"
+            >
+              Terms of services
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ================================================================
+          BOTTOM STICKY STRIP — black background with large brand name
+          ================================================================ */}
+      <div className="sticky bottom-0 w-full bg-black z-0 overflow-hidden">
+        <div className="p-(--margin)">
+          <div className="footer-bottom-inner flex flex-col gap-8 relative">
+            {/* Overlay that fades in */}
+            <div className="footer-bottom-overlay absolute inset-0 opacity-0 bg-black/40 pointer-events-none" />
+
+            {/* Brand name — large SVG text */}
+            <div className="svg-wrapper w-full text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120"
+                className="w-full block"
+                aria-hidden="true"
+              >
+                <text
+                  x="50%"
+                  y="100"
+                  fill="currentColor"
+                  textAnchor="middle"
+                  fontFamily="Europa-Grotesk, Inter, sans-serif"
+                  fontWeight="400"
+                  fontSize="110"
+                  letterSpacing="-2"
+                >
+                  brand+
+                </text>
+              </svg>
+            </div>
+
+            {/* Desktop: copyright + legal row */}
+            <div className="hidden xl:flex justify-between text-white body-12">
+              <div className="opacity-50">
+                All rights reserved
+                <br />© brand+ 2025
+              </div>
+              <a
+                href="/privacy-policy"
+                className="opacity-50 no-underline text-inherit hover:opacity-100 transition-opacity duration-300 body-12"
+              >
+                Privacy policy
+              </a>
+              <a
+                href="/terms-of-service"
+                className="opacity-50 no-underline text-inherit hover:opacity-100 transition-opacity duration-300 body-12"
+              >
+                Terms of services
+              </a>
+              <div className="flex gap-1.5 opacity-50">
+                <span>Made with passion in</span>
+                <span className="opacity-100">Berlin</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
