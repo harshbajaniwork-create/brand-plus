@@ -58,7 +58,7 @@ export function LoadingScreen() {
             gridTemplateColumns: "repeat(6, 1fr)",
             columnGap: "var(--gutter)",
             paddingInline: "var(--margin)",
-            color: "var(--color-white)",
+            color: "var(--color-black)",
           }}
         >
           <div style={{ gridColumn: "1 / -1" }}>
@@ -94,7 +94,7 @@ export function LoadingScreen() {
             gridTemplateColumns: "repeat(6, 1fr)",
             columnGap: "var(--gutter)",
             paddingInline: "var(--margin)",
-            color: "var(--color-white)",
+            color: "var(--color-black)",
           }}
         >
           {/* Location */}

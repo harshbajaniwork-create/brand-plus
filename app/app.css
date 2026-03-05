@@ -397,8 +397,9 @@ body ::selection {
   position: relative;
   width: 100%;
   overflow: hidden;
-  color: var(--color-white);
+  color: var(--color-black);
   padding-block: var(--margin);
+  z-index: 2;
 }
 
 .loader-logo-bottom {

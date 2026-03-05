@@ -80,10 +80,9 @@ function slideInLine(el: HTMLElement, delay: number) {
 }
 
 function slideUpLogoTop(el: HTMLElement) {
-  // The top SVG was held at translateY(-100% of its height) initially
-  // revealing bottom → we move actual top SVG up so it "splits" off
+  // Move actual top SVG up so it "splits" off
   el.style.transition = `transform 0.9s cubic-bezier(0.23, 1, 0.32, 1)`;
-  el.style.transform = "translateY(-100%)";
+  el.style.transform = "translateY(-50%)"; // Only slide up half-way for visible split effect
 }
 
 export function runLoader(onComplete?: () => void) {
