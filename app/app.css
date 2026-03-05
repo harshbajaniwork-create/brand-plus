@@ -46,6 +46,8 @@
   --color-red: #952c16;
   --color-black: #000;
   --color-white: #fff;
+  --color-brand-red: #752517;
+  --color-brand-yellow: #facc15;
 
   /* ── Inspo z-indices ── */
   --z-index-widget: 9;
@@ -158,6 +160,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-brand-red: var(--color-brand-red);
+  --color-brand-yellow: var(--color-brand-yellow);
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);

@@ -1,16 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import { initHeroParallax, runHeroEntrance } from "@/lib/animations/hero-anim";
 
 /**
  * HeroSection
- * Exact recreation of the inspo hero section (telhaclarke.com.au).
+ * Exact recreation of the inspo hero section (telhaclarke.com.au) + Brand CTA.
  *
  * Characteristics:
  *  - Full-screen (100vh)
  *  - Parallax background image (pure JS)
  *  - Large centered-left typography: "Driven by History, Centered on Context, Embracing Culture"
+ *  - brand+ CTA button using the new #752517 color
  *  - "[Scroll down]" hint at bottom
  *  - Black overlay for white navbar text visibility
  */
@@ -47,7 +49,7 @@ export function HeroSection() {
           Grid-based layout matching the inspo site's 12-column grid.
       */}
       <div className="relative h-full px-[var(--margin)] grid grid-cols-6 md:grid-cols-12 items-center pointer-events-none">
-        <div className="col-span-full md:col-start-1 md:col-end-10 xl:col-end-9">
+        <div className="col-span-full md:col-start-1 md:col-end-10 xl:col-end-9 flex flex-col items-start gap-12">
           <h1
             className="hero-title body-48 md:body-72 xl:body-100 text-white font-normal uppercase leading-[1.1] opacity-0"
             style={{ fontFamily: "Europa-Grotesk, Inter, sans-serif" }}
@@ -58,6 +60,17 @@ export function HeroSection() {
             <br />
             Embracing Culture
           </h1>
+
+          <div
+            className="hero-cta-wrapper pointer-events-auto opacity-0"
+            style={{
+              transition: "opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.8s",
+            }}
+          >
+            <Button variant="cta" size="lg" className="px-10 py-8">
+              Discover Our Work
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -80,6 +93,18 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Helper to reveal the CTA wrapper after load
+            setTimeout(() => {
+              const cta = document.querySelector('.hero-cta-wrapper');
+              if (cta) cta.style.opacity = '1';
+            }, 1000);
+          `,
+        }}
+      />
     </section>
   );
 }
