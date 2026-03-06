@@ -4,122 +4,140 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* =========================================================
+   INSPO DESIGN TOKENS — matching telhaclarke.com.au CSS
+   ========================================================= */
+
+/* Root CSS variables */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.1448 0 0);
+  /* Shadcn tokens */
+  --background: oklch(0.9900 0 0);
+  --foreground: oklch(0 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.1448 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.1448 0 0);
-  --primary: oklch(0.8535 0.1744 88.7734);
-  --primary-foreground: oklch(0.9873 0.0262 102.2125);
-  --secondary: oklch(0.7484 0.1551 233.2517);
-  --secondary-foreground: oklch(0.9771 0.0125 236.6197);
-  --muted: oklch(0.9702 0 0);
-  --muted-foreground: oklch(0.5555 0 0);
-  --accent: oklch(0.9702 0 0);
-  --accent-foreground: oklch(0.2046 0 0);
-  --destructive: oklch(0.583 0.2387 28.4765);
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(0.9900 0 0);
+  --popover-foreground: oklch(0 0 0);
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9400 0 0);
+  --secondary-foreground: oklch(0 0 0);
+  --muted: oklch(0.9700 0 0);
+  --muted-foreground: oklch(0.4400 0 0);
+  --accent: oklch(0.9400 0 0);
+  --accent-foreground: oklch(0 0 0);
+  --destructive: oklch(0.6300 0.1900 23.0300);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9219 0 0);
-  --input: oklch(0.9219 0 0);
-  --ring: oklch(0.709 0 0);
-  --chart-1: oklch(0.8088 0.0991 251.7533);
-  --chart-2: oklch(0.6207 0.1894 259.9358);
-  --chart-3: oklch(0.5495 0.2202 263.0917);
-  --chart-4: oklch(0.4893 0.2202 264.0405);
-  --chart-5: oklch(0.421 0.1792 266.0094);
-  --sidebar: oklch(0.9851 0 0);
-  --sidebar-foreground: oklch(0.1448 0 0);
-  --sidebar-primary: oklch(0.2046 0 0);
-  --sidebar-primary-foreground: oklch(0.9851 0 0);
-  --sidebar-accent: oklch(0.9702 0 0);
-  --sidebar-accent-foreground: oklch(0.2046 0 0);
-  --sidebar-border: oklch(0.9219 0 0);
-  --sidebar-ring: oklch(0.709 0 0);
-  --font-sans: Poppins, ui-sans-serif, sans-serif, system-ui;
-  --font-serif: Playfair Display, ui-serif, serif;
-  --font-mono: JetBrains Mono, ui-monospace, monospace;
-  --radius: 0.625rem;
-  --shadow-x: 3px;
-  --shadow-y: 3px;
-  --shadow-blur: 3px;
-  --shadow-spread: 0px;
-  --shadow-opacity: 0.1;
-  --shadow-color: #000000;
-  --shadow-2xs: 3px 3px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 3px 3px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow-md:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 2px 4px -1px hsl(0 0% 0% / 0.1);
-  --shadow-lg:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 4px 6px -1px hsl(0 0% 0% / 0.1);
-  --shadow-xl:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 8px 10px -1px hsl(0 0% 0% / 0.1);
-  --shadow-2xl: 3px 3px 3px 0px hsl(0 0% 0% / 0.25);
-  --tracking-normal: 0em;
-  --spacing: 0.25rem;
+  --border: oklch(0.9200 0 0);
+  --input: oklch(0.9400 0 0);
+  --ring: oklch(0 0 0);
+  --radius: 0.5rem;
+
+  /* ── Inspo layout tokens ── */
+  --size: 375;
+  --margin: 1.6rem;
+  --gutter: 1rem;
+  --header-height: 3.8rem;
+  --vw: 100vw;
+  --vh: calc(var(--vh-initial, 1vh) * 100);
+  --column: calc((var(--vw) - var(--margin) * 2) / 6);
+
+  /* ── Inspo colors ── */
+  --color-mist: #cacfcb;
+  --color-red: #952c16;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-brand-red: #752517;
+  --color-brand-yellow: #facc15;
+
+  /* ── Inspo z-indices ── */
+  --z-index-widget: 9;
+  --z-index-header: 10;
+  --z-index-transition: 15;
+  --z-index-loader: 30;
+
+  /* ── Inspo font sizes (rem, base 10px = 62.5%) ── */
+  --text-12: 1.2rem;
+  --text-14: 1.4rem;
+  --text-16: 1.6rem;
+  --text-20: 2rem;
+  --text-24: 2.4rem;
+  --text-32: 3.2rem;
+  --text-36: 3.6rem;
+  --text-48: 4.8rem;
+  --text-60: 6rem;
+  --text-72: 7.2rem;
+  --text-100: 10rem;
+
+  /* ── Inspo transition tokens ── */
+  --transition-duration-fast: 0.35s;
+  --transition-duration-normal: 0.45s;
+  --transition-duration-smooth: 0.7s;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-alpha: cubic-bezier(0.25, 0.46, 0.45, 0.9);
+
+  /* ── Spacing shortcuts ── */
+  --spacing-margin: var(--margin);
+  --spacing-gutter: var(--gutter);
+  --spacing-header: var(--header-height);
+  --spacing-col-1: var(--column);
+  --spacing-col-2: calc(var(--column) * 2);
+
+  /* ── Width shortcuts ── */
+  --width-col-3: calc(var(--column) * 3 - var(--gutter));
+  --width-col-4: calc(var(--column) * 4 - var(--gutter));
+  --width-col-offset-3: calc(var(--column) * 3);
+
+  /* Old shadcn stuff kept for component compat */
+  --font-sans: "Europa-Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: "Geist Mono", monospace;
+  --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.09);
+  --shadow-xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.09);
+  --shadow-sm: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 1px 2px -1px hsl(0 0% 0% / 0.18);
+  --shadow: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 1px 2px -1px hsl(0 0% 0% / 0.18);
+  --shadow-md: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 2px 4px -1px hsl(0 0% 0% / 0.18);
+  --shadow-lg: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 4px 6px -1px hsl(0 0% 0% / 0.18);
+  --shadow-xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
+  --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --size: 768;
+    --margin: 2rem;
+    --header-height: 3.8rem;
+    --column: calc((var(--vw) - var(--margin) * 2) / 12);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root { --size: 1024; }
+}
+
+@media (min-width: 1280px) {
+  :root { --size: 1440; }
 }
 
 .dark {
-  --background: oklch(0.1448 0 0);
-  --foreground: oklch(0.9851 0 0);
-  --card: oklch(0.2046 0 0);
-  --card-foreground: oklch(0.9851 0 0);
-  --popover: oklch(0.2686 0 0);
-  --popover-foreground: oklch(0.9851 0 0);
-  --primary: oklch(0.9032 0.1817 98.2711);
-  --primary-foreground: oklch(0.2871 0.0662 54.5884);
-  --secondary: oklch(0.8271 0.109 229.1984);
-  --secondary-foreground: oklch(0.2932 0.0658 242.909);
-  --muted: oklch(0.2686 0 0);
-  --muted-foreground: oklch(0.709 0 0);
-  --accent: oklch(0.3715 0 0);
-  --accent-foreground: oklch(0.9851 0 0);
-  --destructive: oklch(0.7022 0.1892 22.2279);
-  --destructive-foreground: oklch(0.9851 0 0);
-  --border: oklch(0.2768 0 0);
-  --input: oklch(0.325 0 0);
-  --ring: oklch(0.5555 0 0);
-  --chart-1: oklch(0.8088 0.0991 251.7533);
-  --chart-2: oklch(0.6207 0.1894 259.9358);
-  --chart-3: oklch(0.5495 0.2202 263.0917);
-  --chart-4: oklch(0.4893 0.2202 264.0405);
-  --chart-5: oklch(0.421 0.1792 266.0094);
-  --sidebar: oklch(0.2046 0 0);
-  --sidebar-foreground: oklch(0.9851 0 0);
-  --sidebar-primary: oklch(0.4878 0.2432 264.4045);
-  --sidebar-primary-foreground: oklch(0.9851 0 0);
-  --sidebar-accent: oklch(0.2686 0 0);
-  --sidebar-accent-foreground: oklch(0.9851 0 0);
-  --sidebar-border: oklch(0.2768 0 0);
-  --sidebar-ring: oklch(0.4386 0 0);
-  --font-sans: Poppins, ui-sans-serif, sans-serif, system-ui;
-  --font-serif: Playfair Display, ui-serif, serif;
-  --font-mono: JetBrains Mono, ui-monospace, monospace;
-  --radius: 0.625rem;
-  --shadow-x: 3px;
-  --shadow-y: 3px;
-  --shadow-blur: 3px;
-  --shadow-spread: 0px;
-  --shadow-opacity: 0.1;
-  --shadow-color: #000000;
-  --shadow-2xs: 3px 3px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 3px 3px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow-md:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 2px 4px -1px hsl(0 0% 0% / 0.1);
-  --shadow-lg:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 4px 6px -1px hsl(0 0% 0% / 0.1);
-  --shadow-xl:
-    3px 3px 3px 0px hsl(0 0% 0% / 0.1), 3px 8px 10px -1px hsl(0 0% 0% / 0.1);
-  --shadow-2xl: 3px 3px 3px 0px hsl(0 0% 0% / 0.25);
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.1400 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.1800 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.2500 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.2300 0 0);
+  --muted-foreground: oklch(0.7200 0 0);
+  --accent: oklch(0.3200 0 0);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.6900 0.2000 23.9100);
+  --destructive-foreground: oklch(0 0 0);
+  --border: oklch(0.2600 0 0);
+  --input: oklch(0.3200 0 0);
+  --ring: oklch(0.7200 0 0);
 }
 
 @theme inline {
@@ -142,19 +160,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand-red: var(--color-brand-red);
+  --color-brand-yellow: var(--color-brand-yellow);
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
@@ -176,20 +183,58 @@
 }
 
 @theme {
-  --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Europa-Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: "Hiragino Serif", "Hiragino Mincho ProN", serif;
   --font-id: "Outfit", sans-serif;
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+/* =========================================================
+   FONT FACE — Europa-Grotesk (from inspo/fonts)
+   ========================================================= */
+@font-face {
+  font-family: "Europa-Grotesk";
+  src: url("/inspo/fonts/Europa-Grotesk-No2-Medium-B7a8PlH0.woff2") format("woff2"),
+       url("/inspo/fonts/Europa-Grotesk-No2-Medium-DmlPdpyd.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+/* =========================================================
+   HTML / BODY BASE
+   ========================================================= */
+html {
+  /* 1rem = 10px at 375px viewport, scales with viewport */
+  font-size: calc(10 * (100vw / var(--size)));
+  line-height: normal;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-16);
+  line-height: 110%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-black);
+  color: var(--color-black);
+  overflow-x: hidden;
+  height: 100%;
+  overflow: hidden;
+}
+
+body.no-scroll {
+  touch-action: none;
+  overflow: hidden;
+}
+
+body ::selection {
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 @layer base {
@@ -199,4 +244,460 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* =========================================================
+   INSPO UTILITY CLASSES
+   ========================================================= */
+
+/* Grid system */
+.grid-w {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  padding-inline: var(--margin);
+}
+
+@media (min-width: 768px) {
+  .grid-w {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* Positioning helpers */
+.absolute-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Screen-height helpers */
+.h-screen-mobile {
+  height: var(--vh, 100vh);
+}
+
+.min-h-screen-mobile {
+  min-height: var(--vh, 100vh);
+}
+
+@supports (height: 100svh) {
+  .h-screen-mobile { height: 100svh; }
+  .min-h-screen-mobile { min-height: 100svh; }
+}
+
+/* Typography scale */
+.body-12 { font-size: var(--text-12); line-height: 120%; }
+.body-14 { font-size: var(--text-14); line-height: 120%; }
+.body-16 { font-size: var(--text-16); line-height: 110%; }
+.body-20 { font-size: var(--text-20); line-height: 130%; }
+.body-24 { font-size: var(--text-24); line-height: 110%; }
+.body-32 { font-size: var(--text-32); line-height: 110%; }
+.body-36 { font-size: var(--text-36); line-height: 110%; }
+.body-48 { font-size: var(--text-48); line-height: 110%; }
+.body-60 { font-size: var(--text-60); line-height: 110%; }
+.body-72 { font-size: var(--text-72); line-height: 100%; }
+.body-100 { font-size: var(--text-100); line-height: 110%; }
+
+/* Overflow animations (char/line wrappers) */
+.line-w, .char-w {
+  overflow: hidden;
+}
+
+.word, .char, .char-w {
+  display: inline-block;
+}
+
+/* SVG wrapper */
+.svg-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Colors */
+.text-mist { color: var(--color-mist); }
+.bg-mist { background-color: var(--color-mist); }
+.text-white { color: var(--color-white); }
+.bg-white { background-color: var(--color-white); }
+.text-black { color: var(--color-black); }
+.bg-black { background-color: var(--color-black); }
+
+/* =========================================================
+   HEADER / NAVBAR
+   ========================================================= */
+.header {
+  transition: color var(--transition-duration-normal) var(--ease-out),
+              background-color var(--transition-duration-normal) var(--ease-out);
+}
+
+.header-light {
+  color: var(--color-white);
+}
+
+.header-link + .header-link {
+  padding-left: 0.6rem;
+}
+
+/* List hover effect (opacity fade siblings) */
+.list-o:hover .list-o-item,
+.list-o.a .list-o-item {
+  opacity: 0.52;
+}
+
+.list-o.a .list-o-item.a,
+.list-o .list-o-item.a {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .list-o .list-o-item:hover {
+    opacity: 1;
+  }
+
+  .header-link:hover {
+    opacity: 0.5;
+  }
+}
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+.loader-panel {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--color-white);
+  z-index: var(--z-index-loader);
+}
+
+.loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: var(--vh, 100vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: var(--margin);
+  pointer-events: none;
+  z-index: var(--z-index-loader);
+}
+
+.loader-logo {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  color: var(--color-black);
+  padding-block: var(--margin);
+  z-index: 2;
+}
+
+.loader-logo-bottom {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+}
+
+.loader-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--color-black);
+  opacity: 0;
+}
+
+.loader-title,
+.loader-location,
+.loader-loading,
+.loader-counter {
+  /* Text content inside line-w with .line overflow reveals */
+}
+
+/* =========================================================
+   FRAME (border bars left/right)
+   ========================================================= */
+.frame {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.frame-left {
+  position: absolute;
+  top: 0; left: 0;
+  width: 2rem; height: 100%;
+  background: var(--color-black);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.frame-right {
+  position: absolute;
+  top: 0; right: 0;
+  width: 2rem; height: 100%;
+  background: var(--color-black);
+  transform-origin: right;
+  transform: scaleX(0);
+}
+
+/* =========================================================
+   PAGE OVERLAY
+   ========================================================= */
+.page-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--vh, 100vh);
+  background: var(--color-black);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* =========================================================
+   FADE ELEMENT
+   ========================================================= */
+.fade {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-white);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (min-width: 1280px) {
+  .fade { z-index: var(--z-index-transition); }
+}
+
+/* =========================================================
+   CLOCK SEMICOLON BLINK
+   ========================================================= */
+#semicolon {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* =========================================================
+   LINK UNDERLINE ANIMATIONS
+   ========================================================= */
+.link-underline {
+  cursor: pointer;
+  position: relative;
+}
+
+.link-underline::before {
+  content: "";
+  position: absolute;
+  bottom: 0.1rem;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-black);
+  transform-origin: 100%;
+  transform: scaleX(0);
+  transition: transform var(--transition-duration-smooth) var(--ease-out);
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0.1rem;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-black);
+  transform-origin: 0;
+  transition: transform var(--transition-duration-smooth) var(--ease-out);
+  transition-delay: 0.15s;
+}
+
+@media (hover: hover) {
+  .link-underline:hover::before {
+    transform-origin: 0;
+    transform: scaleX(1);
+    transition-delay: 0.15s;
+  }
+  .link-underline:hover::after {
+    transform-origin: 100%;
+    transform: scaleX(0);
+    transition-delay: 0s;
+  }
+}
+
+.link-underline-mist {
+  cursor: pointer;
+  position: relative;
+}
+
+.link-underline-mist::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-mist);
+}
+
+.link-underline-footer {
+  cursor: pointer;
+  position: relative;
+}
+
+.link-underline-footer::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-white);
+  transform-origin: 100%;
+  transform: scaleX(0);
+  transition: transform var(--transition-duration-smooth) var(--ease-out);
+}
+
+.link-underline-footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-white);
+  transform-origin: 0;
+  transition: transform var(--transition-duration-smooth) var(--ease-out);
+  transition-delay: 0.15s;
+}
+
+/* =========================================================
+   NEWSLETTER FORM
+   ========================================================= */
+#newsletter-form.error {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+#newsletter-form.error input,
+#newsletter-form.error input::placeholder {
+  color: var(--color-red);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-bottom-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: var(--color-black);
+  z-index: 1;
+}
+
+/* =========================================================
+   MISC — Opacity utilities not in TW
+   ========================================================= */
+.opacity-24 { opacity: 0.24; }
+.opacity-32 { opacity: 0.32; }
+.opacity-40 { opacity: 0.40; }
+.opacity-52 { opacity: 0.52; }
+.opacity-85 { opacity: 0.85; }
+
+/* =========================================================
+   HEADER MENU (mobile)
+   ========================================================= */
+.header-menu {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--vh, 100vh);
+  background: var(--color-mist);
+  color: var(--color-black);
+  overflow: hidden;
+  transform: translateY(-100%);
+  z-index: 20;
+}
+
+@media (min-width: 1280px) {
+  .header-menu { display: none; }
+}
+
+.header-menu-inner {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: var(--margin);
+}
+
+.header-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--vh, 100vh);
+  background: var(--color-black);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 19;
+}
+
+@media (min-width: 1280px) {
+  .header-overlay { display: none; }
+}
+
+/* =========================================================
+   #app / #wrapper SCROLL CONTAINER (Lenis-style)
+   ========================================================= */
+#app {
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#app::-webkit-scrollbar {
+  display: none;
+}
+
+#wrapper {
+  position: relative;
+  background-color: var(--color-white);
+}
+
+[data-page-view] {
+  margin-top: calc(var(--header-height) * -1);
+  background-color: var(--color-white);
+  width: 100%;
 }
