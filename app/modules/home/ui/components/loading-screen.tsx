@@ -1,24 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { runLoader } from "@/lib/animations/loader";
 import { runHeaderEntrance } from "@/lib/animations/header-anim";
+import SplitText from "@/components/react-bits/split-text";
 
 /**
  * LoadingScreen
- * Exact recreation of the inspo loading screen DOM structure.
- * The JS animation (loader.ts) targets these class names.
+ *
+ * The "brand+" wordmark in the center uses SplitText to animate each
+ * character in on mount. Once all letters have finished animating,
+ * the normal loader sequence (progress counter → panel wipe → header
+ * entrance) kicks off.
  */
 export function LoadingScreen() {
+  const [splitDone, setSplitDone] = useState(false);
+
+  // Only start the loader animation after the split-text has finished
   useEffect(() => {
-    // Small delay to let React render the DOM
+    if (!splitDone) return;
+
     const timer = setTimeout(() => {
       runLoader(() => {
-        // After loader finishes, animate the header in
         runHeaderEntrance();
       });
     }, 50);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [splitDone]);
 
   return (
     <>
@@ -27,19 +34,12 @@ export function LoadingScreen() {
 
       {/* Main loader: centered logo + corner text */}
       <div className="loader">
-        {/* Split logo — top half slides up, bottom half stays */}
+        {/* ── Centered brand+ wordmark with SplitText ── */}
         <div className="loader-logo svg-wrapper">
-          <div style={{ position: "relative", width: "100%" }}>
-            {/* Top SVG (moves up on complete) */}
-            <div className="loader-logo-top" style={{ width: "100%" }}>
-              <BrandSVG />
-            </div>
-            {/* Bottom SVG (stationary reference) */}
-            <div
-              className="loader-logo-bottom"
-              style={{ position: "absolute", top: 0, left: 0, width: "100%" }}
-            >
-              <BrandSVG />
+          <div className="relative w-full flex items-center justify-center">
+            {/* Top half — slides up on loader complete */}
+            <div className="loader-logo-top w-full text-center">
+              <BrandWordmark onComplete={() => setSplitDone(true)} />
             </div>
           </div>
         </div>
@@ -47,71 +47,47 @@ export function LoadingScreen() {
         {/* Overlay (darkens logo at end) */}
         <div className="loader-overlay" />
 
-        {/* Top-left: Studio type */}
-        <div
-          style={{
-            position: "absolute",
-            top: "var(--margin)",
-            left: 0,
-            width: "100%",
-            display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
-            columnGap: "var(--gutter)",
-            paddingInline: "var(--margin)",
-            color: "var(--color-black)",
-          }}
-        >
-          <div style={{ gridColumn: "1 / -1" }}>
+        {/* ── Top-left: Studio descriptor ── */}
+        <div className="absolute top-(--margin) left-0 w-full grid grid-cols-6 gap-x-(--gutter) px-(--margin) text-black">
+          <div className="col-span-full">
             <div className="loader-title body-16">
               <div className="line-w">
                 <span
-                  className="line"
-                  style={{ display: "block", willChange: "transform" }}
+                  className="line block"
+                  style={{ willChange: "transform" }}
                 >
                   Design &amp; Branding studio
                 </span>
               </div>
               <div className="line-w">
                 <span
-                  className="line"
-                  style={{ display: "block", willChange: "transform" }}
+                  className="line block"
+                  style={{ willChange: "transform" }}
                 >
-                  brand<span style={{ fontStyle: "italic" }}>+</span>
+                  brand<span className="italic">+</span>
                 </span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom: location + loading counter */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "var(--margin)",
-            left: 0,
-            width: "100%",
-            display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
-            columnGap: "var(--gutter)",
-            paddingInline: "var(--margin)",
-            color: "var(--color-black)",
-          }}
-        >
+        {/* ── Bottom: location + loading counter ── */}
+        <div className="absolute bottom-(--margin) left-0 w-full grid grid-cols-6 gap-x-(--gutter) px-(--margin) text-black">
           {/* Location */}
-          <div style={{ gridColumn: "1 / 4" }}>
+          <div className="col-span-3">
             <div className="loader-location body-16">
               <div className="line-w">
                 <span
-                  className="line"
-                  style={{ display: "block", willChange: "transform" }}
+                  className="line block"
+                  style={{ willChange: "transform" }}
                 >
                   Dieffenbachstraße 37
                 </span>
               </div>
               <div className="line-w">
                 <span
-                  className="line"
-                  style={{ display: "block", willChange: "transform" }}
+                  className="line block"
+                  style={{ willChange: "transform" }}
                 >
                   Berlin, Germany
                 </span>
@@ -120,20 +96,8 @@ export function LoadingScreen() {
           </div>
 
           {/* Loading + counter */}
-          <div
-            style={{
-              gridColumn: "4 / -1",
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
+          <div className="col-span-3 flex justify-end">
+            <div className="flex flex-col items-start">
               <div className="overflow-hidden">
                 <div
                   className="loader-loading body-16"
@@ -167,30 +131,35 @@ export function LoadingScreen() {
   );
 }
 
-/**
- * BrandSVG — the "brand+" wordmark as a text-based SVG
- * Using the same aspect ratio as the inspo (1512 × 150 viewBox)
- */
-function BrandSVG() {
+/* ─────────────────────────────────────────────
+   BrandWordmark
+   Animated version — used in loader-logo-top.
+   Calls onComplete when every character has
+   finished its entrance animation.
+───────────────────────────────────────────── */
+interface BrandWordmarkProps {
+  onComplete: () => void;
+}
+
+function BrandWordmark({ onComplete }: BrandWordmarkProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1200 120"
-      style={{ width: "100%", height: "auto", display: "block" }}
-      aria-hidden="true"
-    >
-      <text
-        x="50%"
-        y="90"
-        fill="currentColor"
-        textAnchor="middle"
-        fontFamily="Europa-Grotesk, Inter, sans-serif"
-        fontWeight="400"
-        fontSize="110"
-        letterSpacing="-2"
-      >
-        brand+
-      </text>
-    </svg>
+    <SplitText
+      text="brand+"
+      className="
+        font-black uppercase tracking-[-0.02em] leading-none
+        text-[clamp(52px,10vw,130px)]
+        text-black
+      "
+      delay={60}
+      duration={1.9}
+      ease="power3.out"
+      splitType="chars"
+      from={{ opacity: 0, y: 50 }}
+      to={{ opacity: 1, y: 0 }}
+      threshold={0.1}
+      rootMargin="0px"
+      textAlign="center"
+      onLetterAnimationComplete={onComplete}
+    />
   );
 }
