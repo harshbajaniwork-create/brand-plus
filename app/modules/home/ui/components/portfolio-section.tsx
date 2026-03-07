@@ -1,140 +1,120 @@
-"use client";
+import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+import { RevealText } from "@/components/reveal-text";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+const WorkItem: React.FC<{
+  title: string;
+  category: string;
+  year: string;
+  image: string;
+}> = ({ title, category, year, image }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center center"],
+  });
 
-const projects = [
-  {
-    id: 1,
-    title: "Innovation and Crafts",
-    category: "art & illustration",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Modern Living Space",
-    category: "interior design",
-    image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&h=600&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Urban Architecture",
-    category: "architecture",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Minimalist Kitchen",
-    category: "interior design",
-    image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=800&h=600&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Contemporary Office",
-    category: "architecture",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Luxury Bedroom",
-    category: "interior design",
-    image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&h=600&fit=crop",
-  },
-];
-
-export function PortfolioSection() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const bracketOffset = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 
   return (
-    <section id="portfolio" className="py-24 bg-muted/20 relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-sm uppercase tracking-wider text-primary font-medium mb-4"
-          >
-            Best Works
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl font-bold font-serif mb-4"
-          >
-            Our Portfolio
-          </motion.h2>
-        </div>
+    <div ref={ref} className="group w-full cursor-pointer mb-32 last:mb-0">
+      <div className="flex flex-col gap-8 md:gap-16">
+        {/* Title with Brackets */}
+        <div className="relative w-full flex justify-center items-center px-4 md:px-12">
+          <div className="absolute top-1/2 left-4 w-8 md:w-12 h-px bg-black -translate-y-4 md:-translate-y-8 transition-all duration-500 group-hover:w-16 md:group-hover:w-24"></div>
+          <div className="absolute top-1/2 right-4 w-8 md:w-12 h-px bg-black -translate-y-4 md:-translate-y-8 transition-all duration-500 group-hover:w-16 md:group-hover:w-24"></div>
 
-        {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onHoverStart={() => setHoveredId(project.id)}
-              onHoverEnd={() => setHoveredId(null)}
-              className="group relative aspect-4/3 rounded-2xl overflow-hidden cursor-pointer"
+          <div className="flex items-center gap-4 md:gap-8 text-4xl md:text-6xl lg:text-8xl font-serif">
+            <motion.span
+              style={{ x: useTransform(bracketOffset, (v) => -v) }}
+              className="opacity-100"
             >
-              {/* Image */}
-              <div className="absolute inset-0">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
-              </div>
-
-              {/* Content */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <motion.div
-                  initial={false}
-                  animate={{ y: hoveredId === project.id ? 0 : 20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="text-xs uppercase tracking-wider text-primary font-medium mb-2">
-                    {project.category}
-                  </p>
-                  <h3 className="text-2xl font-bold text-white mb-3 font-serif">
-                    {project.title}
-                  </h3>
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{
-                      opacity: hoveredId === project.id ? 1 : 0,
-                      y: hoveredId === project.id ? 0 : 10,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="flex items-center gap-2 text-white"
-                  >
-                    <span className="text-sm">View Project</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </motion.div>
-                </motion.div>
-              </div>
-
-              {/* Corner Accent */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: hoveredId === project.id ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="absolute top-4 right-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center"
-              >
-                <ArrowUpRight className="w-6 h-6 text-primary-foreground" />
-              </motion.div>
-            </motion.div>
-          ))}
+              [
+            </motion.span>
+            <h3 className="text-center mx-4">{title}</h3>
+            <motion.span style={{ x: bracketOffset }} className="opacity-100">
+              ]
+            </motion.span>
+          </div>
         </div>
+
+        {/* Image */}
+        <div className="grid grid-cols-1 md:grid-cols-12 w-full">
+          <div className="col-span-1 md:col-start-3 md:col-end-11 lg:col-start-4 lg:col-end-10">
+            <div className="relative w-full aspect-[4/3] overflow-hidden flex justify-center items-center">
+              <motion.div
+                className="w-full h-full"
+                style={{ scale: imageScale }}
+              >
+                <motion.img
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  src={image}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
+            <div className="flex justify-between mt-4 text-sm uppercase">
+              <RevealText>{category}</RevealText>
+              <RevealText>{year}</RevealText>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default function SelectedWorks() {
+  const works = [
+    {
+      title: "Loller",
+      category: "Multi-residential",
+      year: "2025",
+      image:
+        "https://telhaclarke.com.au/wp-content/uploads/2025/09/Loller-28-1200x800.jpg",
+    },
+    {
+      title: "Penthouse Vivace",
+      category: "Residential",
+      year: "2025",
+      image:
+        "https://telhaclarke.com.au/wp-content/uploads/2025/11/CN-Residence-18-e1764200266170-1200x636.jpg",
+    },
+    {
+      title: "Southbank Tower",
+      category: "Multi-residential",
+      year: "2019",
+      image:
+        "https://telhaclarke.com.au/wp-content/uploads/2025/11/SB-Tower-Render_4-1200x900.jpg",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-32 bg-white text-black">
+      {/* Header */}
+      <div className="flex justify-between px-4 md:px-12 mb-20 md:mb-32 uppercase text-sm">
+        <div className="flex gap-4">
+          <span className="text-mist">02</span>
+          <h2>Selected Works</h2>
+        </div>
+        <div className="hidden md:block text-mist">02</div>
+        <div>17 - 25'</div>
+      </div>
+
+      {/* List */}
+      <div className="flex flex-col">
+        {works.map((work, index) => (
+          <WorkItem
+            key={index}
+            title={work.title}
+            category={work.category}
+            year={work.year}
+            image={work.image}
+          />
+        ))}
       </div>
     </section>
   );

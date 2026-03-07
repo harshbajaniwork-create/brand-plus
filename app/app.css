@@ -11,24 +11,24 @@
 /* Root CSS variables */
 :root {
   /* Shadcn tokens */
-  --background: oklch(0.9900 0 0);
+  --background: oklch(0.99 0 0);
   --foreground: oklch(0 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0 0 0);
-  --popover: oklch(0.9900 0 0);
+  --popover: oklch(0.99 0 0);
   --popover-foreground: oklch(0 0 0);
   --primary: oklch(0 0 0);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.9400 0 0);
+  --secondary: oklch(0.94 0 0);
   --secondary-foreground: oklch(0 0 0);
-  --muted: oklch(0.9700 0 0);
-  --muted-foreground: oklch(0.4400 0 0);
-  --accent: oklch(0.9400 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.44 0 0);
+  --accent: oklch(0.94 0 0);
   --accent-foreground: oklch(0 0 0);
-  --destructive: oklch(0.6300 0.1900 23.0300);
+  --destructive: oklch(0.63 0.19 23.03);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9200 0 0);
-  --input: oklch(0.9400 0 0);
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.94 0 0);
   --ring: oklch(0 0 0);
   --radius: 0.5rem;
 
@@ -93,11 +93,16 @@
   --font-mono: "Geist Mono", monospace;
   --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.09);
   --shadow-xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.09);
-  --shadow-sm: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 1px 2px -1px hsl(0 0% 0% / 0.18);
-  --shadow: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 1px 2px -1px hsl(0 0% 0% / 0.18);
-  --shadow-md: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 2px 4px -1px hsl(0 0% 0% / 0.18);
-  --shadow-lg: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 4px 6px -1px hsl(0 0% 0% / 0.18);
-  --shadow-xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
+  --shadow-sm:
+    0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 1px 2px -1px hsl(0 0% 0% / 0.18);
+  --shadow:
+    0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 1px 2px -1px hsl(0 0% 0% / 0.18);
+  --shadow-md:
+    0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 2px 4px -1px hsl(0 0% 0% / 0.18);
+  --shadow-lg:
+    0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 4px 6px -1px hsl(0 0% 0% / 0.18);
+  --shadow-xl:
+    0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
   --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
 }
 
@@ -111,33 +116,37 @@
 }
 
 @media (min-width: 1024px) {
-  :root { --size: 1024; }
+  :root {
+    --size: 1024;
+  }
 }
 
 @media (min-width: 1280px) {
-  :root { --size: 1440; }
+  :root {
+    --size: 1440;
+  }
 }
 
 .dark {
   --background: oklch(0 0 0);
   --foreground: oklch(1 0 0);
-  --card: oklch(0.1400 0 0);
+  --card: oklch(0.14 0 0);
   --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.1800 0 0);
+  --popover: oklch(0.18 0 0);
   --popover-foreground: oklch(1 0 0);
   --primary: oklch(1 0 0);
   --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.2500 0 0);
+  --secondary: oklch(0.25 0 0);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.2300 0 0);
-  --muted-foreground: oklch(0.7200 0 0);
-  --accent: oklch(0.3200 0 0);
+  --muted: oklch(0.23 0 0);
+  --muted-foreground: oklch(0.72 0 0);
+  --accent: oklch(0.32 0 0);
   --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.6900 0.2000 23.9100);
+  --destructive: oklch(0.69 0.2 23.91);
   --destructive-foreground: oklch(0 0 0);
-  --border: oklch(0.2600 0 0);
-  --input: oklch(0.3200 0 0);
-  --ring: oklch(0.7200 0 0);
+  --border: oklch(0.26 0 0);
+  --input: oklch(0.32 0 0);
+  --ring: oklch(0.72 0 0);
 }
 
 @theme inline {
@@ -183,7 +192,8 @@
 }
 
 @theme {
-  --font-sans: "Europa-Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    "Europa-Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: "Hiragino Serif", "Hiragino Mincho ProN", serif;
   --font-id: "Outfit", sans-serif;
@@ -194,8 +204,9 @@
    ========================================================= */
 @font-face {
   font-family: "Europa-Grotesk";
-  src: url("/inspo/fonts/Europa-Grotesk-No2-Medium-B7a8PlH0.woff2") format("woff2"),
-       url("/inspo/fonts/Europa-Grotesk-No2-Medium-DmlPdpyd.woff") format("woff");
+  src:
+    url("/fonts/Europa-Grotesk-No2-Medium-B7a8PlH0.woff2") format("woff2"),
+    url("/fonts/Europa-Grotesk-No2-Medium-DmlPdpyd.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -208,8 +219,6 @@ html {
   /* 1rem = 10px at 375px viewport, scales with viewport */
   font-size: calc(10 * (100vw / var(--size)));
   line-height: normal;
-  height: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -222,9 +231,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-black);
   color: var(--color-black);
-  overflow-x: hidden;
-  height: 100%;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 body.no-scroll {
@@ -296,29 +303,69 @@ body ::selection {
 }
 
 @supports (height: 100svh) {
-  .h-screen-mobile { height: 100svh; }
-  .min-h-screen-mobile { min-height: 100svh; }
+  .h-screen-mobile {
+    height: 100svh;
+  }
+  .min-h-screen-mobile {
+    min-height: 100svh;
+  }
 }
 
 /* Typography scale */
-.body-12 { font-size: var(--text-12); line-height: 120%; }
-.body-14 { font-size: var(--text-14); line-height: 120%; }
-.body-16 { font-size: var(--text-16); line-height: 110%; }
-.body-20 { font-size: var(--text-20); line-height: 130%; }
-.body-24 { font-size: var(--text-24); line-height: 110%; }
-.body-32 { font-size: var(--text-32); line-height: 110%; }
-.body-36 { font-size: var(--text-36); line-height: 110%; }
-.body-48 { font-size: var(--text-48); line-height: 110%; }
-.body-60 { font-size: var(--text-60); line-height: 110%; }
-.body-72 { font-size: var(--text-72); line-height: 100%; }
-.body-100 { font-size: var(--text-100); line-height: 110%; }
+.body-12 {
+  font-size: var(--text-12);
+  line-height: 120%;
+}
+.body-14 {
+  font-size: var(--text-14);
+  line-height: 120%;
+}
+.body-16 {
+  font-size: var(--text-16);
+  line-height: 110%;
+}
+.body-20 {
+  font-size: var(--text-20);
+  line-height: 130%;
+}
+.body-24 {
+  font-size: var(--text-24);
+  line-height: 110%;
+}
+.body-32 {
+  font-size: var(--text-32);
+  line-height: 110%;
+}
+.body-36 {
+  font-size: var(--text-36);
+  line-height: 110%;
+}
+.body-48 {
+  font-size: var(--text-48);
+  line-height: 110%;
+}
+.body-60 {
+  font-size: var(--text-60);
+  line-height: 110%;
+}
+.body-72 {
+  font-size: var(--text-72);
+  line-height: 100%;
+}
+.body-100 {
+  font-size: var(--text-100);
+  line-height: 110%;
+}
 
 /* Overflow animations (char/line wrappers) */
-.line-w, .char-w {
+.line-w,
+.char-w {
   overflow: hidden;
 }
 
-.word, .char, .char-w {
+.word,
+.char,
+.char-w {
   display: inline-block;
 }
 
@@ -329,19 +376,32 @@ body ::selection {
 }
 
 /* Colors */
-.text-mist { color: var(--color-mist); }
-.bg-mist { background-color: var(--color-mist); }
-.text-white { color: var(--color-white); }
-.bg-white { background-color: var(--color-white); }
-.text-black { color: var(--color-black); }
-.bg-black { background-color: var(--color-black); }
+.text-mist {
+  color: var(--color-mist);
+}
+.bg-mist {
+  background-color: var(--color-mist);
+}
+.text-white {
+  color: var(--color-white);
+}
+.bg-white {
+  background-color: var(--color-white);
+}
+.text-black {
+  color: var(--color-black);
+}
+.bg-black {
+  background-color: var(--color-black);
+}
 
 /* =========================================================
    HEADER / NAVBAR
    ========================================================= */
 .header {
-  transition: color var(--transition-duration-normal) var(--ease-out),
-              background-color var(--transition-duration-normal) var(--ease-out);
+  transition:
+    color var(--transition-duration-normal) var(--ease-out),
+    background-color var(--transition-duration-normal) var(--ease-out);
 }
 
 .header-light {
@@ -378,15 +438,18 @@ body ::selection {
    ========================================================= */
 .loader-panel {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: var(--color-white);
   z-index: var(--z-index-loader);
 }
 
 .loader {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: var(--vh, 100vh);
   display: flex;
@@ -408,14 +471,17 @@ body ::selection {
 
 .loader-logo-bottom {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
 }
 
 .loader-overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: var(--color-black);
   opacity: 0;
 }
@@ -432,7 +498,8 @@ body ::selection {
    ========================================================= */
 .frame {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   pointer-events: none;
   z-index: 1;
@@ -440,8 +507,10 @@ body ::selection {
 
 .frame-left {
   position: absolute;
-  top: 0; left: 0;
-  width: 2rem; height: 100%;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 100%;
   background: var(--color-black);
   transform-origin: left;
   transform: scaleX(0);
@@ -449,8 +518,10 @@ body ::selection {
 
 .frame-right {
   position: absolute;
-  top: 0; right: 0;
-  width: 2rem; height: 100%;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 100%;
   background: var(--color-black);
   transform-origin: right;
   transform: scaleX(0);
@@ -461,7 +532,8 @@ body ::selection {
    ========================================================= */
 .page-overlay {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: var(--vh, 100vh);
   background: var(--color-black);
@@ -475,7 +547,8 @@ body ::selection {
    ========================================================= */
 .fade {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   background: var(--color-white);
@@ -486,7 +559,9 @@ body ::selection {
 }
 
 @media (min-width: 1280px) {
-  .fade { z-index: var(--z-index-transition); }
+  .fade {
+    z-index: var(--z-index-transition);
+  }
 }
 
 /* =========================================================
@@ -497,7 +572,9 @@ body ::selection {
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* =========================================================
@@ -616,8 +693,10 @@ body ::selection {
 
 .footer-bottom-overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   background: var(--color-black);
   z-index: 1;
@@ -626,18 +705,29 @@ body ::selection {
 /* =========================================================
    MISC — Opacity utilities not in TW
    ========================================================= */
-.opacity-24 { opacity: 0.24; }
-.opacity-32 { opacity: 0.32; }
-.opacity-40 { opacity: 0.40; }
-.opacity-52 { opacity: 0.52; }
-.opacity-85 { opacity: 0.85; }
+.opacity-24 {
+  opacity: 0.24;
+}
+.opacity-32 {
+  opacity: 0.32;
+}
+.opacity-40 {
+  opacity: 0.4;
+}
+.opacity-52 {
+  opacity: 0.52;
+}
+.opacity-85 {
+  opacity: 0.85;
+}
 
 /* =========================================================
    HEADER MENU (mobile)
    ========================================================= */
 .header-menu {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: var(--vh, 100vh);
   background: var(--color-mist);
@@ -648,13 +738,17 @@ body ::selection {
 }
 
 @media (min-width: 1280px) {
-  .header-menu { display: none; }
+  .header-menu {
+    display: none;
+  }
 }
 
 .header-menu-inner {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -663,7 +757,8 @@ body ::selection {
 
 .header-overlay {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: var(--vh, 100vh);
   background: var(--color-black);
@@ -673,7 +768,9 @@ body ::selection {
 }
 
 @media (min-width: 1280px) {
-  .header-overlay { display: none; }
+  .header-overlay {
+    display: none;
+  }
 }
 
 /* =========================================================
@@ -682,7 +779,7 @@ body ::selection {
 #app {
   position: relative;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: visible;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }

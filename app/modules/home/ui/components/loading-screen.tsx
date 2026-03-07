@@ -44,33 +44,6 @@ export function LoadingScreen() {
           </div>
         </div>
 
-        {/* Overlay (darkens logo at end) */}
-        <div className="loader-overlay" />
-
-        {/* ── Top-left: Studio descriptor ── */}
-        <div className="absolute top-(--margin) left-0 w-full grid grid-cols-6 gap-x-(--gutter) px-(--margin) text-black">
-          <div className="col-span-full">
-            <div className="loader-title body-16">
-              <div className="line-w">
-                <span
-                  className="line block"
-                  style={{ willChange: "transform" }}
-                >
-                  Design &amp; Branding studio
-                </span>
-              </div>
-              <div className="line-w">
-                <span
-                  className="line block"
-                  style={{ willChange: "transform" }}
-                >
-                  brand<span className="italic">+</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* ── Bottom: location + loading counter ── */}
         <div className="absolute bottom-(--margin) left-0 w-full grid grid-cols-6 gap-x-(--gutter) px-(--margin) text-black">
           {/* Location */}

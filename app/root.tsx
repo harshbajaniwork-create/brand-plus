@@ -6,6 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { useEffect } from "react";
+import Lenis from "lenis";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -24,6 +26,27 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -50,10 +73,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        {/* #app — scrollable container (replaces window scroll for Lenis-style) */}
-        <div id="app">
-          {/* #wrapper — white background page content */}
-          <div id="wrapper">{children}</div>
+        <div id="wrapper" className="relative w-full ">
+          {children}
         </div>
         <ScrollRestoration />
         <Scripts />
