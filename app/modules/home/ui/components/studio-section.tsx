@@ -74,12 +74,7 @@ export function StudioSection() {
         </div>
 
         <div className="wysiwyg w-full max-md:mt-10 body-16 leading-[1.3] mt-8">
-          <p>
-            We connect, create and work on the lands of Aboriginal and Torres
-            Strait Islander peoples throughout Australia. We acknowledge First
-            Nations&rsquo; ancient histories, cultures, and ongoing connections
-            to Country, and we pay our respect to Elders past and present.
-          </p>
+          <p>Wir sind ein interdisziplinäres Planungsbüro für Brandschutz.</p>
         </div>
       </div>
 
@@ -91,26 +86,24 @@ export function StudioSection() {
         <div className="block md:-mt-10 lg:-mt-12 xl:-mt-14">
           <span className="inline-block md:w-(--width-col-4) xl:w-(--width-col-offset-3) max-md:hidden"></span>
           <h2 className="studio-title-text translate-y-5 opacity-0 inline w-full body-36 md:body-48 lg:body-60 xl:body-72 leading-[1.1] font-normal uppercase">
-            Telha Clarke is a Melbourne based Architecture &amp; Interior Design
-            studio, designing various project typologies across Australia and
-            Internationally.
+            Brand+ – Brandschutz mit Verantwortung und Plus
           </h2>
         </div>
       </div>
 
       {/* Bottom Small Text Side-by-Side */}
       <div className="col-span-full md:col-start-1 md:col-end-4 xl:col-start-4 xl:col-end-6 body-16 max-md:mb-[3.2rem] uppercase relative z-10">
-        Architecture
+        Birga Wingenfeld
         <br />
-        &amp; Interior Design
+        &amp; Martin Unger
       </div>
 
       <div className="col-span-full md:col-start-5 xl:col-start-7 md:col-end-11 xl:pb-40 body-16 leading-relaxed relative z-10">
         <p>
-          With experience covering a range of typologies; from single &amp;
-          multi-residential, seniors living, student accommodation, social
-          housing, hotels, hospitality and workplace. We believe human touch
-          must drive creativity.
+          Unser Anspruch: technisch präzise Lösungen, die Sicherheit
+          gewährleisten und Architektur respektieren. Seit unserer Gründung
+          begleiten wir Projekte unterschiedlichster Größenordnung – von der
+          ersten Idee bis zur Umsetzung auf der Baustelle.
         </p>
       </div>
     </section>

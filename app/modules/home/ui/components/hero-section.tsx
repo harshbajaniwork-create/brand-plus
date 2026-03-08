@@ -54,11 +54,9 @@ export function HeroSection() {
             className="hero-title body-48 md:body-72 xl:body-100 text-white font-normal uppercase leading-[1.1] opacity-0"
             style={{ fontFamily: "Europa-Grotesk, Inter, sans-serif" }}
           >
-            Driven by History,
+            Nachhaltig
             <br />
-            Centered on Context,
-            <br />
-            Embracing Culture
+            Gestalten
           </h1>
 
           <div
@@ -68,7 +66,7 @@ export function HeroSection() {
             }}
           >
             <Button variant="cta" size="lg" className="px-10 py-8">
-              Discover Our Work
+              Brandschutz planbar
             </Button>
           </div>
         </div>

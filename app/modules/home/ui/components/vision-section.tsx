@@ -1,6 +1,25 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
+/* ─── Same image used as the center hero in WorksGrid ─── */
+const VISION_BG =
+  "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1920&h=1080&fit=crop&q=80";
+
+const visionSlides = [
+  {
+    heading: "Nachhaltig bauen mit Holz.",
+    text: "Nachhaltigkeit im Bauen heißt, Verantwortung zu übernehmen – mit Materialien, die erneuerbar sind, wiederverwendet werden können und unsere Umwelt schonen.",
+  },
+  {
+    heading: "Innovation & Ästhetik",
+    text: "Besonders Holz zeigt, wie sich Ästhetik, Ökologie und Innovation vereinen lassen. Als nachwachsender Rohstoff steht es für klimafreundliche Architektur und stellt zugleich besondere Anforderungen an den Brandschutz.",
+  },
+  {
+    heading: "Sicher gestalten.",
+    text: "Genau hier setzen wir an: Mit Erfahrung und Weitblick entwickeln wir Brandschutzlösungen, die nachhaltige Bauprojekte möglich machen, ohne ihre kreative Kraft zu bremsen.",
+  },
+];
+
 export default function VisionSection() {
   const containerRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -8,21 +27,45 @@ export default function VisionSection() {
     offset: ["start start", "end end"],
   });
 
-  const opacity1 = useTransform(scrollYProgress, [0, 0.25, 0.3], [1, 1, 0]);
+  /* ─── Background vertical parallax ─── */
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+
+  /* ─── Horizontal text sliding ───
+     All 3 headings sit in a row. We translateX the row so the active one
+     is centered. Each heading takes ~33% of the scroll range. */
+  const headingX = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.35, 0.6, 0.65, 1],
+    ["0%", "0%", "-100%", "-100%", "-200%", "-200%"],
+  );
+
+  /* ─── Individual heading opacities ─── */
+  const opacity1 = useTransform(scrollYProgress, [0, 0.25, 0.32], [1, 1, 0.2]);
   const opacity2 = useTransform(
+    scrollYProgress,
+    [0.28, 0.35, 0.55, 0.62],
+    [0.2, 1, 1, 0.2],
+  );
+  const opacity3 = useTransform(scrollYProgress, [0.6, 0.67, 1], [0.2, 1, 1]);
+
+  /* ─── Description text fade swap ─── */
+  const textOpacity1 = useTransform(scrollYProgress, [0, 0.25, 0.3], [1, 1, 0]);
+  const textOpacity2 = useTransform(
     scrollYProgress,
     [0.3, 0.35, 0.6, 0.65],
     [0, 1, 1, 0],
   );
-  const opacity3 = useTransform(scrollYProgress, [0.65, 0.7, 1], [0, 1, 1]);
+  const textOpacity3 = useTransform(scrollYProgress, [0.65, 0.7, 1], [0, 1, 1]);
 
+  /* ─── Separator line expand ─── */
+  const lineWidth = useTransform(scrollYProgress, [0, 0.08], ["0%", "100%"]);
+
+  /* ─── Step counter ─── */
   const stepNumber = useTransform(scrollYProgress, (pos): string => {
     if (pos < 0.3) return "01";
     if (pos < 0.65) return "02";
     return "03";
   });
-
-  const lineWidth = useTransform(scrollYProgress, [0, 0.1], ["0%", "100%"]);
 
   return (
     <section
@@ -30,30 +73,44 @@ export default function VisionSection() {
       className="relative h-[300vh] bg-black text-white w-full"
     >
       <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center will-change-transform">
-        <div className="absolute inset-0 w-full h-full">
-          <div className="absolute inset-0 bg-black/40 z-10" />
+        {/* ── Full-screen background with vertical parallax ── */}
+        <motion.div
+          className="absolute inset-0 w-full h-[130%] -top-[15%]"
+          style={{ y: bgY }}
+        >
           <img
-            src="https://telhaclarke.com.au/wp-content/uploads/2025/09/Stanhope-3-2-480x720.jpg"
+            src={VISION_BG}
             alt="Vision"
             className="w-full h-full object-cover"
           />
-        </div>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/45" />
+        </motion.div>
 
+        {/* ── Content overlay ── */}
         <div className="relative z-20 w-full h-full flex flex-col justify-center">
-          <div className="absolute top-1/4 w-full text-center px-4">
-            <div className="relative h-24 md:h-32 w-full flex justify-center items-center text-4xl md:text-7xl lg:text-8xl font-serif tracking-tight">
-              <motion.span style={{ opacity: opacity1 }} className="absolute">
-                Design integrity
-              </motion.span>
-              <motion.span style={{ opacity: opacity2 }} className="absolute">
-                Innovation
-              </motion.span>
-              <motion.span style={{ opacity: opacity3 }} className="absolute">
-                Enhanced living
-              </motion.span>
-            </div>
+          {/* ── Horizontal sliding headings ── */}
+          <div className="absolute top-[18%] md:top-[22%] w-full overflow-hidden px-4 md:px-12">
+            <motion.div
+              className="flex whitespace-nowrap"
+              style={{ x: headingX }}
+            >
+              {visionSlides.map((slide, i) => {
+                const opacities = [opacity1, opacity2, opacity3];
+                return (
+                  <motion.span
+                    key={i}
+                    className="inline-block w-full flex-shrink-0 text-4xl md:text-7xl lg:text-8xl font-serif tracking-tight"
+                    style={{ opacity: opacities[i] }}
+                  >
+                    {slide.heading}
+                  </motion.span>
+                );
+              })}
+            </motion.div>
           </div>
 
+          {/* ── Separator line with counter ── */}
           <div className="absolute top-1/2 -translate-y-1/2 w-full px-4 md:px-12 flex items-center gap-4 md:gap-8">
             <div className="overflow-hidden min-w-[20px]">
               <motion.span className="text-white/80 text-xs md:text-sm uppercase">
@@ -62,8 +119,8 @@ export default function VisionSection() {
             </div>
             <motion.div
               style={{ width: lineWidth }}
-              className="h-[1px] bg-white/40 flex-1 origin-left"
-            ></motion.div>
+              className="h-px bg-white/40 flex-1 origin-left"
+            />
             <div className="overflow-hidden min-w-[50px] text-right">
               <span className="text-white text-xs md:text-sm uppercase font-medium">
                 Vision
@@ -71,46 +128,28 @@ export default function VisionSection() {
             </div>
           </div>
 
-          <div className="absolute bottom-1/4 right-0 w-full md:w-1/2 px-4 md:px-12 flex justify-end">
-            <div className="relative w-full max-w-lg">
-              <motion.div
-                style={{ opacity: opacity1 }}
-                className="absolute top-0 left-0 w-full"
-              >
-                <p className="text-lg md:text-2xl leading-relaxed text-white/90">
-                  Our design aesthetic is established through a consistent
-                  process and a detailed concept brief, which considers client
-                  needs, site context, and the future occupiers.
-                </p>
-              </motion.div>
-              <motion.div
-                style={{ opacity: opacity2 }}
-                className="absolute top-0 left-0 w-full"
-              >
-                <p className="text-lg md:text-2xl leading-relaxed text-white/90">
-                  Telha Clarke welcomes innovation through research and
-                  technology to contribute new ideas and challenging theories.
-                  We see technology as a tool.
-                </p>
-              </motion.div>
-              <motion.div
-                style={{ opacity: opacity3 }}
-                className="absolute top-0 left-0 w-full"
-              >
-                <p className="text-lg md:text-2xl leading-relaxed text-white/90">
-                  We believe enhanced user experience and well-being should be
-                  at the forefront of design. We constantly consider the impact
-                  of design on the end user.
-                </p>
-              </motion.div>
+          {/* ── Description text (right-aligned, fading swap) ── */}
+          <div className="absolute bottom-[20%] md:bottom-[22%] right-0 w-full md:w-1/2 px-4 md:px-12 flex justify-end">
+            <div className="relative w-full max-w-lg min-h-[160px]">
+              {visionSlides.map((slide, i) => {
+                const textOpacities = [
+                  textOpacity1,
+                  textOpacity2,
+                  textOpacity3,
+                ];
+                return (
+                  <motion.div
+                    key={i}
+                    style={{ opacity: textOpacities[i] }}
+                    className="absolute top-0 left-0 w-full"
+                  >
+                    <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-white/90 font-serif italic">
+                      {slide.text}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
-          </div>
-
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12">
-            <button className="bg-black text-white px-6 py-3 flex items-center gap-2 text-sm uppercase tracking-wide hover:bg-white hover:text-black transition-colors">
-              <span>Vision</span>
-              <span className="font-bold">Discover +</span>
-            </button>
           </div>
         </div>
       </div>
