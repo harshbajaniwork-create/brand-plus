@@ -20,7 +20,7 @@ import {
  * Layout (mobile <1280px):
  *  brand+  |  Menu
  */
-export function Navigation() {
+export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [berlinTime, setBerlinTime] = useState("--:--");
   const [mounted, setMounted] = useState(false);
@@ -87,12 +87,15 @@ export function Navigation() {
     }
   };
 
-  // Dynamic classes based on scroll state
-  const navBg = isScrolled
+  // Dynamic classes based on scroll state or forced theme
+  const effectiveTheme = forceTheme || (isScrolled ? "light" : "dark");
+  const isLight = effectiveTheme === "light";
+
+  const navBg = isLight
     ? "bg-white border-b border-black/[0.08]"
     : "bg-transparent";
-  const textColor = isScrolled ? "text-black" : "text-white";
-  const dimColor = isScrolled ? "text-black/40" : "text-white/40";
+  const textColor = isLight ? "text-black" : "text-white";
+  const dimColor = isLight ? "text-black/40" : "text-white/40";
 
   return (
     <>
@@ -119,7 +122,6 @@ export function Navigation() {
             fontFamily: "Europa-Grotesk, Inter, sans-serif",
             fontSize: "var(--text-16)",
             letterSpacing: "-0.02em",
-            transform: "translateY(162%)",
             overflow: "hidden",
             display: "block",
           }}
@@ -129,12 +131,11 @@ export function Navigation() {
 
         {/* Desktop nav links — flex-grow fills center space */}
         <nav
-          className="header-links desktop-nav flex-1 flex items-end pl-10 gap-8"
+          className="header-links desktop-nav flex-1 flex items-end pl-16 gap-8"
           aria-label="Main navigation"
-          style={{ transform: "translateX(-80px)", overflow: "hidden" }}
         >
           {[
-            { label: "Work", href: "/work" },
+            { label: "Work", href: "/works" },
             { label: "Process", href: "/process" },
             { label: "Studio", href: "/studio" },
           ].map((item) => (
@@ -159,7 +160,6 @@ export function Navigation() {
             className={`header-time whitespace-nowrap ${dimColor} transition-colors duration-450ms`}
             style={{
               fontSize: "var(--text-16)",
-              transform: "translateY(100%)",
             }}
           >
             {mounted ? berlinTime : "--:--"}
@@ -170,7 +170,6 @@ export function Navigation() {
             className={`header-location whitespace-nowrap ${textColor} transition-colors duration-450ms`}
             style={{
               fontSize: "var(--text-16)",
-              transform: "translateY(100%)",
             }}
           >
             Berlin, DEU
@@ -182,7 +181,6 @@ export function Navigation() {
             className={`header-contact whitespace-nowrap no-underline hover:opacity-40 transition-opacity duration-300 ${textColor}`}
             style={{
               fontSize: "var(--text-16)",
-              transform: "translateY(100%)",
             }}
           >
             Contact
@@ -198,7 +196,6 @@ export function Navigation() {
           style={{
             fontFamily: "var(--font-sans)",
             fontSize: "var(--text-16)",
-            transform: "translateY(100%)",
             overflow: "hidden",
           }}
         >
