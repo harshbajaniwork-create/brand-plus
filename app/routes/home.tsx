@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { Navigation } from "@/components/navigation";
+import { StickyBottomNav } from "@/components/sticky-bottom-nav";
 import { Footer } from "@/components/footer";
 import { HomeView } from "@/modules/home/ui/view/home-view";
 import { LoadingScreen } from "@/modules/home/ui/components/loading-screen";
@@ -29,6 +30,9 @@ export default function Home() {
 
       {/* Sticky navigation */}
       <Navigation />
+
+      {/* Sticky bottom navigation */}
+      <StickyBottomNav />
 
       {/* Main page content */}
       <div className="relative w-full bg-white">

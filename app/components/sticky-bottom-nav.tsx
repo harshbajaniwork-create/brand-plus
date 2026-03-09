@@ -118,7 +118,7 @@ export function StickyBottomNav() {
       {/* ── Left label (Studio → project name) ── */}
       <div className="h-[18px] overflow-hidden flex items-center min-w-[80px] justify-center">
         <span
-          className="block text-white/50 text-[13px] uppercase tracking-widest whitespace-nowrap
+          className="block text-white/50 text-[14px] uppercase tracking-widest whitespace-nowrap
                      transition-[opacity,transform] duration-250 ease-out"
           style={{
             opacity: animating ? 0 : 1,
@@ -139,7 +139,7 @@ export function StickyBottomNav() {
             ? `/works/${activeWork.toLowerCase().replace(/\s+/g, "-")}`
             : "#portfolio"
         }
-        className="text-white text-[13px] uppercase tracking-widest font-medium
+        className="text-white text-[14px] uppercase tracking-widest font-medium
                    flex items-center gap-1.5 no-underline
                    hover:opacity-70 transition-opacity"
       >
