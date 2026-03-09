@@ -135,7 +135,7 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
           aria-label="Main navigation"
         >
           {[
-            { label: "Work", href: "/works" },
+            { label: "Works", href: "/works" },
             { label: "Process", href: "/process" },
             { label: "Studio", href: "/studio" },
           ].map((item) => (

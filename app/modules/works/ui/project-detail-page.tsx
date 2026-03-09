@@ -3,6 +3,7 @@
 import { Link } from "react-router";
 import { motion } from "framer-motion";
 import type { Project } from "@/modules/works/data/works-data";
+import { StickyPill } from "@/components/sticky-pill";
 
 interface ProjectDetailPageProps {
   project: Project;
@@ -162,10 +163,10 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
       )}
 
       {/* ── Back to all works ── */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+      <StickyPill className="p-0">
         <Link
           to="/works"
-          className="flex items-center gap-2 bg-black text-white text-sm px-6 py-3 rounded-full hover:bg-black/90 transition-colors"
+          className="flex items-center gap-2 bg-transparent text-white px-6 py-3 rounded-full hover:opacity-70 transition-opacity"
         >
           <svg
             width="16"
@@ -184,7 +185,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
           </svg>
           Back to all works
         </Link>
-      </div>
+      </StickyPill>
     </div>
   );
 }

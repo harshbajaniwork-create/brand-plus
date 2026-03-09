@@ -70,7 +70,7 @@ export default function VisionSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[300vh] bg-black text-white w-full"
+      className="relative h-[300vh] bg-black text-white w-full vision-section"
     >
       <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center will-change-transform">
         {/* ── Full-screen background with vertical parallax ── */}

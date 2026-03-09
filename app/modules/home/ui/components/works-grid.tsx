@@ -201,7 +201,7 @@ export default function WorksGrid() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[500vh] bg-white text-black"
+      className="relative h-[500vh] bg-white text-black works-grid"
     >
       <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center will-change-transform">
         {/* ── Scattered collage images with individual parallax ── */}

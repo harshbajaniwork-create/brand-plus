@@ -6,11 +6,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import Lenis from "lenis";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { LoadingScreen } from "@/modules/home/ui/components/loading-screen";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -84,7 +85,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <Suspense fallback={<LoadingScreen />}>
+      <Outlet />
+    </Suspense>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

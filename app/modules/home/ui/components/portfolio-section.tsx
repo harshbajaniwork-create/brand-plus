@@ -18,7 +18,11 @@ const WorkItem: React.FC<{
   const imageScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 
   return (
-    <div ref={ref} className="group w-full cursor-pointer mb-32 last:mb-0">
+    <div
+      ref={ref}
+      className="group w-full cursor-pointer mb-32 last:mb-0"
+      data-work-title={title}
+    >
       <div className="flex flex-col gap-8 md:gap-16">
         {/* Title with Brackets */}
         <div className="relative w-full flex justify-center items-center px-4 md:px-12">
