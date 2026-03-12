@@ -9,6 +9,7 @@ import { StickyBottomNav } from "@/components/sticky-bottom-nav";
 export function HomeView() {
   return (
     <>
+      {/* home page */}
       <HeroSection />
       <div id="studio">
         <StudioSection />
