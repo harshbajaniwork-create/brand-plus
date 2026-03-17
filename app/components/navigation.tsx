@@ -105,7 +105,7 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
       <header
         id="header"
         className={`
-          fixed top-0 left-0 right-0 w-full z-100
+          fixed top-0 left-0 right-0 w-full z-9999
           flex items-end
           px-(--margin) pb-1.5
           h-(--header-height)
