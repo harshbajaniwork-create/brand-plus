@@ -5,4 +5,6 @@ export default [
   route("works", "routes/works.tsx"),
   route("works/:slug", "routes/works.$slug.tsx"),
   route("process", "routes/process.tsx"),
+  route("studio", "routes/studio.tsx"),
 ] satisfies RouteConfig;
+
