@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 /* ─── Same image used as the center hero in WorksGrid ─── */
 const VISION_BG =
-  "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1920&h=1080&fit=crop&q=80";
+  "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w";
 
 const visionSlides = [
   {

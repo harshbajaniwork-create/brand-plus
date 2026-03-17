@@ -74,25 +74,26 @@ const WorkItem: React.FC<{
 export default function SelectedWorks() {
   const works = [
     {
-      title: "Loller",
-      category: "Multi-residential",
+      title: "German Expo Pavilion",
+      category: "Ausstellung",
       year: "2025",
       image:
-        "https://telhaclarke.com.au/wp-content/uploads/2025/09/Loller-28-1200x800.jpg",
+        "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d6c8f28a-f552-446f-878f-59151e5fb57c/IMG_8113_6896.jpg",
     },
     {
-      title: "Penthouse Vivace",
-      category: "Residential",
-      year: "2025",
+      title: "Neo",
+      category:
+        "Mehrgeschossiger Neubau eines Bürogebäudes mit Veranstaltungsbereich",
+      year: "2023",
       image:
-        "https://telhaclarke.com.au/wp-content/uploads/2025/11/CN-Residence-18-e1764200266170-1200x636.jpg",
+        "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/a5fda4f0-18b8-462f-b58f-ba787a9d8d24/rwplus_NEO_Aerial.jpg?format=2500w",
     },
     {
-      title: "Southbank Tower",
-      category: "Multi-residential",
+      title: "FuHub",
+      category: "Mehrgeschossiger Neubau eines Büro- und Laborgebäudes",
       year: "2019",
       image:
-        "https://telhaclarke.com.au/wp-content/uploads/2025/11/SB-Tower-Render_4-1200x900.jpg",
+        "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/df34b30f-aba3-4519-8eb6-7859b4660f7b/220422_FUHUB_FOYER.jpg?format=2500w",
     },
   ];
 

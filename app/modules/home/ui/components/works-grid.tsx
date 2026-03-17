@@ -5,7 +5,7 @@ import { useRef } from "react";
 const gridImages = [
   // top-left large (bleeding off edge)
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/09/Loller-19-480x720.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/feb0e197-21dd-4668-a5ab-9bfcc74d2470/IMG_8113.jpg?format=1500w",
     top: "0%",
     left: "-3%",
     w: "14vw",
@@ -14,7 +14,7 @@ const gridImages = [
   },
   // top-center-left small
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/09/Hepburn-20-480x320.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ccd7c34a-e2be-4e5b-92af-b7a889037a6b/IMG_8117.jpg?format=1500w",
     top: "2%",
     left: "26%",
     w: "10vw",
@@ -23,7 +23,7 @@ const gridImages = [
   },
   // top-center large
   {
-    src: "https://images.unsplash.com/photo-1600566753086-00f18f6b6b3c?w=480&h=720&fit=crop&q=80",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/dd5c6831-b2a4-413e-a357-2f2ad17936ba/IMG_8103.jpg?format=1500w",
     top: "0%",
     left: "42%",
     w: "18vw",
@@ -32,7 +32,7 @@ const gridImages = [
   },
   // top-right large
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/08/Parlington-2-480x480.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4c63f65b-dec7-484a-9f1f-c2a322873910/04%2BHof%2Bschwebend%2BUpdate%2B006_Bildrechte.jpg?format=1000w",
     top: "0%",
     left: "68%",
     w: "15vw",
@@ -41,7 +41,7 @@ const gridImages = [
   },
   // top-right edge small
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/10/Argo-5-480x720.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ad5002e2-1034-4504-83df-a2d948116cc9/03%2BBlick%2Bnach%2Boben%2BUpdate%2B005_Bildrechte.jpg?format=750w",
     top: "8%",
     left: "90%",
     w: "12vw",
@@ -50,7 +50,7 @@ const gridImages = [
   },
   // mid-left small
   {
-    src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=480&h=320&fit=crop&q=80",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ea0e18df-6c64-46ad-a179-dca86b107350/02%2BStrasse%2BNacht%2B008_Bildrechte.jpg?format=1500w",
     top: "52%",
     left: "2%",
     w: "12vw",
@@ -59,7 +59,7 @@ const gridImages = [
   },
   // mid-left-center small (faded)
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/09/Ormond-21-2-480x720.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/df34b30f-aba3-4519-8eb6-7859b4660f7b/220422_FUHUB_FOYER.jpg?format=2500w",
     top: "45%",
     left: "22%",
     w: "8vw",
@@ -69,7 +69,7 @@ const gridImages = [
   },
   // bottom-center-left
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/10/ES-5-480x720.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/dbf5305c-5f3d-4017-ba63-65d8639baac2/220422_FUHUB_LABOR.jpg?format=1500w",
     top: "72%",
     left: "30%",
     w: "12vw",
@@ -78,7 +78,7 @@ const gridImages = [
   },
   // bottom-right large
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/11/CN-Residence-22-e1764201118833-480x480.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/bb71c161-9dc9-464f-ac9a-c406598521c8/PERSPEKTIVE_Eingang-himmelblau.jpg?format=1500w",
     top: "55%",
     left: "70%",
     w: "14vw",
@@ -87,7 +87,7 @@ const gridImages = [
   },
   // bottom-right edge
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/12/Bala-In-Construction-480x640.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d0d8cbb8-472e-464e-a6f4-b71323e02f9f/PERSPEKTIVE_Strasse-himmelblau.jpg?format=1500w",
     top: "70%",
     left: "88%",
     w: "14vw",
@@ -96,7 +96,7 @@ const gridImages = [
   },
   // bottom-center small (faded)
   {
-    src: "https://telhaclarke.com.au/wp-content/uploads/2025/09/Soho-2-480x720.jpg",
+    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w",
     top: "80%",
     left: "55%",
     w: "9vw",
@@ -108,7 +108,7 @@ const gridImages = [
 
 /* ─── The center image — same one used in Vision section ─── */
 const CENTER_IMAGE =
-  "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1920&h=1080&fit=crop&q=80";
+  "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/feb0e197-21dd-4668-a5ab-9bfcc74d2470/IMG_8113.jpg?format=1500w";
 
 function ParallaxImage({
   src,
@@ -251,62 +251,70 @@ export default function WorksGrid() {
           className="absolute top-0 left-0 h-full flex gap-24 md:gap-32 pl-[80vw] items-center z-30"
         >
           {/* Project 1 */}
-          <div className="w-[350px] md:w-[500px] flex-shrink-0 flex flex-col gap-4 bg-white p-4">
-            <div className="w-full aspect-[4/3] overflow-hidden">
+          <div className="w-[350px] md:w-[500px] shrink-0 flex flex-col gap-4 bg-white p-4">
+            <div className="w-full aspect-4/3 overflow-hidden">
               <img
-                src="https://telhaclarke.com.au/wp-content/uploads/2025/09/Ormond-21-2-480x720.jpg"
+                src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/feb0e197-21dd-4668-a5ab-9bfcc74d2470/IMG_8113.jpg?format=1500w"
                 className="w-full h-full object-cover"
-                alt="Ormond"
+                alt="Deutscher EXPO"
               />
             </div>
             <div>
-              <h3 className="text-2xl font-serif">Ormond</h3>
-              <p className="text-sm uppercase text-mist">Residential</p>
+              <h3 className="text-2xl font-serif">Deutscher EXPO</h3>
+              <p className="text-sm uppercase text-mist">Ausstellung </p>
             </div>
           </div>
 
           {/* Project 2 */}
-          <div className="w-[280px] md:w-[380px] flex-shrink-0 flex flex-col gap-4 mt-24 bg-white p-4">
-            <div className="w-full aspect-[3/4] overflow-hidden">
+          <div className="w-[280px] md:w-[380px] shrink-0 flex flex-col gap-4 mt-24 bg-white p-4">
+            <div className="w-full aspect-3/4 overflow-hidden">
               <img
-                src="https://telhaclarke.com.au/wp-content/uploads/2025/10/ES-5-480x720.jpg"
+                src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ea0e18df-6c64-46ad-a179-dca86b107350/02%2BStrasse%2BNacht%2B008_Bildrechte.jpg?format=1500w"
                 className="w-full h-full object-cover"
                 alt="Elsternwick"
               />
             </div>
             <div>
-              <h3 className="text-2xl font-serif">Elsternwick</h3>
-              <p className="text-sm uppercase text-mist">Multi-Res</p>
+              <h3 className="text-2xl font-serif">Neo</h3>
+              <p className="text-sm uppercase text-mist">
+                Mehrgeschossiger Neubau eines Bürogebäudes mit
+                Veranstaltungsbereich
+              </p>
             </div>
           </div>
 
           {/* Project 3 */}
-          <div className="w-[450px] md:w-[650px] flex-shrink-0 flex flex-col gap-4 -mt-16 bg-white p-4">
-            <div className="w-full aspect-[16/9] overflow-hidden">
+          <div className="w-[450px] md:w-[650px] shrink-0 flex flex-col gap-4 -mt-16 bg-white p-4">
+            <div className="w-full aspect-video overflow-hidden">
               <img
-                src="https://telhaclarke.com.au/wp-content/uploads/2025/09/StudioPiper_KensingtonRoad_SouthYarra_EXT-e1764222151372-480x254.jpg"
+                src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/df34b30f-aba3-4519-8eb6-7859b4660f7b/220422_FUHUB_FOYER.jpg?format=2500w"
                 className="w-full h-full object-cover"
                 alt="Kensington Rd"
               />
             </div>
             <div>
-              <h3 className="text-2xl font-serif">Kensington Rd</h3>
-              <p className="text-sm uppercase text-mist">Commercial</p>
+              <h3 className="text-2xl font-serif">Fuhub</h3>
+              <p className="text-sm uppercase text-mist">
+                Mehrgeschossiger Neubau eines Büro- und Laborgebäudes
+              </p>
             </div>
           </div>
 
           {/* Project 4 */}
-          <div className="w-[320px] md:w-[440px] flex-shrink-0 flex flex-col gap-4 mt-16 bg-white p-4">
-            <div className="w-full aspect-[3/4] overflow-hidden">
+          <div className="w-[320px] md:w-[440px] shrink-0 flex flex-col gap-4 mt-16 bg-white p-4">
+            <div className="w-full aspect-3/4 overflow-hidden">
               <img
-                src="https://telhaclarke.com.au/wp-content/uploads/2025/09/Soho-2-480x720.jpg"
+                src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w"
                 className="w-full h-full object-cover"
                 alt="Soho"
               />
             </div>
             <div>
-              <h3 className="text-2xl font-serif">Soho</h3>
-              <p className="text-sm uppercase text-mist">Multi-Res</p>
+              <h3 className="text-2xl font-serif">The Benjamin</h3>
+              <p className="text-sm uppercase text-mist">
+                6-geschossiger Neubau eines Bürogebäudes mit Restauration im EG
+                und Tiefgarage
+              </p>
             </div>
           </div>
         </motion.div>

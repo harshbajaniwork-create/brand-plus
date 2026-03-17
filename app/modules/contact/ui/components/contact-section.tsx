@@ -136,32 +136,32 @@ export function ContactSection() {
         >
           {/* BUSINESS */}
           <div className="flex items-baseline gap-x-8 flex-wrap">
-            <span className="uppercase text-9xl tracking-wider shrink-0">
+            <span className="uppercase text-2xl tracking-wider shrink-0">
               Business
             </span>
             <a
-              href="mailto:contact@telhaclarke.com.au"
-              className="text-9xl no-underline hover:text-white transition-colors duration-200"
+              href="m.unger@brandplus.berlin"
+              className="text-2xl no-underline hover:text-white transition-colors duration-200"
               style={{ color: "inherit" }}
             >
-              contact@telhaclarke.com.au
+              m.unger@brandplus.berlin
             </a>
           </div>
 
           {/* PHONE */}
           <div className="flex items-baseline gap-x-8 flex-wrap mt-6">
             <span
-              className="uppercase text-9xl tracking-wider shrink-0"
+              className="uppercase text-2xl tracking-wider shrink-0"
               style={{ minWidth: "6rem" }}
             >
               Phone
             </span>
             <a
               href="tel:+61386725999"
-              className="text-9xl no-underline hover:text-white transition-colors duration-200"
+              className="text-2xl no-underline hover:text-white transition-colors duration-200"
               style={{ color: "inherit" }}
             >
-              +61 3 8672 5999
+              0171 2705910
             </a>
           </div>
         </div>
@@ -173,9 +173,9 @@ export function ContactSection() {
           style={{ gridColumn: "1 / 8", gridRow: "2 / 3", alignSelf: "end" }}
           className="max-md:col-span-full max-md:mt-8"
         >
-          <div className="flex gap-2 text-9xl" style={{ paddingTop: "6rem" }}>
+          <div className="flex gap-2 text-2xl" style={{ paddingTop: "6rem" }}>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/brandplusberlin/"
               target="_blank"
               rel="noopener noreferrer"
               className="no-underline hover:text-white transition-colors duration-200"
@@ -211,20 +211,18 @@ export function ContactSection() {
         >
           {/* Address */}
           <div className="flex flex-col justify-between">
-            <span className="uppercase text-9xl tracking-wider">Address</span>
-            <div className="text-9xl mt-3" style={{ lineHeight: "1.6" }}>
-              59 Garden Street
+            <span className="uppercase text-2xl tracking-wider">Address</span>
+            <div className="text-2xl mt-3" style={{ lineHeight: "1.6" }}>
+              Dieffenbachstrasse 37
               <br />
-              South Yarra
-              <br />
-              Victoria, Australia 3141
+              10967 Berlin
             </div>
           </div>
 
           {/* Portrait image */}
           <div className="overflow-hidden" style={{ aspectRatio: "3 / 4" }}>
             <img
-              src="https://telhaclarke.com.au/wp-content/uploads/2025/11/TC-Office-Photo-1-e1763685510106-480x379.jpg"
+              src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/b8116445-bcc5-4e9b-b800-8a58802fa4e0/BENJAMIN-%C2%A9Ebener-0890-1.jpg?format=750w"
               alt="Studio office"
               className="w-full h-full object-cover object-center"
             />
