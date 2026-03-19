@@ -37,7 +37,7 @@ export function ProcessPhilosophy() {
           style={{ height: "100vh", minHeight: 360 }}
         >
           <img
-            src="https://telhaclarke.com.au/wp-content/uploads/2025/09/Loller-19-1200x1799.jpg"
+            src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4c63f65b-dec7-484a-9f1f-c2a322873910/04%2BHof%2Bschwebend%2BUpdate%2B006_Bildrechte.jpg?format=1000w"
             alt="Brand identity — spatial"
             className="w-full h-full object-cover"
           />
@@ -47,7 +47,7 @@ export function ProcessPhilosophy() {
           style={{ height: "100vh", minHeight: 360 }}
         >
           <img
-            src="https://telhaclarke.com.au/wp-content/uploads/2025/08/TheSaint_30-1200x1799.jpg"
+            src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ad5002e2-1034-4504-83df-a2d948116cc9/03%2BBlick%2Bnach%2Boben%2BUpdate%2B005_Bildrechte.jpg?format=750w"
             alt="Brand identity — interior"
             className="w-full h-full object-cover"
           />

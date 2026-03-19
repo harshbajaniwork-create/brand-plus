@@ -1,30 +1,29 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
 import { Link } from "react-router";
-
 import { StickyPill } from "./sticky-pill";
 
 export function StickyBottomNav() {
-  const [activeWork, setActiveWork] = useState<string | null>(null);
+  const [activeHref, setActiveHref] = useState<string | null>(null);
   const [displayLabel, setDisplayLabel] = useState("Studio");
   const [animating, setAnimating] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // ── Active work label swap with slide animation ──
+  // ── Active work label + href swap with slide animation ──
   useEffect(() => {
-    const handler = (e: CustomEvent<string>) => {
-      const incoming = e.detail;
-      const next = incoming ?? "Studio";
-      if (next === displayLabel) return;
+    const handler = (e: CustomEvent<{ label: string; href?: string }>) => {
+      const { label, href } = e.detail;
+      const nextLabel = label ?? "Studio";
+
+      if (nextLabel === displayLabel && href === activeHref) return;
 
       setAnimating(true);
 
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
-        setDisplayLabel(next);
-        setActiveWork(incoming);
+        setDisplayLabel(nextLabel);
+        setActiveHref(href || null);
         setAnimating(false);
       }, 250);
     };
@@ -34,13 +33,13 @@ export function StickyBottomNav() {
       window.removeEventListener("activeWorkChange", handler as EventListener);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [displayLabel]);
+  }, [displayLabel, activeHref]);
 
   // ── Scroll-based section detection ──
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -60% 0px", // Trigger when section is 20% from top
+      rootMargin: "-20% 0px -60% 0px",
       threshold: 0,
     };
 
@@ -49,28 +48,32 @@ export function StickyBottomNav() {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
           let label = "Studio";
+          let href: string | undefined;
 
           if (sectionId === "studio") {
             label = "Studio";
           } else if (sectionId === "portfolio") {
-            label = "Studio"; // Default for portfolio section
+            label = "Studio";
+            href = "#portfolio";
           } else if (entry.target.classList.contains("works-grid")) {
             label = "All Work";
+            href = "#portfolio";
           } else if (entry.target.classList.contains("vision-section")) {
             label = "Vision";
+            href = "#vision";
           }
 
           window.dispatchEvent(
-            new CustomEvent("activeWorkChange", { detail: label }),
+            new CustomEvent("activeWorkChange", { detail: { label, href } }),
           );
         }
       });
     }, observerOptions);
 
-    // Separate observer for individual work items with more sensitive detection
+    // Observer for individual work items - now reads href from data attribute
     const workItemOptions = {
       root: null,
-      rootMargin: "-30% 0px -40% 0px", // Trigger when work item is more centered
+      rootMargin: "-30% 0px -40% 0px",
       threshold: 0,
     };
 
@@ -78,20 +81,26 @@ export function StickyBottomNav() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const workTitle = entry.target.getAttribute("data-work-title");
+          const workHref = entry.target.getAttribute("data-work-href");
+
           if (workTitle) {
             window.dispatchEvent(
-              new CustomEvent("activeWorkChange", { detail: workTitle }),
+              new CustomEvent("activeWorkChange", {
+                detail: {
+                  label: workTitle,
+                  href: workHref || undefined,
+                },
+              }),
             );
           }
         }
       });
     }, workItemOptions);
 
-    // Observe studio section
+    // Observe sections
     const studioSection = document.getElementById("studio");
     if (studioSection) sectionObserver.observe(studioSection);
 
-    // Observe portfolio section
     const portfolioSection = document.getElementById("portfolio");
     if (portfolioSection) sectionObserver.observe(portfolioSection);
 
@@ -99,11 +108,9 @@ export function StickyBottomNav() {
     const workItems = document.querySelectorAll("[data-work-title]");
     workItems.forEach((item) => workItemObserver.observe(item));
 
-    // Observe works grid
     const worksGrid = document.querySelector(".works-grid");
     if (worksGrid) sectionObserver.observe(worksGrid);
 
-    // Observe vision section
     const visionSection = document.querySelector(".vision-section");
     if (visionSection) sectionObserver.observe(visionSection);
 
@@ -112,6 +119,9 @@ export function StickyBottomNav() {
       workItemObserver.disconnect();
     };
   }, []);
+
+  // Determine the final href for the Discover link
+  const discoverHref = activeHref || "#portfolio";
 
   return (
     <StickyPill>
@@ -134,11 +144,7 @@ export function StickyBottomNav() {
 
       {/* ── Discover + ── */}
       <Link
-        to={
-          activeWork
-            ? `/works/${activeWork.toLowerCase().replace(/\s+/g, "-")}`
-            : "#portfolio"
-        }
+        to={discoverHref}
         className="text-white text-[14px] uppercase tracking-widest font-medium
                    flex items-center gap-1.5 no-underline
                    hover:opacity-70 transition-opacity"

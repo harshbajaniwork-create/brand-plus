@@ -30,7 +30,7 @@ export function ProcessParallaxImage() {
         style={{ y }}
       >
         <img
-          src="https://telhaclarke.com.au/wp-content/uploads/2025/09/Hurstmon-10-1920x1281.jpg"
+          src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/df34b30f-aba3-4519-8eb6-7859b4660f7b/220422_FUHUB_FOYER.jpg?format=2500w"
           alt="Architecture — process"
           className="w-full h-full object-cover"
         />

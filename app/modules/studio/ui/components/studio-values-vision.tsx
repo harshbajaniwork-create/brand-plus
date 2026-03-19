@@ -14,19 +14,19 @@ const VISION_ITEMS = [
     title: "Design Integrity",
     body: "Our design aesthetic is established through a consistent process and a detailed concept brief, which considers client needs, site context, and the future occupiers. We combine and test these elements to create a singular design vision concealing many influencing layers. This singular vision, like a piece of artwork, is unique and individual. We believe the principles of design quality should always be present no matter the project brief or building scale.",
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Stanhope-2.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/f87a5d21-7111-4811-871d-818e4a45cf81/BFA_20019_modulesWohnen_Int_HR_Rework_V1.JPG?format=2500w",
   },
   {
     title: "Innovation",
     body: "brand+ welcomes innovation through research and technology to contribute new ideas and challenging theories. We see technology as a tool — integral to our work — however we believe human intelligence must drive creativity. We heavily invest time in research through leading industry seminars and international study tours.",
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/PNG-1-768x768.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/9a637c6e-0d1b-40a9-ac31-d6c9f4dd8e10/DER-%C2%A9Ebener-2750-1.jpg?format=1500w",
   },
   {
     title: "Enhanced Living",
     body: "We believe enhanced user experience and well-being should be at the forefront of design. We constantly consider the impact of design on the end user to ensure our work promotes positive human interaction and encourages healthier, enriched experiences.",
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Hurstmon-10-1920x1281.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/80b00597-acef-42c7-805f-965c4d12e5f2/DER-%C2%A9Ebener-7760-1.jpg?format=1500w",
   },
 ];
 

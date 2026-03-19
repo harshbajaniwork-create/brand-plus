@@ -69,7 +69,7 @@ export function StudioHero() {
 
           <div className="overflow-hidden w-full">
             <img
-              src="https://telhaclarke.com.au/wp-content/uploads/2025/09/Hurstmon-10-1920x1281.jpg"
+              src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4c63f65b-dec7-484a-9f1f-c2a322873910/04%2BHof%2Bschwebend%2BUpdate%2B006_Bildrechte.jpg?format=1000w"
               alt="brand+ studio"
               className="w-full object-cover object-center"
               style={{ aspectRatio: "3 / 4" }}

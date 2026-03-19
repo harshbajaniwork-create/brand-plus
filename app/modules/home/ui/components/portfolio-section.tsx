@@ -7,7 +7,8 @@ const WorkItem: React.FC<{
   category: string;
   year: string;
   image: string;
-}> = ({ title, category, year, image }) => {
+  href: string;
+}> = ({ title, category, year, image, href }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -22,6 +23,7 @@ const WorkItem: React.FC<{
       ref={ref}
       className="group w-full cursor-pointer mb-32 last:mb-0"
       data-work-title={title}
+      data-work-href={href}
     >
       <div className="flex flex-col gap-8 md:gap-16">
         {/* Title with Brackets */}
@@ -76,12 +78,14 @@ export default function SelectedWorks() {
     {
       title: "German Expo Pavilion",
       category: "Ausstellung",
+      href: "/works/expo",
       year: "2025",
       image:
         "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d6c8f28a-f552-446f-878f-59151e5fb57c/IMG_8113_6896.jpg",
     },
     {
       title: "Neo",
+      href: "/works/neo",
       category:
         "Mehrgeschossiger Neubau eines Bürogebäudes mit Veranstaltungsbereich",
       year: "2023",
@@ -90,6 +94,7 @@ export default function SelectedWorks() {
     },
     {
       title: "FuHub",
+      href: "/works/fuhub",
       category: "Mehrgeschossiger Neubau eines Büro- und Laborgebäudes",
       year: "2019",
       image:
@@ -118,6 +123,7 @@ export default function SelectedWorks() {
             category={work.category}
             year={work.year}
             image={work.image}
+            href={work.href}
           />
         ))}
       </div>
