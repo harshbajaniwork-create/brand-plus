@@ -35,8 +35,8 @@ export function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="hero-parallax-img absolute inset-0 w-full h-[120%] -top-[10%]">
           <img
-            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop&q=80"
-            alt="Modern Architecture"
+            src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d0d8cbb8-472e-464e-a6f4-b71323e02f9f/PERSPEKTIVE_Strasse-himmelblau.jpg?format=1500w"
+            alt="Fuhub"
             className="w-full h-full object-cover"
           />
           {/* Subtle dark overlay for contrast */}

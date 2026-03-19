@@ -23,656 +23,416 @@ export interface FilterCategory {
 }
 
 export const categories: FilterCategory[] = [
-  { key: "all", label: "All Work", count: 27 },
-  { key: "commercial", label: "Commercial", count: 1 },
-  { key: "hospitality", label: "Hospitality", count: 2 },
-  { key: "multi-residential", label: "Multi-residential", count: 10 },
-  { key: "residential", label: "Residential", count: 10 },
-  { key: "retail", label: "Retail", count: 3 },
-  { key: "seniors-living", label: "Seniors' Living", count: 3 },
+  { key: "all", label: "All Work", count: 22 },
+  { key: "commercial", label: "Commercial", count: 15 },
+  { key: "hospitality", label: "Hospitality", count: 0 },
+  { key: "multi-residential", label: "Multi-residential", count: 5 },
+  { key: "residential", label: "Residential", count: 0 },
+  { key: "retail", label: "Retail", count: 2 },
+  { key: "seniors-living", label: "Seniors' Living", count: 0 },
 ];
 
 export const projects: Project[] = [
   {
-    slug: "armadale-office",
-    name: "Armadale Office",
-    typology: "Commercial & Retail",
-    type: "Commercial, Retail",
-    location: "Armadale, Victoria",
+    slug: "expo",
+    name: "Deutscher EXPO- Pavillon 2025 in Osaka, Japan",
+    typology: "Ausstellung (Versammlungsstätte)",
+    type: "Ausstellung (Versammlungsstätte)",
+    location: "Osaka, Japan",
     year: 2025,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/High-St-2-1200x1535.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/feb0e197-21dd-4668-a5ab-9bfcc74d2470/IMG_8113.jpg?format=1500w",
     category: "commercial",
-    client: "Private",
-    status: "Under Construction",
-    quote:
-      "A considered approach to mixed-use development in the heart of Armadale's High Street.",
     description:
-      "The Armadale Office project reimagines a prominent High Street corner, balancing commercial and retail requirements with a refined architectural language that respects the surrounding heritage context.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
+      "Der Deutsche Pavillon auf der Expo 2025 in Osaka widmet sich in seinem Auftritt einem für die Gestaltung unserer Zukunft zentralen Thema: Der zirkulären Kreislaufwirtschaft und des zirkulären Bauens. Zirkularität wird daher zum Leitmotiv des Deutschen Pavillons. Alles ist zirkulär: der Pavillon selbst, das Besuchserlebnis, das Design, die präsentierten Technologien und Zukunftsvisionen. Alles basiert auf dem Gedanken der Zirkularität oder – ins Gestalterische übersetzt – auf der Form des Kreises.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/High-St-2-1200x1535.jpg",
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/High-St-2-1200x1535.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/dd5c6831-b2a4-413e-a357-2f2ad17936ba/IMG_8103.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ccd7c34a-e2be-4e5b-92af-b7a889037a6b/IMG_8117.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/dcea9385-c406-4285-af7f-d7cbe0bafa5f/IMG_7463.JPG?format=1500w",
     ],
   },
   {
-    slug: "caulfield-north",
-    name: "Caulfield North",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "Caulfield North, Victoria",
-    year: 2025,
-    video:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Sequence-03_compressed.mp4",
+    slug: "neo",
+    name: "NEO",
+    typology:
+      "Mehrgeschossiger Neubau eines Bürogebäudes mit Veranstaltungsbereich",
+    type: "Mehrgeschossiger Neubau eines Bürogebäudes mit Veranstaltungsbereich",
+    location: "Berlin Prenzlauer Berg",
+    year: 2023,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/Balaclava-1-1200x733.jpg",
-    category: "multi-residential",
-    client: "Private",
-    status: "Design Development",
-    quote:
-      "Redefining multi-residential living with a focus on light, space, and community.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/a5fda4f0-18b8-462f-b58f-ba787a9d8d24/rwplus_NEO_Aerial.jpg?format=1500w",
+    category: "commercial",
     description:
-      "A boutique multi-residential development in Caulfield North that prioritises natural light, generous proportions, and a strong connection between indoor and outdoor living spaces.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
+      "Auf dem Grundstück in der Schönhauser Allee 9, 10119 Berlin ist ein 8-geschossiges Gewerbe- und Bürogebäude geplant. Es verfügt über 6 Obergeschosse, einem Dach- und einem Untergeschoss. Der Komplex erstreckt sich über die gesamte Tiefe des Grundstückes von ca. 120 m und entwickelt sich entlang eines belebten Freiraumbereiches mit Aufenthaltsbereichen im Erdgeschoss von denen drei Zugänge erreicht werden. Es sind mit Hilfe dreier Sicherheitstreppenräume mit vorgeschalteten Pufferzonen und besonderer Brandabschnittsbildung große zusammenhängende Büroflächen mit ca. 600 m2 ohne notwendige Flure entstanden, die über eine größtmögliche Flexibilität für die Innenausstattung verfügen. Auf diese Weise wurde ermöglicht, die Hofstruktur des Freiraumbereichs in der Erdgeschossebene über alle Geschosse erlebbar zu machen.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/Balaclava-1-1200x733.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4c63f65b-dec7-484a-9f1f-c2a322873910/04%2BHof%2Bschwebend%2BUpdate%2B006_Bildrechte.jpg?format=1000w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ad5002e2-1034-4504-83df-a2d948116cc9/03%2BBlick%2Bnach%2Boben%2BUpdate%2B005_Bildrechte.jpg?format=750w",
     ],
   },
   {
-    slug: "penthouse-vivace",
-    name: "Penthouse Vivace",
-    typology: "Residential",
-    type: "Residential",
-    location: "Caulfield North, Victoria",
-    year: 2025,
+    slug: "fuhub",
+    name: "Fuhub",
+    typology: "Mehrgeschossiger Neubau eines Büro- und Laborgebäudes",
+    type: "Mehrgeschossiger Neubau eines Büro- und Laborgebäudes",
+    location: "Berlin Steglitz",
+    year: 2021,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/Balaclava-1-1200x733.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote:
-      "A penthouse that celebrates the art of living with panoramic views and bespoke finishes.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d0d8cbb8-472e-464e-a6f4-b71323e02f9f/PERSPEKTIVE_Strasse-himmelblau.jpg?format=1500w",
+    category: "commercial",
     description:
-      "Located at the apex of a luxury development, this penthouse showcases sweeping views and a meticulous approach to material selection and spatial planning.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Interior Design" },
-    ],
+      "Das Offen, großzügig und lebendig, dass ist das FUHUB. Entsprechend der städtebaulichen Vorgaben umschließt der Baukörper einen gemeinschaftlich nutzbaren Hof, der sich zum grünen Saum hin aufweitet. Im 4-geschossigen Nordflügel werden kombinierte Labor- und Büroflächen vorgesehen, im 3-geschossigen Südflügel reine Büroflächen. Der verbindende Mittelteil wird als großzügige, zweigeschossige Halle geplant. Hier zieht sich die Außenanlagengestaltung der „grünen Zellen“ als eingestellte Volumen für Eventflächen durch. Ein lebendiger Eingangs-, Aufenthalts- und Kommunikationsbereich entsteht. Das Gebäude wird in Holzhybridbauweise erstellt. Das Tragwerk sowie die nichttragenden Außenwände sind in Holzbauweise; die Decken in Holzhybridbauweise geplant. Die Außenwände erhalten eine Bekleidung aus Holz. Das Gebäude verfügt über Nutzungseinheiten, die größer als 400 m2 sind und wird deswegen in die Gebäudeklasse 5 eingestuft. Die brandschutztechnische Bewertung der Gebäudegeometrie ermöglicht, die geringeren Anforderungen an die Bauteile nach der Gebäudeklasse 4 anzusetzen und so die Holzbauweise für die Tragkonstruktion zu vereinfachen.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/Balaclava-1-1200x733.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d0d8cbb8-472e-464e-a6f4-b71323e02f9f/PERSPEKTIVE_Strasse-himmelblau.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/df34b30f-aba3-4519-8eb6-7859b4660f7b/220422_FUHUB_FOYER.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/dbf5305c-5f3d-4017-ba63-65d8639baac2/220422_FUHUB_LABOR.jpg?format=1500w",
     ],
   },
   {
-    slug: "southbank-tower",
-    name: "Southbank Tower",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "Southbank, Victoria",
+    slug: "thebenjamin",
+    name: "The Benjamin",
+    typology:
+      "6-geschossiger Neubau eines Bürogebäudes mit Restauration im EG und Tiefgarage",
+    type: "6-geschossiger Neubau eines Bürogebäudes mit Restauration im EG und Tiefgarage",
+    location: "Berlin",
+    year: 2021,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=1500w",
+    category: "commercial",
+    description:
+      "Das Gebäude gliedert sich mit seiner Geometrie als Eckbetonung eines alten Industrieareals zwischen Straßenraum und Spree ein. Zur Spree hin öffnet sich aufgrund des Geländeversprungs das Untergeschoss ebenerdig und bindet an die Freiraumgestaltung zum Wasser an. Das Gebäude ist mit einer Höhe von ca. 24 m ein kleines Hochhaus. Aufgrund der nichtbrennbaren Fassaden wurden die erhöhten Anforderungen aus der Muster-Hochhaus-Richtlinie nicht angesetzt. Aufgrund der geschickten Grundrissaufteilung ist ein einziger Brandabschnitt möglich und die Ausbildung eines außenliegenden Sicherheittreppenraums für die Rettungswegführung ausreichend.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/b8116445-bcc5-4e9b-b800-8a58802fa4e0/BENJAMIN-%C2%A9Ebener-0890-1.jpg?format=750w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/5406591e-9de2-4dbe-9fb3-0f6cae618271/BENJAMIN-%C2%A9Ebener-9259-1.jpg?format=750w",
+    ],
+  },
+  {
+    slug: "dernburg",
+    name: "Dernburg",
+    typology:
+      "Refurbishment der ehemaligen Oberpostdirektion, 8-geschossiges Büro- und Verwaltungsgebäude",
+    type: "Refurbishment der ehemaligen Oberpostdirektion, 8-geschossiges Büro- und Verwaltungsgebäude",
+    location: "Berlin Charlottenburg",
     year: 2019,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/SB-Tower-Render_3-480x640.jpg",
-    category: "multi-residential",
-    client: "Private",
-    status: "Completed",
-    quote:
-      "Rising above Southbank, a tower that sets a new benchmark for urban living.",
-    description:
-      "A landmark multi-residential tower that responds to the energy of Southbank while offering residents a sanctuary of refined living above the city.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/SB-Tower-Render_3-480x640.jpg",
-    ],
-  },
-  {
-    slug: "parlington",
-    name: "Parlington",
-    typology: "Residential",
-    type: "Residential",
-    location: "Canterbury, Victoria",
-    year: 2025,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/08/Parlington-2-1-480x480.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Under Construction",
-    quote:
-      "A home that honours tradition while embracing contemporary design principles.",
-    description:
-      "Parlington is a residential project in Canterbury that weaves together heritage sensitivity with modern architectural ambition, creating a home of enduring character.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/08/Parlington-2-1-480x480.jpg",
-    ],
-  },
-  {
-    slug: "loller",
-    name: "Loller",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "Brighton, Victoria",
-    year: 2025,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Loller-1-480x720.jpg",
-    category: "multi-residential",
-    client: "Private",
-    status: "Design Development",
-    quote: "Elegant multi-residential design shaped by its Brighton context.",
-    description:
-      "A thoughtfully designed multi-residential development in Brighton that draws inspiration from its coastal context to create residences of understated elegance.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Loller-1-480x720.jpg",
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Loller-22-480x720.jpg",
-    ],
-  },
-  {
-    slug: "half-courtyard-house",
-    name: "Half Courtyard House",
-    typology: "Residential",
-    type: "Residential",
-    location: "South Yarra, Victoria",
-    year: 2025,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Exterior-1_D3-F-LR-480x256.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote:
-      "A courtyard house that blurs the boundaries between interior and landscape.",
-    description:
-      "The Half Courtyard House in South Yarra reimagines the traditional courtyard typology, creating a fluid dialogue between built form and garden that enriches daily life.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Exterior-1_D3-F-LR-480x256.jpg",
-    ],
-  },
-  {
-    slug: "italian-club-apartments",
-    name: "Italian Club Apartments",
-    typology: "Multi-Residential",
-    type: "Multi-residential, Retail",
-    location: "Newstead, Brisbane",
-    year: 2025,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/Wyandra-Street-Perspective-Closeup-480x517.jpg",
-    category: "multi-residential",
-    client: "Private",
-    status: "Design Development",
-    quote:
-      "A culturally informed mixed-use development celebrating community and craftsmanship.",
-    description:
-      "The Italian Club Apartments in Newstead draw on the rich cultural history of the site to create a mixed-use development that celebrates community gathering and fine craftsmanship.",
-    details: [
-      { label: "Country", value: "Turrbal & Jagera" },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/Wyandra-Street-Perspective-Closeup-480x517.jpg",
-    ],
-  },
-  {
-    slug: "cobram-community-centre",
-    name: "Cobram Community Centre",
-    typology: "Lifestyle Community",
-    type: "Seniors' Living",
-    location: "Cobram, Victoria",
-    year: 2025,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Cobram-1-480x216.jpg",
-    category: "seniors-living",
-    client: "Springtree",
-    status: "Design Development",
-    quote:
-      "Creating a palette of materials to complement the context and architectural elements responding to the climate.",
-    description:
-      "The Clubhouse is at the centre of the community and designed to be split into two buildings, one for wellness and the other for leisure. Both pavilions are surrounded by and connected to a heap of outdoor activity to choose from, including bowling and putting green, pickle ball court, community gardens and even a dog park.",
-    details: [
-      { label: "Country", value: "Yorta Yorta" },
-      {
-        label: "Collaborators",
-        value:
-          "Arkee (Interior Design), Millar Merrigan (Landscape), Matter (Structure), Erbas (Services), Ascot (ESD), Stonebank (Project Manager)",
-      },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Cobram-1-480x216.jpg",
-    ],
-  },
-  {
-    slug: "port-moresby",
-    name: "Port Moresby",
-    typology: "Residential",
-    type: "Residential",
-    location: "Port Moresby, Papua New Guinea",
-    year: 2023,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/PNG-1-480x480.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote: "Tropical architecture responding to climate and culture.",
-    description:
-      "A residential project in Port Moresby that embraces the tropical climate with open living spaces, natural ventilation, and materials that weather gracefully in the equatorial environment.",
-    details: [{ label: "Discipline", value: "Architecture" }],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/PNG-1-480x480.jpg",
-    ],
-  },
-  {
-    slug: "es-showroom",
-    name: "E&S Showroom",
-    typology: "Retail",
-    type: "Retail",
-    location: "Epping, Victoria",
-    year: 2025,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/ES-3-480x720.jpg",
-    category: "retail",
-    client: "E&S Trading",
-    status: "Completed",
-    quote:
-      "A retail experience that elevates everyday commerce into spatial delight.",
-    description:
-      "The E&S Showroom project transforms a conventional retail environment into an engaging spatial experience, using material warmth and intuitive wayfinding to guide the customer journey.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/ES-3-480x720.jpg",
-    ],
-  },
-  {
-    slug: "yarrawonga-community-centre",
-    name: "Yarrawonga Community Centre",
-    typology: "Lifestyle Community",
-    type: "Seniors' Living",
-    location: "Yarrawonga, Victoria",
-    year: 2024,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Launceston-2-1920x1018.jpg",
-    category: "seniors-living",
-    client: "Springtree",
-    status: "Completed",
-    quote: "Community architecture fostering connection and wellbeing.",
-    description:
-      "The Yarrawonga Community Centre provides a welcoming hub for residents, featuring flexible gathering spaces, wellness facilities, and a strong connection to the surrounding landscape.",
-    details: [
-      { label: "Country", value: "Yorta Yorta" },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Launceston-2-1920x1018.jpg",
-    ],
-  },
-  {
-    slug: "argo",
-    name: "Argo",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "Melbourne, Victoria",
-    year: 2025,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Argo-5-480x720.jpg",
-    category: "multi-residential",
-    client: "Private",
-    status: "Design Development",
-    quote: "A bold multi-residential statement that redefines urban density.",
-    description:
-      "Argo is a multi-residential project that challenges conventional density models, offering generous apartments with considered amenity and a striking architectural presence.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Argo-5-480x720.jpg",
-    ],
-  },
-  {
-    slug: "launceston-creative-precinct",
-    name: "Launceston Creative Precinct",
-    typology: "Commercial",
-    type: "Commercial",
-    location: "Launceston, Tasmania",
-    year: 2025,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Launceston-2-e1764208087151-480x254.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d9d0e97d-905c-4678-bf90-7a4078f51556/Dernburg+%C3%9Cbersichtsbild.PNG?format=2500w",
     category: "commercial",
-    client: "Creative Precinct Pty Ltd",
-    status: "Design Development",
-    quote:
-      "Revitalising a creative precinct through adaptive reuse and thoughtful intervention.",
     description:
-      "The Launceston Creative Precinct project breathes new life into an existing urban fabric, creating flexible spaces for creative industries within a heritage-rich context.",
-    details: [
-      { label: "Country", value: "Palawa" },
-      { label: "Discipline", value: "Architecture" },
-    ],
+      "Das Gebäude der Oberpostdirektion ist ein relevantes Bauwerk des Berliner Expressionismus der 1920er Jahre. Im Spannungsfeld zwischen historischer Bausubstanz und moderner Bürogestaltung entstehen großräumige Open-Space-Flächen kombiniert mit gläsernen Büroeinheiten, die kommunikative Sichtbezüge herstellen. Die markanten Eckzimmer werden als neue Konferenzräume umgestaltet. Während die prägnante Außengestaltung und die Treppenräume in ihrer Ursprünglichkeit verbleibend saniert werden.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Launceston-2-e1764208087151-480x254.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d9d0e97d-905c-4678-bf90-7a4078f51556/Dernburg+%C3%9Cbersichtsbild.PNG?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/48f53eb5-d437-4206-9005-e35fbd472f73/DER-%C2%A9Ebener-2709-1.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4df2900a-69f9-46d7-8253-472f057ea690/gxJPxnRROheUpxjBih2P.jpeg?format=1500w",
     ],
   },
   {
-    slug: "soho",
-    name: "Soho",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "South Yarra, Victoria",
+    slug: "boothub",
+    name: "Thinkcampus Workhub 1 (Boothub)",
+    typology: "Mehrgeschossiges Bürogebäude mit offenem Atrium",
+    type: "Mehrgeschossiges Bürogebäude mit offenem Atrium",
+    location: "Potsdam",
+    year: 2020,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/28a2362f-0f04-44ff-80c6-451fe6eae80d/THINK-%E2%94%AC%E2%8C%90Ebener-7230-1.jpg?format=1500w",
+    category: "commercial",
+    description:
+      "Das Gebäude ist als Ring konzipiert, welcher eine überdachte, 2 bis 4-gschossige Halle umgreift. Die vertikale Erschließung der Ringe erfolgt von dem zentralen für gemeinschaftliche Nutzung vorgesehene Atrium aus über zwei Aufzüge und repräsentative Treppen- und Brückenstrukturen, sowie drei Fluchttreppenräumen.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/28a2362f-0f04-44ff-80c6-451fe6eae80d/THINK-%E2%94%AC%E2%8C%90Ebener-7230-1.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/e1c26698-182c-42f4-b222-2c559e708c6c/THINK-%E2%94%AC%E2%8C%90Ebener-0980-1.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/33f3f18c-97a1-460e-ad75-60841db70da4/THINK-%E2%94%AC%E2%8C%90Ebener-2780-1.jpg?format=1500w",
+    ],
+  },
+  {
+    slug: "cradle-to-cradle",
+    name: "Cradle to Cradle NGO, C2C LAB",
+    typology: "Bildungszentrum, Headquarter NGO Office, Reallabor",
+    type: "Bildungszentrum, Headquarter NGO Office, Reallabor",
+    location: "Berlin",
+    year: 2024,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d2f23c98-bada-4185-8c30-27c9fef7333b/015c2c-lab-interior-SMALL-Print.jpg?format=1500w",
+    category: "commercial",
+    description:
+      "Das C2C LAB in Berlin ist die weltweit erste umfassende Sanierung nach den innovativen Kriterien von Cradle to Cradle. Es dient als Bildungszentrum und Reallabor für zirkuläres Bauen in einer durchgängigen Kreislaufwirtschaft. Materialien und Komponenten sind so konzipiert, dass sie unbegrenzt wiederverwendet oder recycelt werden können.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d2f23c98-bada-4185-8c30-27c9fef7333b/015c2c-lab-interior-SMALL-Print.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/c1b73b2c-63ea-41f8-a3bf-d4462851c655/016c2c-lab-interior-SMALL-Print.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/eba48006-56b1-495c-be28-9ee089811ceb/cradletocradleoffice_vorher-1223-scaled.jpg?format=1500w",
+    ],
+  },
+  {
+    slug: "woho-berlin",
+    name: "WoHo",
+    typology: "Wohnhochhaus aus Holz (Wohnen, Gewerbe)",
+    type: "Wohnhochhaus aus Holz (Wohnen, Gewerbe)",
+    location: "Berlin",
+    year: 2021,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/5301fa40-3c16-4270-9c9f-c050164ff0be/63ce5e171ac14a17da000670_Woho+Berlin03-p-800.jpg?format=1500w",
+    category: "multi-residential",
+    description:
+      "Das Wohnhochhaus aus Holz (Woho) mit einer Höhe von circa 98 m und 29 Etagen soll mit einem vielfältigen sozialen Nutzungsmix und Wohnungen ein eigenes kleines Viertel darstellen. Klimatische und soziale Nachhaltigkeit stehen im Mittelpunkt, mit Gewerbeflächen, Kitas, Hort und Urban Gardening auf den Dachterrassen.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/5301fa40-3c16-4270-9c9f-c050164ff0be/63ce5e171ac14a17da000670_Woho+Berlin03-p-800.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/65d517a0-5f2b-466c-a13d-bf61022f9cec/601bbf4695f10cde0de58691_Perspektivskisse+plass+mot+Anhalter+steg-p-1080.jpeg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ec4b0ddb-d70b-4057-8f9e-8c7c4ad57bff/601bbf445bc7f1662f1af8e2_Perspektivskisse+lekeplass+syd-p-1080.jpeg?format=1500w",
+    ],
+  },
+  {
+    slug: "hort-friesack",
+    name: "Kinderhort Friesack",
+    typology: "Kinderhort in Massivholzbauweise",
+    type: "Kinderhort in Massivholzbauweise",
+    location: "Friesack in Brandenburg",
+    year: 2023,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/1718b630-bef4-4d20-8e01-aa516116d92c/FRI_Coverbild_TdA_5_1000.jpg?format=1500w",
+    category: "commercial",
+    description:
+      "Der neue Hort in Friesack verbindet Bestand und Neubau durch zwei ineinander geschobene Baukörper. Das zweigeschossige Gebäude wurde in Massivholzbauweise erstellt und bietet eine schaltbare Spiellandschaft mit einer großzügigen Sitzstufentreppe und integrierter Spielhöhle.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/1718b630-bef4-4d20-8e01-aa516116d92c/FRI_Coverbild_TdA_5_1000.jpg?format=1500w",
+    ],
+  },
+  {
+    slug: "sheddachhalle",
+    name: "Sheddachhalle",
+    typology: "Umnutzung denkmalgeschützte Halle (Wohnen & Gewerbe)",
+    type: "Umnutzung denkmalgeschützte Halle (Wohnen & Gewerbe)",
+    location: "Berlin Spandau",
+    year: 2020,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/8a87e196-2e28-4460-b006-f69bb744d36f/BFA_Cam_Ext_HR_07.jpg?format=2500w",
+    category: "multi-residential",
+    description:
+      "Umbau und Umnutzung einer denkmalgeschützten Sheddachhalle zu 142 Wohneinheiten and 7 Gewerbebereichen. Die Wohneinheiten werden in die bestehende Stahlkonstruktion eingefügt, wobei offene Dachbereiche eigene Hauseingänge mit Siedlungscharakter ermöglichen.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/8a87e196-2e28-4460-b006-f69bb744d36f/BFA_Cam_Ext_HR_07.jpg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/8a5bb295-85f1-41c8-8491-8af730676dbc/BFA_Aerial_HR_Umgebung_V2.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/f87a5d21-7111-4811-871d-818e4a45cf81/BFA_20019_modulesWohnen_Int_HR_Rework_V1.JPG?format=1500w",
+    ],
+  },
+  {
+    slug: "wuerth-hauptverwaltung",
+    name: "Adolf Würth Hauptverwaltung",
+    typology: "Büro- und Verwaltungsgebäude mit Besucherzentrum",
+    type: "Büro- und Verwaltungsgebäude mit Besucherzentrum",
+    location: "Künzelsau",
+    year: 2021,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/7f0a6b66-d2e5-43c0-b8d2-b65cf48fd986/OBLU_02_Projektslider.jpg?format=1500w",
+    category: "commercial",
+    description:
+      "Ergänzung des Würth-Campus durch einen hybriden Holzbau bestehend aus zwei U-förmigen Gebäuden und einem ca. 49 m hohen Büroturm. Das Gebäude beherbergt ein Besucherzentrum und flexible Büroflächen mit markanten tragenden Holz-V-Stützen.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/7f0a6b66-d2e5-43c0-b8d2-b65cf48fd986/OBLU_02_Projektslider.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/2e2eb10c-666d-41c5-8399-ba9d27d75167/Inside_01.jpg?format=1500w",
+    ],
+  },
+  {
+    slug: "waschefabrik",
+    name: "Revitalisierung Wäschefabrik",
+    typology: "Sanierung, Umbau, Anbau und Erweiterung Bürogebäude",
+    type: "Sanierung, Umbau, Anbau und Erweiterung Bürogebäude",
+    location: "Berlin",
     year: 2025,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Soho-1-480x720.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/0404168c-d309-4923-8961-c074c2851f9d/WAE-%C2%A9Ebener-7437.jpg?format=1500w",
+    category: "commercial",
+    description:
+      "Die WÆSCHEFABRIK ist ein ehemaliger Industriebau im Wedding, errichtet 1910-1912. Das denkmalgeschützte Gebäude wurde mit Eisenbeton gebaut und neoklassizistisch gestaltet. Das Ensemble wird als modernes Bürohaus mit flexiblen offenen Grundrissen für New-Work-Nutzungen neu interpretiert.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/0404168c-d309-4923-8961-c074c2851f9d/WAE-%C2%A9Ebener-7437.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/5519796c-9fc1-4222-94e8-3768ffd47f77/WAE-%C2%A9Ebener-7221.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/18c386b2-54de-4241-bec3-ba12cb5ec1ff/WAE-%C2%A9Ebener-7283.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d55cfaf4-10ae-46f1-9c24-3154cc7481af/WAE-%C2%A9Ebener-7466.jpg?format=1500w",
+    ],
+  },
+  {
+    slug: "malplaquetstrae-19",
+    name: "Malplaquetstraße 19",
+    typology: "Wohn- und Geschäftshaus für eine Baugruppe",
+    type: "Wohn- und Geschäftshaus für eine Baugruppe",
+    location: "Berlin Wedding",
+    year: 2021,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/e9ec88d7-3ac5-4dd8-9c18-4884eafd7472/Stra%C3%9Fenansicht+%C2%A9+Philipp+Obkircher.jpg?format=1500w",
     category: "multi-residential",
-    client: "Private",
-    status: "Under Construction",
-    quote: "Sophisticated urban living in the heart of South Yarra.",
     description:
-      "Soho is a multi-residential development that captures the energy and sophistication of South Yarra, delivering residences with exceptional amenity and architectural distinction.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
+      "Das neue Wohn- und Geschäftshaus integriert ein historisches Backsteinportal als Fragment der ehemaligen Osram-Höfe. In ortstypischer Blockrandbebauung vervollständigt es die Stadtstruktur und bewahrt durch einen industriellen Maßstab den Bezug zur Historie der Produktionshallen.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Soho-1-480x720.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/e9ec88d7-3ac5-4dd8-9c18-4884eafd7472/Stra%C3%9Fenansicht+%C2%A9+Philipp+Obkircher.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/74ae218a-a068-473b-aca8-b4cad9e057d0/Treppe+%C2%A9+Philipp+Obkircher.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d4a19cef-6003-40d1-8285-a3e524fcb2e8/Eingangsbereich+%C2%A9+Philipp+Obkircher.jpg?format=1500w",
     ],
   },
   {
-    slug: "the-beckworth",
-    name: "The Beckworth",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "Melbourne, Victoria",
-    year: 2023,
+    slug: "alter-wall-10-23",
+    name: "Alter Wall 10-32",
+    typology: "Sanierung / Büro- und Geschäftshaus, Tiefgarage",
+    type: "Sanierung / Büro- und Geschäftshaus, Tiefgarage",
+    location: "Hamburg",
+    year: 2015,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Beckworth-3-480x798.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4febfca9-750e-47fa-b5a8-899c6643cd52/AWH6_6663.jpg?format=1500w",
+    category: "commercial",
+    description:
+      "Der Alte Wall 10-32, um 1900 eine belebte Einkaufsstraße, wird nach der Nutzung durch Banken wieder zu einem modernen Einkaufsboulevard mit hochwertigen Büroflächen entwickelt.",
+    gallery: [
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4febfca9-750e-47fa-b5a8-899c6643cd52/AWH6_6663.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ee41f0ba-6842-49f0-b924-c13187c51698/Alter-Wall-10-32-Lageplan.jpg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/241755f8-f4cb-43d5-9b2b-768446e9b66d/AWH5_4039.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/cf85c8b2-ba9c-447d-9791-1bdb4fe94e31/AWH5_4000.jpg?format=1500w",
+    ],
+  },
+  {
+    slug: "feuchtwange",
+    name: "Feuchtwanger",
+    typology: "Wohnquartier in serieller Bauweise",
+    type: "Wohnquartier in serieller Bauweise",
+    location: "Berlin",
+    year: 2024,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/fbf36d26-63e3-4df2-a714-4de2262797c6/IMG_8144.png?format=1500w",
     category: "multi-residential",
-    client: "Private",
-    status: "Completed",
-    quote:
-      "Timeless apartment living with a focus on craft and material expression.",
     description:
-      "The Beckworth delivers a new standard in apartment living, with meticulously detailed interiors and a restrained external palette that speaks to permanence and quality.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
+      "Zukunftsweisendes Wohnquartier mit 124 Wohneinheiten auf ca. 3.280 m². Zwei 6-geschossige Wohnriegel stehen sich gegenüber, verbunden durch ein gemeinsames Parkgeschoss und ein grünes Laubengangsystem mit hoher Aufenthaltsqualität.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Beckworth-3-480x798.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/fbf36d26-63e3-4df2-a714-4de2262797c6/IMG_8144.png?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/cc0ccd69-5657-41ee-b0f5-fbe3f97115fc/IMG_8131.png?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4bedaffd-2d8a-48a4-8e21-bfc67afa3999/IMG_8132.png?format=1500w",
     ],
   },
   {
-    slug: "hurstmon",
-    name: "Hurstmon",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "Melbourne, Victoria",
-    year: 2024,
+    slug: "alter-wall-2-8",
+    name: "Alter Wall 2-8",
+    typology: "Sanierung / Büro- und Geschäftshaus",
+    type: "Sanierung / Büro- und Geschäftshaus",
+    location: "Hamburg",
+    year: 2015,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Hurstmon-9-480x719.jpg",
-    category: "multi-residential",
-    client: "Private",
-    status: "Completed",
-    quote:
-      "A considered multi-residential response to its leafy suburban context.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/cd6272c4-46da-4f81-8ea8-74ddac45ae45/AWH5_3410.jpg?format=1500w",
+    category: "commercial",
     description:
-      "Hurstmon is a boutique apartment project that sits quietly within its established neighbourhood, offering residents generous proportions and a refined material palette.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
+      "Das denkmalgeschützte Gebäudeensemble im Zentrum von Hamburg, errichtet 1914-1919 als Reichsbankhauptstelle, besticht durch seine historisch bedeutsamen Natursteinfassaden und wird modern saniert.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Hurstmon-9-480x719.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/cd6272c4-46da-4f81-8ea8-74ddac45ae45/AWH5_3410.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/042a61b7-e691-4483-8cb3-e6bfc2808d62/Alter-Wall-2-8-Grundriss-1OG.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/b2706644-37eb-4f42-b7c0-b17dc1eff233/Alter-Wall-2-8-Lageplan.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/63f1759a-7cdf-43ec-b808-439e791db119/AWH2_0019.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/436fc31f-3267-4ee2-97f0-14eecd83e1c9/Alter-Wall-2-8-Visualisierung-Schnitt.jpg?format=1500w",
     ],
   },
   {
-    slug: "greville-house",
-    name: "Greville House",
-    typology: "Residential",
-    type: "Residential",
-    location: "Melbourne, Victoria",
-    year: 2024,
+    slug: "gropius-passagen",
+    name: "Gropius Passagen",
+    typology: "Sanierung / Shopping-Mall, Büro, Kino, Parkdecks",
+    type: "Sanierung / Shopping-Mall, Büro, Kino, Parkdecks",
+    location: "Berlin",
+    year: 2014,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Greville-9-480x720.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote: "A house that celebrates the rituals of domestic life.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/daac697b-d7ee-4015-a238-faffaf7074d4/Gropius-Passagen-1.jpg?format=2500w",
+    category: "retail",
     description:
-      "Greville House is a residential project that prioritises the everyday experience of its occupants, crafting spaces that are both functional and deeply atmospheric.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
+      "Die 1967 errichteten Gropius Passagen erfordern einen objektbezogenen Brandschutz, der im Spannungsfeld zwischen der Realität des Bestands und modernen baurechtlichen Anforderungen steht.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Greville-9-480x720.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/daac697b-d7ee-4015-a238-faffaf7074d4/Gropius-Passagen-1.jpg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/5bb238b9-4e5f-498d-8017-27202d1971f4/Plan-Gropius-Passagen.jpg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/8c9e7c48-7a46-4d0d-bfa3-a7c2c6f87359/Gropius-Passagen-2.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/fd7b8d34-5b57-453a-8bb2-61d870b7f091/Gropius-Passagen-Innenansicht.jpg?format=1500w",
     ],
   },
   {
-    slug: "the-saint-hotel",
-    name: "The Saint Hotel",
-    typology: "Hospitality",
-    type: "Hospitality",
-    location: "Melbourne, Victoria",
-    year: 2023,
+    slug: "kudamm-karee",
+    name: "Kudamm Karee",
+    typology: "Sanierung / Büro, Handel, Gastronomie, Kultur & Freizeit",
+    type: "Sanierung / Büro, Handel, Gastronomie, Kultur & Freizeit",
+    location: "Berlin",
+    year: 2016,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/08/TheSaint_30-480x720.jpg",
-    category: "hospitality",
-    client: "The Saint Hotel Pty Ltd",
-    status: "Completed",
-    quote:
-      "Hospitality design that captures the spirit and energy of its neighbourhood.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/0de83898-7738-4ba7-b275-b68525c1cd58/Kudamm-Karree-Passage.jpg?format=1500w",
+    category: "commercial",
     description:
-      "The Saint Hotel is a hospitality project that channels the vibrant character of its surroundings into a unique guest experience, blending bold design moves with warm materiality.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
+      "Das Kudamm Karree in Charlottenburg ist ein vielseitiger Gebäudekomplex mit Verkaufsräumen, dem Museum „Story of Berlin“, zwei Theatern, Büroflächen und Garagen, der umfassend saniert wird.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/08/TheSaint_30-480x720.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/0de83898-7738-4ba7-b275-b68525c1cd58/Kudamm-Karree-Passage.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/69019190-5a4e-4fb9-b186-05602d3532f6/Kudamm-Karree-Visualisierung-Lageplan.jpg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/378b8e2b-d848-4cd6-80ca-aa07eaa0b944/Kudamm-Karree-Visualisierung-Perspektive.jpg?format=1500w",
     ],
   },
   {
-    slug: "stanhope",
-    name: "Stanhope",
-    typology: "Residential",
-    type: "Residential",
-    location: "Melbourne, Victoria",
-    year: 2024,
+    slug: "barmer-hauptverwaltung",
+    name: "Barmer Hauptverwaltung",
+    typology: "Denkmalgeschütztes Geschäfts- und Verwaltungsgebäude",
+    type: "Denkmalgeschütztes Geschäfts- und Verwaltungsgebäude",
+    location: "Berlin",
+    year: 2016,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Stanhope-3-480x720.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote: "A home of quiet sophistication and enduring quality.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ddb21ac2-6bc4-4413-989d-18e181fceccb/Barmer-GEK-Hauptverwaltung-Foyer.jpg?format=1500w",
+    category: "commercial",
     description:
-      "Stanhope is a residential project defined by restraint and precision, where every detail has been considered to create a home of lasting beauty and comfort.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
+      "Das Barmer-Gebäude, erbaut 1907-1909 als repräsentatives Geschäfts- und Verwaltungsgebäude, dient als Vorstandssitz und Regionalverwaltung und wurde unter Berücksichtigung des Denkmalschutzes modernisiert.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Stanhope-3-480x720.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ddb21ac2-6bc4-4413-989d-18e181fceccb/Barmer-GEK-Hauptverwaltung-Foyer.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/37aed12c-f950-438b-98a8-2062e52649fe/Barmer-GEK-Hauptverwaltung-Grundriss-EG.jpg?format=1000w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/7749fd91-cd03-4f14-add1-aee71d29688f/Barmer-GEK-Hauptverwaltung-Schnitt.jpg?format=1000w",
     ],
   },
   {
-    slug: "ormond-house",
-    name: "Ormond House",
-    typology: "Residential",
-    type: "Residential",
-    location: "Melbourne, Victoria",
-    year: 2024,
+    slug: "hortbaruth",
+    name: "Hort Baruth",
+    typology: "Neubau / Kindertagesstätte, Jugendclub",
+    type: "Neubau / Kindertagesstätte, Jugendclub",
+    location: "Baruth / Mark in Brandenburg",
+    year: 2015,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Ormond-16-480x720.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote: "A family home designed around the rhythms of daily life.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/54fa6bfd-6c66-4653-8333-6901bad2a9f7/Hort-Baruth-Aussenansicht.jpg?format=2500w",
+    category: "commercial",
     description:
-      "Ormond House is a generous family residence that places the needs of its occupants at the centre of its design, with flowing spaces and a strong connection to garden.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
+      "Neubau eines erdgeschossigen Hortgebäudes mit einem zweigeschossigen Gebäudeteil auf dem Schulgelände der Grundschule Baruth, inklusive Speisesaal und integriertem Jugendclub.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Ormond-16-480x720.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/54fa6bfd-6c66-4653-8333-6901bad2a9f7/Hort-Baruth-Aussenansicht.jpg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/76218f22-ae22-44fd-85c5-713a0539e60c/Grundriss-Hort-Baruth.jpg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/9d18894d-cc2b-4588-97b8-9299ccf48784/Hort-Baruth-Aussenansicht2.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d6d2a84d-0e75-4371-9085-ee653db5de18/Hort-Baruth-Innenansicht+(1).jpg?format=2500w",
     ],
   },
   {
-    slug: "the-oaks",
-    name: "The Oaks",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "Melbourne, Victoria",
-    year: 2024,
+    slug: "bikiniberlin",
+    name: "Bikini Berlin",
+    typology: "Sanierung / Shopping-Mall, Kino, Hotel, Büros",
+    type: "Sanierung / Shopping-Mall, Kino, Hotel, Büros",
+    location: "Berlin",
+    year: 2013,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Berwick-1-480x720.jpg",
-    category: "multi-residential",
-    client: "Private",
-    status: "Under Construction",
-    quote: "Multi-residential living inspired by the established landscape.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/bae9226c-5e0f-4af9-abae-8857ad595129/BikiniBerlin+(1).jpg?format=1500w",
+    category: "retail",
     description:
-      "The Oaks is a multi-residential development that takes its cues from the mature oak trees that define the site, creating a development that feels grounded and connected to place.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
+      "Revitalisierung des denkmalgeschützten Gebäudeensembles aus den 1950er Jahren, bestehend aus dem 16-geschossigen Hochhaus, dem Zoo Palast-Kino, dem Bikini Haus mit Shoppingmall und dem 25hours Design Hotel.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Berwick-1-480x720.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/bae9226c-5e0f-4af9-abae-8857ad595129/BikiniBerlin+(1).jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/269c5d8f-1fd9-41ef-96f2-6698789d69ce/ZooPalast.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/056794fe-643c-4ef0-abbb-aa1e214c7553/25hours-Hotel-Bikini-Berlin.jpg?format=2500w",
     ],
   },
   {
-    slug: "armytage",
-    name: "Armytage",
-    typology: "Residential",
-    type: "Residential",
-    location: "South Yarra, Victoria",
-    year: 2024,
+    slug: "barnim-panorama-agrarmuseum",
+    name: "Barnim Panorama",
+    typology: "Neubau & Sanierung / Museum, Besucherzentrum",
+    type: "Neubau & Sanierung / Museum, Besucherzentrum",
+    location: "Wandlitz",
+    year: 2013,
     image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/StudioPiper_KensingtonRoad_SouthYarra_Bedroom-480x360.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote: "Interior design that elevates the residential experience.",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/f5457014-5df8-4fc3-b060-25a9d1f8c956/Barnim-Panorama-Agrarmuseum-Ansicht-Eingang.jpg?format=1500w",
+    category: "commercial",
     description:
-      "Armytage is a residential interior project in South Yarra that transforms an existing dwelling through careful material selection and spatial reconfiguration.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Interior Design" },
-    ],
+      "Die Neubauten des BARNIM PANORAMA wurden in Anlehnung an einen regionaltypischen Dreiseitenhof mit steinernem Stall und hölzerner Scheune um die bestehende Dorfschule im historischen Dorfkern von Wandlitz angeordnet.",
     gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/StudioPiper_KensingtonRoad_SouthYarra_Bedroom-480x360.jpg",
-    ],
-  },
-  {
-    slug: "the-watson",
-    name: "The Watson",
-    typology: "Multi-Residential",
-    type: "Multi-residential",
-    location: "Melbourne, Victoria",
-    year: 2022,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/The-Watson-6-e1764199236484-480x585.jpg",
-    category: "multi-residential",
-    client: "Private",
-    status: "Completed",
-    quote:
-      "A landmark multi-residential development of enduring architectural merit.",
-    description:
-      "The Watson is a completed multi-residential project that has established a new benchmark for apartment living in its neighbourhood, with generous floor plans and considered communal spaces.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/11/The-Watson-6-e1764199236484-480x585.jpg",
-    ],
-  },
-  {
-    slug: "hepburn-springs-house",
-    name: "Hepburn Springs House",
-    typology: "Residential",
-    type: "Residential",
-    location: "Hepburn Springs, Victoria",
-    year: 2024,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Hepburn-20-480x320.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote: "A retreat that draws deeply from its bushland setting.",
-    description:
-      "Hepburn Springs House is a residential retreat nestled within its bushland setting, where the architecture serves as a frame for the surrounding landscape.",
-    details: [
-      { label: "Country", value: "Dja Dja Wurrung" },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Hepburn-20-480x320.jpg",
-    ],
-  },
-  {
-    slug: "anderson-residence",
-    name: "Anderson Residence",
-    typology: "Residential",
-    type: "Residential",
-    location: "Melbourne, Victoria",
-    year: 2024,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Image5-480x270.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote:
-      "Contemporary residential architecture that respects its heritage context.",
-    description:
-      "The Anderson Residence is a contemporary home that sits respectfully alongside its heritage neighbours, using material and scale to create a dialogue between old and new.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture & Interior Design" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/10/Image5-480x270.jpg",
-    ],
-  },
-  {
-    slug: "coburg-north",
-    name: "Coburg North",
-    typology: "Residential",
-    type: "Residential",
-    location: "Coburg North, Victoria",
-    year: 2023,
-    image:
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Image6-e1764136862188-480x270.jpg",
-    category: "residential",
-    client: "Private",
-    status: "Completed",
-    quote: "A home that balances openness and intimacy.",
-    description:
-      "Coburg North is a residential project that masterfully balances open, communal spaces with intimate retreats, all unified by a warm and tactile material palette.",
-    details: [
-      { label: "Country", value: "Wurundjeri" },
-      { label: "Discipline", value: "Architecture" },
-    ],
-    gallery: [
-      "https://telhaclarke.com.au/wp-content/uploads/2025/09/Image6-e1764136862188-480x270.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/f5457014-5df8-4fc3-b060-25a9d1f8c956/Barnim-Panorama-Agrarmuseum-Ansicht-Eingang.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/49ef8087-4894-4c61-b6c1-2c2d13a6fc04/Barnim-Panorama-Agrarmuseum-Grundrisse-1.jpg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/6898acca-8fe4-4dc9-8862-b823eebef01f/Barnim-Panorama-Agrarmuseum-Interior-1.jpg?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/b909e4eb-1f02-4587-b096-18b3c7c34f9c/Barnim-Panorama-Agrarmuseum-Interior-Dach-1.jpg?format=1500w",
     ],
   },
 ];
