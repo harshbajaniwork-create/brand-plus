@@ -734,7 +734,7 @@ body ::selection {
   color: var(--color-black);
   overflow: hidden;
   transform: translateY(-100%);
-  z-index: 20;
+  z-index: 10001;
 }
 
 @media (min-width: 1280px) {
@@ -764,7 +764,7 @@ body ::selection {
   background: var(--color-black);
   opacity: 0;
   pointer-events: none;
-  z-index: 19;
+  z-index: 10000;
 }
 
 @media (min-width: 1280px) {
