@@ -19,8 +19,8 @@ export function StudioJobs() {
           <p className="body-16 leading-[1.75] text-black/70">
             We're always looking for talented individuals who are passionate
             about brand, strategy, and design. If you believe in the power of
-            identity and want to work with brands that matter, we'd love to
-            hear from you.
+            identity and want to work with brands that matter, we'd love to hear
+            from you.
           </p>
         </div>
 
@@ -36,13 +36,25 @@ export function StudioJobs() {
           {/* Job listing row */}
           <div className="flex flex-col gap-6">
             {[
-              { title: "Brand Strategist", type: "Full-time · Berlin" },
-              { title: "Senior Identity Designer", type: "Full-time · Berlin" },
-              { title: "Digital Brand Director", type: "Full-time · Remote" },
+              {
+                title: "Brand Strategist",
+                type: "Full-time · Berlin",
+                slug: "brand-strategist",
+              },
+              {
+                title: "Senior Identity Designer",
+                type: "Full-time · Berlin",
+                slug: "senior-identity-designer",
+              },
+              {
+                title: "Digital Brand Director",
+                type: "Full-time · Remote",
+                slug: "digital-brand-director",
+              },
             ].map((job) => (
               <a
                 key={job.title}
-                href="/contact"
+                href={`/studio/jobs/${job.slug}`}
                 className="group flex items-center justify-between py-5 border-t border-black/10 no-underline text-black hover:text-black transition-colors"
               >
                 <div>
