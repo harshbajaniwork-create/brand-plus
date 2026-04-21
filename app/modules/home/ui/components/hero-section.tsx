@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { initHeroParallax, runHeroEntrance } from "@/lib/animations/hero-anim";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * HeroSection
@@ -17,6 +18,7 @@ import { initHeroParallax, runHeroEntrance } from "@/lib/animations/hero-anim";
  *  - Black overlay for white navbar text visibility
  */
 export function HeroSection() {
+  const { t } = useLanguage();
   useEffect(() => {
     const cleanupParallax = initHeroParallax();
     runHeroEntrance();
@@ -54,9 +56,7 @@ export function HeroSection() {
             className="hero-title body-48 md:body-72 xl:body-100 text-white font-normal uppercase leading-[1.1] opacity-0"
             style={{ fontFamily: "Europa-Grotesk, Inter, sans-serif" }}
           >
-            Nachhaltig
-            <br />
-            Gestalten
+            {t("home.hero.heading")}
           </h1>
 
           <div
@@ -66,7 +66,7 @@ export function HeroSection() {
             }}
           >
             <Button variant="cta" size="lg" className="px-10 py-8">
-              Brandschutz planbar
+              {t("home.hero.cta")}
             </Button>
           </div>
         </div>
@@ -81,13 +81,13 @@ export function HeroSection() {
           {/* Scroll Down */}
           <div className="flex gap-2 body-16 uppercase opacity-52">
             <span>[</span>
-            <span>Scroll down</span>
+            <span>{t("home.hero.scrollDown")}</span>
             <span>]</span>
           </div>
 
           {/* Minimal Brand Identifier (Optional, matches inspo's layout) */}
           <div className="hidden md:block col-start-10 col-end-13 body-16 md:body-20 max-w-[24rem]">
-            Design studio / Branding & Identity
+            {t("home.hero.designStudio")}
           </div>
         </div>
       </div>

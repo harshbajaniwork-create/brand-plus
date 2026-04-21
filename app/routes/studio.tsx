@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { StudioView } from "@/modules/studio/ui/view/studio-view";
+import { LoaderWrapper } from "@/components/loader";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -15,7 +16,9 @@ export function meta({}: Route.MetaArgs) {
 export default function Studio() {
   return (
     <>
-      <StudioView />
+      <LoaderWrapper>
+        <StudioView />
+      </LoaderWrapper>
     </>
   );
 }

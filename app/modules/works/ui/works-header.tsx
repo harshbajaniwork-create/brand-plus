@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface WorksHeaderProps {
   label: string;
@@ -16,6 +17,7 @@ export default function WorksHeader({
   drawerOpen,
   onToggleDrawer,
 }: WorksHeaderProps) {
+  const { t } = useLanguage();
   const [hovered, setHovered] = useState(false);
   const countStr = String(count).padStart(2, "0");
 
@@ -45,7 +47,7 @@ export default function WorksHeader({
               animate={{ x: drawerOpen ? "-110%" : "0%" }}
               transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
             >
-              Filters
+              {t("works.filters")}
             </motion.span>
 
             {/* "Close" — slides in from right only when drawer opens */}
@@ -55,7 +57,7 @@ export default function WorksHeader({
               animate={{ x: drawerOpen ? "0%" : "110%" }}
               transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
             >
-              Close
+              {t("works.close")}
             </motion.span>
           </div>
 

@@ -44,7 +44,7 @@ export default function Home() {
           <div id="portfolio">
             <SelectedWorks />
           </div>
-          <WorksGrid />
+          {/* <WorksGrid /> */}
           <VisionSection />
           <ProcessSection />
         </main>

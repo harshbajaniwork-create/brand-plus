@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/context";
+
 /**
  * StudioQuote
  * Large blockquote offset by 2 columns (matching inspo DOM)
@@ -7,6 +9,7 @@
  * from the offset start point.
  */
 export function StudioQuote() {
+  const { t } = useLanguage();
   return (
     <section className="relative bg-white text-black px-(--margin) py-32 md:py-48">
       <div className="w-full">
@@ -17,8 +20,7 @@ export function StudioQuote() {
         />
 
         <blockquote className="inline body-48 md:body-60 xl:text-8xl! font-bold leading-[1.05] tracking-wider">
-          "Each brand is singular, responding to multiple truths — the outcome
-          is never a single vision."
+          {t("studio.quote")}
         </blockquote>
       </div>
     </section>

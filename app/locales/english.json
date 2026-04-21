@@ -1,0 +1,302 @@
+{
+  "navbar": {
+    "works": "Works",
+    "process": "Process",
+    "studio": "Studio",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "home": "Home",
+    "location": "Berlin, DEU"
+  },
+  "footer": {
+    "talkToUs": "Talk to us about your project",
+    "contactUs": "Contact us",
+    "subscribeNewsletter": "Subscribe to our newsletter",
+    "enterEmail": "Enter your email",
+    "thanksForJoining": "Thanks for joining!",
+    "backToTop": "Back to top",
+    "home": "Home",
+    "work": "Work",
+    "studio": "Studio",
+    "process": "Process",
+    "contact": "Contact",
+    "location": "L",
+    "address": "Dieffenbachstraße 37 2.HH Fabrik\n10967 Berlin",
+    "contactLabel": "C",
+    "email": "home@brandplus.berlin",
+    "instagram": "Instagram",
+    "linkedin": "Linkedin",
+    "allRightsReserved": "All rights reserved",
+    "copyright": "© brand+ 2025",
+    "privacyPolicy": "Privacy policy",
+    "termsOfService": "Terms of services",
+    "madeWithPassionIn": "Made with passion in",
+    "berlin": "Berlin"
+  },
+  "studio": {
+    "title": "Studio",
+    "subtitle": "About us",
+    "hero": {
+      "heading": "Brand+ is a Berlin-based branding & identity studio.",
+      "paragraph": "We provide a strategic, hands-on approach to brand building. Underpinning all of our work is an understanding of context, client ambition, and cultural relevance — so that identities are meaningful, enduring, and deeply resonant. With experience spanning challenger brands, heritage institutions, and category-defining startups, we believe human intelligence must drive every creative decision."
+    },
+    "quote": "\"Each brand is singular, responding to multiple truths — the outcome is never a single vision.\"",
+    "team": {
+      "label": "Meet the Team"
+    },
+    "values": {
+      "label": "Our Values",
+      "paragraph1": "We provide a boutique level of service and a hands-on approach.",
+      "paragraph2": "Underpinning all of our work is an understanding of context, client needs and user experience, so that buildings and spaces are meaningful and remain relevant over time."
+    },
+    "vision": {
+      "label": "Our Vision",
+      "designIntegrity": {
+        "title": "Design Integrity",
+        "body": "Our design aesthetic is established through a consistent process and a detailed concept brief, which considers client needs, site context, and the future occupiers. We combine and test these elements to create a singular design vision concealing many influencing layers. This singular vision, like a piece of artwork, is unique and individual. We believe the principles of design quality should always be present no matter the project brief or building scale."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "body": "brand+ welcomes innovation through research and technology to contribute new ideas and challenging theories. We see technology as a tool — integral to our work — however we believe human intelligence must drive creativity. We heavily invest time in research through leading industry seminars and international study tours."
+      },
+      "enhancedLiving": {
+        "title": "Enhanced Living",
+        "body": "We believe enhanced user experience and well-being should be at the forefront of design. We constantly consider the impact of design on the end user to ensure our work promotes positive human interaction and encourages healthier, enriched experiences."
+      }
+    },
+    "awards": {
+      "label": "Recognition"
+    },
+    "jobs": {
+      "label": "Opportunities",
+      "intro": "We are looking for talented people who share our vision.",
+      "apply": "Apply now",
+      "heading": "Job Offers",
+      "jobs": {
+        "brandStrategist": "Brand Strategist",
+        "seniorIdentityDesigner": "Senior Identity Designer",
+        "digitalBrandDirector": "Digital Brand Director"
+      },
+      "fullTimeBerlin": "Full-time · Berlin",
+      "fullTimeRemote": "Full-time · Remote",
+      "detail": {
+        "backToStudio": "Back to Studio",
+        "applyForRole": "Apply for this role",
+        "aboutRole": "About the role",
+        "responsibilities": "Responsibilities",
+        "requirements": "Requirements",
+        "notFound": "Position not found",
+        "jobs": {
+          "brandStrategist": {
+            "title": "Brand Strategist",
+            "type": "Full-time · Berlin",
+            "description": "We are looking for a conceptual and analytical Brand Strategist to join our Berlin studio. You will be responsible for uncovering core insights, defining brand architectures, and shaping brand narratives that resonate deeply with audiences and align with business goals.",
+            "responsibilities": [
+              "Lead strategic discovery processes, including stakeholder interviews, workshops, and market research.",
+              "Develop comprehensive brand strategies defining positioning, purpose, and messaging frameworks.",
+              "Translate complex business challenges into clear, actionable creative briefs.",
+              "Collaborate closely with design and digital teams to ensure strategic alignment throughout the creative process."
+            ],
+            "requirements": [
+              "3+ years of experience in brand strategy, preferably within a branding agency or studio environment.",
+              "Strong analytical skills with the ability to distill complex information into clear insights.",
+              "Excellent written and verbal communication skills in English (German is a plus).",
+              "A deep understanding of brand building and design thinking."
+            ]
+          },
+          "seniorIdentityDesigner": {
+            "title": "Senior Identity Designer",
+            "type": "Full-time · Berlin",
+            "description": "We are seeking a highly talented and experienced Senior Identity Designer to craft bold, enduring visual identities. In this role, you will lead design projects from concept to completion, defining the visual language for brands across various industries.",
+            "responsibilities": [
+              "Conceptualize and design comprehensive visual identity systems, including logos, typography, color palettes, and brand guidelines.",
+              "Lead and mentor junior designers, providing creative direction and constructive feedback.",
+              "Present design concepts to clients with clear rationale and confidence.",
+              "Collaborate seamlessly with strategists and project managers to deliver exceptional work on time."
+            ],
+            "requirements": [
+              "5+ years of experience in graphic design, with a strong focus on visual identity and branding.",
+              "An outstanding portfolio demonstrating a high level of craft, conceptual thinking, and versatility.",
+              "Proficiency in industry-standard design software (Adobe Creative Suite, Figma).",
+              "Strong typographic skills and an impeccable eye for detail."
+            ]
+          },
+          "digitalBrandDirector": {
+            "title": "Digital Brand Director",
+            "type": "Full-time · Remote",
+            "description": "The Digital Brand Director will lead our digital initiatives, shaping how brands behave and interact in the digital space. You will oversee the creation of digital experiences, products, and platforms that seamlessly extend brand identities into the interactive realm.",
+            "responsibilities": [
+              "Define the digital vision and strategy for client brands, ensuring cohesion across all digital touchpoints.",
+              "Lead UI/UX design processes, directing teams to create intuitive and engaging digital experiences.",
+              "Stay at the forefront of digital trends, technologies, and best practices, integrating them appropriately into client work.",
+              "Collaborate closely with developers and technical partners to ensure high-quality implementation of digital designs."
+            ],
+            "requirements": [
+              "7+ years of experience in digital design, UI/UX, and digital product creation.",
+              "Proven leadership experience, guiding multi-disciplinary teams through complex digital projects.",
+              "A strong portfolio showcasing exceptional digital brand experiences and interactive design.",
+              "Deep understanding of user-centered design principles and digital accessibility."
+            ]
+          }
+        }
+      }
+    }
+  },
+  "process": {
+    "title": "Process",
+    "subtitle": "Our approach",
+    "hero": {
+      "text1": "Our work responds to a collection of influences;",
+      "strategicVision": "strategic vision",
+      "the": "the",
+      "clientsAmbition": "client's ambition",
+      "ourOwn": "our own",
+      "designConviction": "design conviction",
+      "and": "&",
+      "culturalResonance": "cultural resonance"
+    },
+    "quote": "\"Each brand is singular, responding to multiple truths — the outcome is never a single vision.\"",
+    "philosophy": {
+      "label": "Our Philosophy",
+      "text": "We are driven by a belief that brand identity can deepen people's connection to a business, enrich the way they interact with it, and preserve the cultural narratives that give it meaning. Our lasting impact will be thoughtful, context-led identities that honour their roots, strengthen their communities, and stand as enduring contributions to a more purposeful world."
+    },
+    "initiatives": {
+      "label": "Our Initiatives",
+      "heading": "Building trust, inspiring confidence, delivering excellence.",
+      "subheading": "Driven by purpose and guided by values, we turn our commitments into meaningful actions that inspire confidence and create lasting trust.",
+      "brandStrategy": {
+        "title": "Brand Strategy",
+        "leftText1": "We believe strategy is the invisible architecture of every great brand. Before a single colour is chosen or a wordmark drawn, we immerse ourselves in what drives your organisation.",
+        "leftText2": "Our strategic process uncovers territory no competitor has claimed, revealing the authentic positioning that makes your brand not just seen, but felt.",
+        "rightText1": "At brand+, strategy is never a document — it's a living framework. Every strategic recommendation is rooted in research, tension-tested against competitors, and stress-tested for longevity.",
+        "rightText2": "The outcome: a clear brand platform that orients every creative decision from identity to communication."
+      },
+      "visualIdentity": {
+        "title": "Visual Identity",
+        "leftText1": "Visual identity is the language through which a brand speaks without words. We craft systems that are immediately recognisable and infinitely adaptable — from a business card to a billboard.",
+        "leftText2": "Every mark we make is grounded in the strategic platform: the logo, typography, colour, and imagery all working in concert.",
+        "rightText1": "We develop comprehensive brand identity systems that account for every touchpoint your audience will encounter — digital, environmental, print, and motion.",
+        "rightText2": "Our process moves from concept exploration through refinement to a rigorous brand standards document your team can use with confidence."
+      },
+      "digitalBranding": {
+        "title": "Digital Branding",
+        "leftText1": "Digital is where brands are increasingly experienced. We design digital presences that feel as cohesive and intentional as they do innovative — from website UX to social identity systems.",
+        "leftText2": "We understand that digital branding is not static. It must perform across rapidly evolving platforms while remaining unmistakably yours.",
+        "rightText1": "Our digital branding work encompasses web design direction, UI component libraries, motion guidelines, and social content frameworks.",
+        "rightText2": "The result is a digital identity that lives and breathes — adapting to context while maintaining the integrity of your brand."
+      },
+      "brandGovernance": {
+        "title": "Brand Governance",
+        "leftText1": "A powerful brand is only as strong as its implementation. We develop the frameworks, guidelines, and tools that ensure your brand is activated consistently across every team, agency, and partner.",
+        "leftText2": "Brand governance is not creative policing — it is the infrastructure that lets your brand grow without losing cohesion.",
+        "rightText1": "We create living brand guidelines, stakeholder training programmes, and brand audit processes that help organisations sustain identity quality over time.",
+        "rightText2": "Centralising brand intelligence within your organisation enables every team member to become a confident custodian of the brand."
+      }
+    },
+    "accreditations": {
+      "label": "Accreditations",
+      "items": [
+        {
+          "title": "ISO 9001 Certified",
+          "subtitle": "Quality Management System ISO 9001:2015"
+        },
+        {
+          "title": "Brand Council Member",
+          "subtitle": "Active member of the International Brand Council, committed to advancing ethical branding practices and industry-wide excellence."
+        },
+        {
+          "title": "ADC — Art Directors Club",
+          "subtitle": "Recognised by the Art Directors Club for creative excellence. Our work upholds the highest standards of design craft and conceptual rigour."
+        },
+        {
+          "title": "B Corp Aligned",
+          "subtitle": "Operating in alignment with B Corp standards — balancing profit with purpose, and measuring success by our impact on people and planet."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk",
+    "heading": "Based in Berlin but available for your projects",
+    "business": "Business",
+    "phone": "Phone",
+    "address": "Address",
+    "instagram": "Instagram",
+    "linkedin": "Linkedin",
+    "rotatingWords": [
+      "Queensland",
+      "New South Wales",
+      "South Australia",
+      "Tasmania",
+      "Victoria",
+      "Western Australia",
+      "the rest of the World"
+    ]
+  },
+  "works": {
+    "title": "Works",
+    "subtitle": "Our projects",
+    "filters": "Filters",
+    "close": "Close",
+    "gridView": "Grid view",
+    "listView": "List view",
+    "allWork": "All Work",
+    "categories": {
+      "commercial": "Commercial",
+      "hospitality": "Hospitality",
+      "multiResidential": "Multi-residential",
+      "residential": "Residential",
+      "retail": "Retail",
+      "seniorsLiving": "Seniors' Living"
+    }
+  },
+  "home": {
+    "title": "Welcome",
+    "subtitle": "We create digital experiences",
+    "hero": {
+      "heading": "Designing Sustainably",
+      "cta": "Fire Safety Planning",
+      "scrollDown": "Scroll down",
+      "designStudio": "Design studio / Branding & Identity"
+    },
+    "studio": {
+      "subtitle": "Studio",
+      "description": "We are an interdisciplinary planning office for fire protection.",
+      "title": "Brand+ – Fire Safety with Responsibility and Plus",
+      "founders": "Birga Wingenfeld & Martin Unger",
+      "claim": "Our standard: technically precise solutions that ensure safety and respect architecture. Since our founding, we have accompanied projects of various scales – from the first idea to implementation on the construction site."
+    },
+    "portfolio": {
+      "number": "02",
+      "title": "Selected Works"
+    },
+    "vision": {
+      "label": "Vision",
+      "slides": [
+        {
+          "heading": "Building sustainably with wood.",
+          "text": "Sustainability in building means taking responsibility – with materials that are renewable, can be reused, and protect our environment."
+        },
+        {
+          "heading": "Innovation & Aesthetics",
+          "text": "Wood in particular shows how aesthetics, ecology, and innovation can be combined. As a renewable raw material, it stands for climate-friendly architecture and also places special demands on fire protection."
+        },
+        {
+          "heading": "Designing safely.",
+          "text": "This is exactly where we come in: With experience and foresight, we develop fire protection solutions that make sustainable building projects possible without limiting their creative power."
+        }
+      ]
+    },
+    "process": {
+      "number": "04",
+      "label": "Method",
+      "description": "The scope of our Studio covers all stages within Architecture and Interior Design. We offer an end to end level of service from early concepts through to practical completion."
+    },
+    "worksGrid": {
+      "allWork": "All Work",
+      "vision": "Vision"
+    }
+  }
+}

@@ -6,6 +6,7 @@ import {
   closeMenu,
   getMenuState,
 } from "@/lib/animations/header-toggle";
+import { useLanguage, type Language } from "@/lib/i18n/context";
 
 /**
  * Navigation
@@ -21,6 +22,7 @@ import {
  *  brand+  |  Menu
  */
 export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
+  const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [berlinTime, setBerlinTime] = useState("--:--");
   const [mounted, setMounted] = useState(false);
@@ -135,9 +137,9 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
           aria-label="Main navigation"
         >
           {[
-            { label: "Works", href: "/works" },
-            { label: "Process", href: "/process" },
-            { label: "Studio", href: "/studio" },
+            { label: t("navbar.works"), href: "/works" },
+            { label: t("navbar.process"), href: "/process" },
+            { label: t("navbar.studio"), href: "/studio" },
           ].map((item) => (
             <a
               key={item.href}
@@ -153,7 +155,7 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
           ))}
         </nav>
 
-        {/* Right cluster: time + location + contact */}
+        {/* Right cluster: time + language switcher + location + contact */}
         <div className="header-right-cluster desktop-nav flex items-end gap-8 shrink-0">
           {/* Time — dimmed */}
           <span
@@ -165,6 +167,17 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
             {mounted ? berlinTime : "--:--"}
           </span>
 
+          {/* Language Switcher */}
+          <button
+            onClick={() => setLanguage(language === "de" ? "en" : "de")}
+            className={`header-language whitespace-nowrap no-underline hover:opacity-40 transition-opacity duration-300 ${textColor} bg-transparent border-0 cursor-pointer`}
+            style={{
+              fontSize: "var(--text-16)",
+            }}
+          >
+            {language === "de" ? "DE" : "EN"}
+          </button>
+
           {/* Location */}
           <span
             className={`header-location whitespace-nowrap ${textColor} transition-colors duration-450ms`}
@@ -172,7 +185,7 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
               fontSize: "var(--text-16)",
             }}
           >
-            Berlin, DEU
+            {t("navbar.location")}
           </span>
 
           {/* Contact */}
@@ -183,7 +196,7 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
               fontSize: "var(--text-16)",
             }}
           >
-            Contact
+            {t("navbar.contact")}
           </a>
         </div>
 
@@ -199,7 +212,7 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
             overflow: "hidden",
           }}
         >
-          Menu
+          {t("navbar.menu")}
         </button>
       </header>
 
@@ -230,7 +243,7 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
                 transform: "translateY(100%)",
               }}
             >
-              Close
+              {t("navbar.close")}
             </button>
           </div>
 
@@ -255,11 +268,11 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
           {/* Nav links — large */}
           <nav className="flex flex-col gap-3">
             {[
-              { label: "Home", href: "/" },
-              { label: "Work", href: "/work" },
-              { label: "Process", href: "/process" },
-              { label: "Studio", href: "/studio" },
-              { label: "Contact", href: "/contact" },
+              { label: t("navbar.home"), href: "/" },
+              { label: t("navbar.works"), href: "/works" },
+              { label: t("navbar.process"), href: "/process" },
+              { label: t("navbar.studio"), href: "/studio" },
+              { label: t("navbar.contact"), href: "/contact" },
             ].map((item) => (
               <div key={item.href} style={{ overflow: "hidden" }}>
                 <a
@@ -281,8 +294,11 @@ export function Navigation({ forceTheme }: { forceTheme?: "light" | "dark" }) {
           {/* Socials at bottom */}
           <div className="absolute bottom-(--margin) left-(--margin) right-(--margin) flex gap-6">
             {[
-              { label: "Instagram", href: "https://www.instagram.com" },
-              { label: "Linkedin", href: "https://www.linkedin.com" },
+              {
+                label: t("footer.instagram"),
+                href: "https://www.instagram.com",
+              },
+              { label: t("footer.linkedin"), href: "https://www.linkedin.com" },
             ].map((s) => (
               <div key={s.label} style={{ overflow: "hidden" }}>
                 <a

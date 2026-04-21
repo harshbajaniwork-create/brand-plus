@@ -1,15 +1,8 @@
 import type { Route } from "./+types/works";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { lazy, Suspense } from "react";
-import Loader from "@/components/loader";
-
-// Lazy load works components
-const WorksPage = lazy(() =>
-  import("@/modules/works/ui/works-page").then((module) => ({
-    default: module.default,
-  })),
-);
+import { LoaderWrapper } from "@/components/loader";
+import WorksPage from "@/modules/works/ui/works-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -27,9 +20,9 @@ export default function Works() {
       <Navigation forceTheme="light" />
       <div className="relative w-full bg-white">
         <main>
-          <Suspense fallback={<Loader />}>
+          <LoaderWrapper>
             <WorksPage />
-          </Suspense>
+          </LoaderWrapper>
         </main>
       </div>
       <Footer />

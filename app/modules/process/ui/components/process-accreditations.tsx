@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/context";
+
 /**
  * ProcessAccreditations
  * Section 03 — "Accreditations"
@@ -12,29 +14,16 @@
  *    No separator on first item
  */
 
-const accreditations = [
-  {
-    title: "ISO 9001 Certified",
-    subtitle: "Quality Management System ISO 9001:2015",
-  },
-  {
-    title: "Brand Council Member",
-    subtitle:
-      "Active member of the International Brand Council, committed to advancing ethical branding practices and industry-wide excellence.",
-  },
-  {
-    title: "ADC — Art Directors Club",
-    subtitle:
-      "Recognised by the Art Directors Club for creative excellence. Our work upholds the highest standards of design craft and conceptual rigour.",
-  },
-  {
-    title: "B Corp Aligned",
-    subtitle:
-      "Operating in alignment with B Corp standards — balancing profit with purpose, and measuring success by our impact on people and planet.",
-  },
-];
-
 export function ProcessAccreditations() {
+  const { t } = useLanguage();
+
+  const accreditations = t("process.accreditations.items", {
+    returnObjects: true,
+  }) as Array<{
+    title: string;
+    subtitle: string;
+  }>;
+
   return (
     <section className="relative bg-white text-black mt-100 md:mt-150 pb-100">
       {/* Bottom-left corner mark */}
@@ -53,7 +42,9 @@ export function ProcessAccreditations() {
         <div className="col-span-full md:col-span-3 max-md:mb-52">
           <div className="flex gap-x-4 uppercase body-14">
             <span className="text-[#cacfcb]">03</span>
-            <span className="tracking-widest">Accreditations</span>
+            <span className="tracking-widest">
+              {t("process.accreditations.label")}
+            </span>
           </div>
         </div>
 
@@ -62,7 +53,7 @@ export function ProcessAccreditations() {
           {accreditations.map((item, i) => (
             <div key={i} className="flex flex-col gap-y-16 md:gap-y-10">
               <h3 className="body-36 md:body-24 lg:body-36">{item.title}</h3>
-              <div className="body-20">{item.subtitle}</div>
+              <div className="body-20 whitespace-pre-line">{item.subtitle}</div>
             </div>
           ))}
         </div>

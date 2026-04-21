@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { initStudioAnimations } from "@/lib/animations/studio-anim";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * StudioSection
@@ -11,6 +12,7 @@ import { initStudioAnimations } from "@/lib/animations/studio-anim";
  * Children are now direct children of .grid-w for correct column spanning.
  */
 export function StudioSection() {
+  const { t } = useLanguage();
   useEffect(() => {
     const cleanup = initStudioAnimations();
     return () => {
@@ -65,16 +67,18 @@ export function StudioSection() {
             <span className="char translate-y-full opacity-0">1</span>
           </div>
           <div className="subtitle-text text-black flex overflow-hidden">
-            {"STUDIO".split("").map((char, i) => (
-              <span key={i} className="char translate-y-full opacity-0">
-                {char}
-              </span>
-            ))}
+            {t("home.studio.subtitle")
+              .split("")
+              .map((char, i) => (
+                <span key={i} className="char translate-y-full opacity-0">
+                  {char}
+                </span>
+              ))}
           </div>
         </div>
 
         <div className="wysiwyg w-full max-md:mt-10 body-16 leading-[1.3] mt-8">
-          <p>Wir sind ein interdisziplinäres Planungsbüro für Brandschutz.</p>
+          <p>{t("home.studio.description")}</p>
         </div>
       </div>
 
@@ -86,25 +90,18 @@ export function StudioSection() {
         <div className="block md:-mt-10 lg:-mt-12 xl:-mt-14">
           <span className="inline-block md:w-(--width-col-4) xl:w-(--width-col-offset-3) max-md:hidden"></span>
           <h2 className="studio-title-text translate-y-5 opacity-0 inline w-full body-36 md:body-48 lg:body-60 xl:body-72 leading-[1.1] font-normal uppercase">
-            Brand+ – Brandschutz mit Verantwortung und Plus
+            {t("home.studio.title")}
           </h2>
         </div>
       </div>
 
       {/* Bottom Small Text Side-by-Side */}
       <div className="col-span-full md:col-start-1 md:col-end-4 xl:col-start-4 xl:col-end-6 body-16 max-md:mb-[3.2rem] uppercase relative z-10">
-        Birga Wingenfeld
-        <br />
-        &amp; Martin Unger
+        {t("home.studio.founders")}
       </div>
 
       <div className="col-span-full md:col-start-5 xl:col-start-7 md:col-end-11 xl:pb-40 body-16 leading-relaxed relative z-10">
-        <p>
-          Unser Anspruch: technisch präzise Lösungen, die Sicherheit
-          gewährleisten und Architektur respektieren. Seit unserer Gründung
-          begleiten wir Projekte unterschiedlichster Größenordnung – von der
-          ersten Idee bis zur Umsetzung auf der Baustelle.
-        </p>
+        <p className="whitespace-pre-line">{t("home.studio.claim")}</p>
       </div>
     </section>
   );

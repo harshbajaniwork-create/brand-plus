@@ -1,14 +1,19 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { projects, categories } from "@/modules/works/data/works-data";
+import {
+  projects,
+  getLocalizedCategories,
+} from "@/modules/works/data/works-data";
 import WorksHeader from "./works-header";
 import FiltersDrawer from "./filters-drawer";
 import WorksGridView from "./works-grid-view";
 import WorksListView from "./works-list-view";
 import ViewToggle from "./view-toggle";
+import { useLanguage } from "@/lib/i18n/context";
 
 export default function WorksPage() {
+  const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState("all");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -18,9 +23,10 @@ export default function WorksPage() {
     return projects.filter((p) => p.category === activeFilter);
   }, [activeFilter]);
 
+  const categories = getLocalizedCategories(t);
   const activeCategory = categories.find((c) => c.key === activeFilter);
   const displayCount = filteredProjects.length;
-  const displayLabel = activeCategory?.label ?? "All Work";
+  const displayLabel = activeCategory?.label ?? t("works.allWork");
 
   const handleFilterSelect = (key: string) => {
     setActiveFilter(key);

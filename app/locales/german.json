@@ -1,0 +1,303 @@
+{
+  "navbar": {
+    "works": "Werke",
+    "process": "Prozess",
+    "studio": "Studio",
+    "contact": "Kontakt",
+    "menu": "Menü",
+    "close": "Schließen",
+    "home": "Startseite",
+    "location": "Berlin, DEU"
+  },
+  "footer": {
+    "talkToUs": "Sprechen Sie mit uns über Ihr Projekt",
+    "contactUs": "Kontaktieren Sie uns",
+    "subscribeNewsletter": "Abonnieren Sie unseren Newsletter",
+    "enterEmail": "Geben Sie Ihre E-Mail ein",
+    "thanksForJoining": "Danke für Ihre Teilnahme!",
+    "backToTop": "Nach oben",
+    "home": "Startseite",
+    "work": "Werke",
+    "studio": "Studio",
+    "process": "Prozess",
+    "contact": "Kontakt",
+    "location": "L",
+    "address": "Dieffenbachstraße 37 2.HH Fabrik\n10967 Berlin",
+    "contactLabel": "C",
+    "email": "home@brandplus.berlin",
+    "instagram": "Instagram",
+    "linkedin": "Linkedin",
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "copyright": "© brand+ 2025",
+    "privacyPolicy": "Datenschutzerklärung",
+    "termsOfService": "Nutzungsbedingungen",
+    "madeWithPassionIn": "Mit Leidenschaft gemacht in",
+    "berlin": "Berlin"
+  },
+  "studio": {
+    "title": "Studio",
+    "subtitle": "Über uns",
+    "hero": {
+      "heading": "Brand+ ist ein Berliner Branding- & Identitätsstudio.",
+      "paragraph": "Wir bieten einen strategischen, hands-on Ansatz zum Markenaufbau. Unserem allen Arbeiten liegt ein Verständnis für Kontext, Kundenambitionen und kulturelle Relevanz zugrunde – damit Identitäten bedeutsam, beständig und tief resonant sind. Mit Erfahrung, die von Challenger-Marken, Traditionsinstitutionen und kategorie-definierenden Start-ups reicht, glauben wir, dass menschliche Intelligenz jede kreative Entscheidung antreiben muss."
+    },
+    "quote": "\"Jede Marke ist einzigartig und reagiert auf mehrere Wahrheiten – das Ergebnis ist nie eine einzige Vision.\"",
+    "team": {
+      "label": "Team kennenlernen"
+    },
+    "values": {
+      "label": "Unsere Werte",
+      "paragraph1": "Wir bieten ein Boutique-Niveau an Service und einen hands-on Ansatz.",
+      "paragraph2": "Unserem allen Arbeiten liegt ein Verständnis für Kontext, Kundenbedürfnisse und Benutzererfahrung zugrunde, damit Gebäude und Räume bedeutsam bleiben und über die Zeit relevant bleiben."
+    },
+    "vision": {
+      "label": "Unsere Vision",
+      "designIntegrity": {
+        "title": "Design-Integrität",
+        "body": "Unsere Design-Ästhetik wird durch einen konsistenten Prozess und ein detailliertes Konzept-Briefing etabliert, das Kundenbedürfnisse, Standortkontext und die zukünftigen Nutzer berücksichtigt. Wir kombinieren und testen diese Elemente, um eine singuläre Design-Vision zu schaffen, die viele einflussreiche Schichten verbirgt. Diese singuläre Vision, wie ein Kunstwerk, ist einzigartig und individuell. Wir glauben, dass die Prinzipien der Designqualität immer präsent sein sollten, unabhängig vom Projektbriefing oder der Baugröße."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "body": "brand+ begrüßt Innovation durch Forschung und Technologie, um neue Ideen und herausfordernde Theorien beizutragen. Wir sehen Technologie als Werkzeug – integral für unsere Arbeit – jedoch glauben wir, dass menschliche Intelligenz die Kreativität antreiben muss. Wir investieren viel Zeit in Forschung durch führende Industrie-Seminare und internationale Studienreisen."
+      },
+      "enhancedLiving": {
+        "title": "Verbessertes Leben",
+        "body": "Wir glauben, dass eine verbesserte Benutzererfahrung und Wohlbefinden im Vordergrund des Designs stehen sollten. Wir berücksichtigen ständig die Auswirkungen des Designs auf den Endbenutzer, um sicherzustellen, dass unsere Arbeit positive menschliche Interaktion fördert und gesündere, bereicherte Erfahrungen fördert."
+      }
+    },
+    "awards": {
+      "label": "Anerkennung"
+    },
+    "jobs": {
+      "label": "Möglichkeiten",
+      "heading": "Stellenangebote",
+      "intro": "Wir suchen talentierte Menschen, die unsere Vision teilen.",
+      "apply": "Jetzt bewerben",
+      "detail": {
+        "backToStudio": "Zurück zum Studio",
+        "applyForRole": "Für diese Stelle bewerben",
+        "aboutRole": "Über die Stelle",
+        "responsibilities": "Verantwortlichkeiten",
+        "requirements": "Anforderungen",
+        "notFound": "Stelle nicht gefunden",
+        "jobs": {
+          "brandStrategist": {
+            "title": "Markenstratege",
+            "type": "Vollzeit · Berlin",
+            "description": "Wir suchen einen konzeptionellen und analytischen Markenstratege für unser Berliner Studio. Sie werden für die Aufdeckung zentraler Erkenntnisse, die Definition von Markenarchitekturen und die Gestaltung von Markengeschichten verantwortlich sein, die tief mit den Zielgruppen resonieren und mit den Geschäftszielen übereinstimmen.",
+            "responsibilities": [
+              "Leitung strategischer Entdeckungsprozesse, einschließlich Stakeholder-Interviews, Workshops und Marktforschung.",
+              "Entwicklung umfassender Markenstrategien zur Definition von Positionierung, Zweck und Messaging-Frameworks.",
+              "Übersetzung komplexer geschäftlicher Herausforderungen in klare, umsetzbare kreative Briefings.",
+              "Enge Zusammenarbeit mit Design- und Digitalteams, um die strategische Ausrichtung während des gesamten kreativen Prozesses sicherzustellen."
+            ],
+            "requirements": [
+              "3+ Jahre Erfahrung in der Markenstrategie, vorzugsweise in einer Markenagentur oder einem Studio-Umfeld.",
+              "Starke analytische Fähigkeiten mit der Fähigkeit, komplexe Informationen in klare Erkenntnisse zu destillieren.",
+              "Ausgezeichnete schriftliche und mündliche Kommunikationsfähigkeiten in Englisch (Deutsch ist ein Plus).",
+              "Ein tiefes Verständnis für Markenaufbau und Design Thinking."
+            ]
+          },
+          "seniorIdentityDesigner": {
+            "title": "Senior-Identitätsdesigner",
+            "type": "Vollzeit · Berlin",
+            "description": "Wir suchen einen hoch talentierten und erfahrenen Senior-Identitätsdesigner, der mutige, dauerhafte visuelle Identitäten gestaltet. In dieser Rolle werden Sie Designprojekte von Konzept bis Fertigstellung leiten und die visuelle Sprache für Marken in verschiedenen Branchen definieren.",
+            "responsibilities": [
+              "Konzeptionierung und Gestaltung umfassender visueller Identitätssysteme, einschließlich Logos, Typografie, Farbpaletten und Markenrichtlinien.",
+              "Leitung und Mentoring von Junior-Designern, Bereitstellung kreativer Richtung und konstruktivem Feedback.",
+              "Präsentation von Designkonzepten bei Kunden mit klarer Begründung und Selbstvertrauen.",
+              "Nahtlose Zusammenarbeit mit Strategen und Projektmanagern, um außergewöhnliche Arbeit pünktlich zu liefern."
+            ],
+            "requirements": [
+              "5+ Jahre Erfahrung im Grafikdesign mit starkem Fokus auf visuelle Identität und Branding.",
+              "Ein herausragendes Portfolio, das ein hohes Maß an Handwerk, konzeptionelles Denken und Vielseitigkeit zeigt.",
+              "Beherrschung branchenüblicher Designsoftware (Adobe Creative Suite, Figma).",
+              "Starke typografische Fähigkeiten und ein unfehlbares Auge für Details."
+            ]
+          },
+          "digitalBrandDirector": {
+            "title": "Digitaler Markendirektor",
+            "type": "Vollzeit · Remote",
+            "description": "Der digitale Markendirektor wird unsere digitalen Initiativen leiten und bestimmen, wie Marken sich verhalten und im digitalen Raum interagieren. Sie werden die Erstellung digitaler Erlebnisse, Produkte und Plattformen überwachen, die Markenidentitäten nahtlos in den interaktiven Bereich erweitern.",
+            "responsibilities": [
+              "Definition der digitalen Vision und Strategie für Kundenmarken, um Kohärenz über alle digitalen Touchpoints hinweg sicherzustellen.",
+              "Leitung von UI/UX-Designprozessen, Anleitung von Teams zur Erstellung intuitiver und ansprechender digitaler Erlebnisse.",
+              "An der Spitze der digitalen Trends, Technologien und Best Practices bleiben und diese angemessen in die Kundenarbeit integrieren.",
+              "Enge Zusammenarbeit mit Entwicklern und technischen Partnern, um eine hochwertige Umsetzung der digitalen Designs sicherzustellen."
+            ],
+            "requirements": [
+              "7+ Jahre Erfahrung im Digitaldesign, UI/UX und der Erstellung digitaler Produkte.",
+              "Nachgewiesene Führungserfahrung, Leitung multidisziplinärer Teams durch komplexe digitale Projekte.",
+              "Ein starkes Portfolio, das außergewöhnliche digitale Markenerlebnisse und interaktives Design zeigt.",
+              "Tiefes Verständnis für benutzerzentrierte Designprinzipien und digitale Barrierefreiheit."
+            ]
+          }
+        }
+      },
+      "paragraph": "Wir suchen immer nach talentierten Personen, die leidenschaftlich für Marke, Strategie und Design sind. Wenn Sie an die Kraft von Identität glauben und mit Marken arbeiten möchten, die wichtig sind, würden wir gerne von Ihnen hören.",
+      "jobs": {
+        "brandStrategist": "Markenstratege",
+        "seniorIdentityDesigner": "Senior-Identitätsdesigner",
+        "digitalBrandDirector": "Digitaler Markendirektor"
+      },
+      "fullTimeBerlin": "Vollzeit · Berlin",
+      "fullTimeRemote": "Vollzeit · Remote"
+    }
+  },
+  "process": {
+    "title": "Prozess",
+    "subtitle": "Unser Ansatz",
+    "hero": {
+      "text1": "Unsere Arbeit reagiert auf eine Sammlung von Einflüssen;",
+      "strategicVision": "strategische Vision",
+      "the": "die",
+      "clientsAmbition": "Ambition des Kunden",
+      "ourOwn": "unser eigene",
+      "designConviction": "Design-Überzeugung",
+      "and": "&",
+      "culturalResonance": "kulturelle Resonanz"
+    },
+    "quote": "\"Jede Marke ist einzigartig und reagiert auf mehrere Wahrheiten – das Ergebnis ist nie eine einzige Vision.\"",
+    "philosophy": {
+      "label": "Unsere Philosophie",
+      "text": "Wir werden von dem Glauben angetrieben, dass Markenidentität die Verbindung der Menschen zu einem Unternehmen vertiefen, die Art und Weise bereichern kann, wie sie damit interagieren, und die kulturellen Erzählungen bewahren kann, die ihr Bedeutung geben. Unser dauerhafter Einfluss wird durchdachte, kontextgeleitete Identitäten sein, die ihre Wurzeln ehren, ihre Gemeinschaften stärken und als bleibende Beiträge zu einer zweckmäßigeren Welt stehen."
+    },
+    "initiatives": {
+      "label": "Unsere Initiativen",
+      "heading": "Vertrauen aufbauen, Selbstvertrauen inspirieren, Exzellenz liefern.",
+      "subheading": "Angetrieben von Zweck und geleitet von Werten, verwandeln wir unsere Verpflichtungen in bedeutungsvolle Handlungen, die Selbstvertrauen inspirieren und dauerhaftes Vertrauen schaffen.",
+      "brandStrategy": {
+        "title": "Markenstrategie",
+        "leftText1": "Wir glauben, dass Strategie die unsichtbare Architektur jeder großen Marke ist. Bevor eine einzige Farbe gewählt oder ein Wortmark gezeichnet wird, tauchen wir ein in das, was Ihre Organisation antreibt.",
+        "leftText2": "Unser strategischer Prozess deckt Gebiete auf, die kein Wettbewerber beansprucht hat, und enthüllt die authentische Positionierung, die Ihre Marke nicht nur sichtbar, sondern spürbar macht.",
+        "rightText1": "Bei brand+ ist Strategie niemals ein Dokument – es ist ein lebendiges Rahmenwerk. Jede strategische Empfehlung wurzelt in Forschung, wird gegen Wettbewerber auf Spannung getestet und auf Langlebigkeit stressgetestet.",
+        "rightText2": "Das Ergebnis: eine klare Markenplattform, die jede kreative Entscheidung von Identität bis Kommunikation ausrichtet."
+      },
+      "visualIdentity": {
+        "title": "Visuelle Identität",
+        "leftText1": "Visuelle Identität ist die Sprache, durch die eine Marke ohne Worte spricht. Wir gestalten Systeme, die sofort erkennbar und unendlich anpassbar sind – von einer Visitenkarte bis zu einem Werbeplakat.",
+        "leftText2": "Jeder Strich, den wir setzen, ist in der strategischen Plattform verwurzelt: Das Logo, die Typografie, die Farbe und die Bildsprache arbeiten alle im Einklang.",
+        "rightText1": "Wir entwickeln umfassende Markenidentitätssysteme, die jeden Berührungspunkt berücksichtigen, den Ihr Publikum erleben wird – digital, umweltbezogen, gedruckt und in Bewegung.",
+        "rightText2": "Unser Prozess bewegt sich von der Konzepterforschung über die Verfeinerung bis zu einem rigorosen Markenstandards-Dokument, das Ihr Team mit Selbstvertrauen nutzen kann."
+      },
+      "digitalBranding": {
+        "title": "Digitales Branding",
+        "leftText1": "Digital ist der Ort, an dem Marken zunehmend erlebt werden. Wir gestalten digitale Präsenzen, die so kohärent und absichtlich wirken wie innovativ – von Website-UX bis hin zu Social-Identitätssystemen.",
+        "leftText2": "Wir verstehen, dass digitales Branding nicht statisch ist. Es muss über schnell entwickelnde Plattformen hinweg funktionieren und dabei unmissverständlich Ihr bleiben.",
+        "rightText1": "Unsere digitale Branding-Arbeit umfasst Web-Design-Richtung, UI-Komponentenbibliotheken, Motion-Richtlinien und Social-Content-Frameworks.",
+        "rightText2": "Das Ergebnis ist eine digitale Identität, die lebt und atmet – sie passt sich dem Kontext an und bewahrt dabei die Integrität Ihrer Marke."
+      },
+      "brandGovernance": {
+        "title": "Markensteuerung",
+        "leftText1": "Eine starke Marke ist nur so stark wie ihre Umsetzung. Wir entwickeln die Rahmenwerke, Richtlinien und Tools, die sicherstellen, dass Ihre Marke konsistent über jedes Team, jede Agentur und jeden Partner hinweg aktiviert wird.",
+        "leftText2": "Markensteuerung ist keine kreative Polizeiarbeit – es ist die Infrastruktur, die es Ihrer Marke ermöglicht, zu wachsen, ohne den Zusammenhalt zu verlieren.",
+        "rightText1": "Wir erstellen lebendige Markenrichtlinien, Stakeholder-Schulungsprogramme und Marken-Audit-Prozesse, die Organisationen helfen, die Identitätsqualität über die Zeit aufrechtzuerhalten.",
+        "rightText2": "Die Zentralisierung von Markenwissen innerhalb Ihrer Organisation ermöglicht es jedem Teammitglied, ein selbstbewusster Hüter der Marke zu werden."
+      }
+    },
+    "accreditations": {
+      "label": "Akkreditierungen",
+      "items": [
+        {
+          "title": "ISO 9001 Zertifiziert",
+          "subtitle": "Qualitätsmanagementsystem ISO 9001:2015"
+        },
+        {
+          "title": "Mitglied des Brand Council",
+          "subtitle": "Aktives Mitglied des International Brand Council, verpflichtet zur Förderung ethischer Branding-Praktiken und branchenweiter Exzellenz."
+        },
+        {
+          "title": "ADC — Art Directors Club",
+          "subtitle": "Vom Art Directors Club für kreative Exzellenz anerkannt. Unsere Arbeit hält die höchsten Standards an Design-Handwerk und konzeptionelle Strenge ein."
+        },
+        {
+          "title": "B Corp Ausgerichtet",
+          "subtitle": "Ausrichtung an B Corp-Standards – Balance zwischen Gewinn und Zweck, und Messung des Erfolgs durch unsere Auswirkungen auf Menschen und Planet."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Lassen Sie uns sprechen",
+    "heading": "Basierend in Berlin aber verfügbar für Ihre Projekte",
+    "business": "Geschäft",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "instagram": "Instagram",
+    "linkedin": "Linkedin",
+    "rotatingWords": [
+      "Berlin",
+      "München",
+      "Hamburg",
+      "Köln",
+      "Frankfurt",
+      "Stuttgart",
+      "der Rest der Welt"
+    ]
+  },
+  "works": {
+    "title": "Werke",
+    "subtitle": "Unsere Projekte",
+    "filters": "Filter",
+    "close": "Schließen",
+    "gridView": "Rasteransicht",
+    "listView": "Listenansicht",
+    "allWork": "Alle Arbeiten",
+    "categories": {
+      "commercial": "Gewerbe",
+      "hospitality": "Gastgewerbe",
+      "multiResidential": "Mehrfamilienhäuser",
+      "residential": "Wohnen",
+      "retail": "Einzelhandel",
+      "seniorsLiving": "Seniorenwohnen"
+    }
+  },
+  "home": {
+    "title": "Willkommen",
+    "subtitle": "Wir schaffen digitale Erlebnisse",
+    "hero": {
+      "heading": "Nachhaltig Gestalten",
+      "cta": "Brandschutz planbar",
+      "scrollDown": "Scroll down",
+      "designStudio": "Design studio / Branding & Identity"
+    },
+    "studio": {
+      "subtitle": "Studio",
+      "description": "Wir sind ein interdisziplinäres Planungsbüro für Brandschutz.",
+      "title": "Brand+ – Brandschutz mit Verantwortung und Plus",
+      "founders": "Birga Wingenfeld & Martin Unger",
+      "claim": "Unser Anspruch: technisch präzise Lösungen, die Sicherheit gewährleisten und Architektur respektieren. Seit unserer Gründung begleiten wir Projekte unterschiedlichster Größenordnung – von der ersten Idee bis zur Umsetzung auf der Baustelle."
+    },
+    "portfolio": {
+      "number": "02",
+      "title": "Ausgewählte Arbeiten"
+    },
+    "vision": {
+      "label": "Vision",
+      "slides": [
+        {
+          "heading": "Nachhaltig bauen mit Holz.",
+          "text": "Nachhaltigkeit im Bauen heißt, Verantwortung zu übernehmen – mit Materialien, die erneuerbar sind, wiederverwendet werden können und unsere Umwelt schonen."
+        },
+        {
+          "heading": "Innovation & Ästhetik",
+          "text": "Besonders Holz zeigt, wie sich Ästhetik, Ökologie und Innovation vereinen lassen. Als nachwachsender Rohstoff steht es für klimafreundliche Architektur und stellt zugleich besondere Anforderungen an den Brandschutz."
+        },
+        {
+          "heading": "Sicher gestalten.",
+          "text": "Genau hier setzen wir an: Mit Erfahrung und Weitblick entwickeln wir Brandschutzlösungen, die nachhaltige Bauprojekte möglich machen, ohne ihre kreative Kraft zu bremsen."
+        }
+      ]
+    },
+    "process": {
+      "number": "04",
+      "label": "Methode",
+      "description": "Der Umfang unseres Studios umfasst alle Phasen der Architektur und des Innendesigns. Wir bieten einen umfassenden Service von frühen Konzepten bis zur praktischen Fertigstellung."
+    },
+    "worksGrid": {
+      "allWork": "Alle Arbeiten",
+      "vision": "Vision"
+    }
+  }
+}

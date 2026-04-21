@@ -13,10 +13,22 @@ import SplitText from "@/components/react-bits/split-text";
  */
 export function LoadingScreen() {
   const [splitDone, setSplitDone] = useState(false);
+  const [minimumTimeElapsed, setMinimumTimeElapsed] = useState(false);
 
-  // Only start the loader animation after the split-text has finished
+  // Start minimum 3 second timer when component mounts
   useEffect(() => {
-    if (!splitDone) return;
+    const timer = setTimeout(() => {
+      setMinimumTimeElapsed(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Only start the loader animation after both conditions are met:
+  // 1. Split text animation is complete (content ready)
+  // 2. Minimum 3 seconds have elapsed
+  useEffect(() => {
+    if (!splitDone || !minimumTimeElapsed) return;
 
     const timer = setTimeout(() => {
       runLoader(() => {
@@ -25,7 +37,7 @@ export function LoadingScreen() {
     }, 50);
 
     return () => clearTimeout(timer);
-  }, [splitDone]);
+  }, [splitDone, minimumTimeElapsed]);
 
   return (
     <>

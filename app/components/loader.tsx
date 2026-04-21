@@ -1,8 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SplitText from "./react-bits/split-text";
+import { runLoader } from "@/lib/animations/loader";
+import { runHeaderEntrance } from "@/lib/animations/header-anim";
 
 const Loader = () => {
   const [splitDone, setSplitDone] = useState(false);
+  const [minimumTimeElapsed, setMinimumTimeElapsed] = useState(false);
+
+  // Start minimum 3 second timer when component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMinimumTimeElapsed(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Only start the loader animation after both conditions are met:
+  // 1. Split text animation is complete (content ready)
+  // 2. Minimum 3 seconds have elapsed
+  useEffect(() => {
+    if (!splitDone || !minimumTimeElapsed) return;
+
+    const timer = setTimeout(() => {
+      runLoader(() => {
+        runHeaderEntrance();
+      });
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [splitDone, minimumTimeElapsed]);
 
   return (
     <>
@@ -80,6 +107,37 @@ const Loader = () => {
     </>
   );
 };
+
+// Wrapper component that enforces minimum display time for Suspense
+export function LoaderWrapper({ children }: { children: React.ReactNode }) {
+  const [showLoader, setShowLoader] = useState(true);
+  const [minimumTimeElapsed, setMinimumTimeElapsed] = useState(false);
+
+  useEffect(() => {
+    // Start minimum 3 second timer
+    const timer = setTimeout(() => {
+      setMinimumTimeElapsed(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Only hide loader when minimum time has elapsed
+    if (minimumTimeElapsed) {
+      const timer = setTimeout(() => {
+        setShowLoader(false);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [minimumTimeElapsed]);
+
+  if (showLoader) {
+    return <Loader />;
+  }
+
+  return <>{children}</>;
+}
 
 export default Loader;
 

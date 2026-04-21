@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { initFooterAnim } from "@/lib/animations/footer-anim";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * Footer
@@ -12,6 +13,7 @@ import { initFooterAnim } from "@/lib/animations/footer-anim";
  *  - BOTTOM (Black Sticky): Large brand+ SVG, Copyright, Legal links.
  */
 export function Footer() {
+  const { t } = useLanguage();
   const emailRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -57,18 +59,18 @@ export function Footer() {
           {/* Talk to us */}
           <div className="flex flex-col items-start gap-4">
             <div className="body-24 text-(--color-mist)">
-              Talk to us about your project
+              {t("footer.talkToUs")}
             </div>
             <a
               href="/contact"
               className="link-underline body-24 text-black no-underline"
             >
-              Contact us
+              {t("footer.contactUs")}
             </a>
           </div>
 
           {/* Newsletter */}
-          <div className="w-full flex flex-col gap-2">
+          {/* <div className="w-full flex flex-col gap-2">
             <div className="body-14">Subscribe to our newsletter</div>
             <form
               id="newsletter-form"
@@ -85,42 +87,48 @@ export function Footer() {
                 className="body-14 block outline-none rounded-none border-0 bg-transparent flex-1 py-3 text-inherit font-inherit"
               />
               {/* Success message */}
-              <div className="newsletter-form-success-message body-14 absolute top-0 left-0 py-3 translate-y-full">
-                Thanks for joining!
-              </div>
-              <button
-                type="submit"
-                aria-label="Submit"
-                className="relative w-6 h-6 flex items-center justify-center cursor-pointer bg-transparent border-0 text-inherit py-3"
-              >
-                <svg
-                  width="13"
-                  height="10"
-                  viewBox="0 0 13 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.19922 0C1.42013 0 1.59961 0.179477 1.59961 0.400391V3.9502C1.59967 4.08821 1.71158 4.2002 1.84961 4.2002H9.60352C9.5349 4.0811 9.45139 3.96801 9.34961 3.86621L6.73047 1.24805C6.555 1.07238 6.55504 0.787026 6.73047 0.611328L7.13867 0.204102C7.31436 0.028412 7.59964 0.0285033 7.77539 0.204102L12.1094 4.53809C12.3632 4.79193 12.3632 5.20417 12.1094 5.45801L7.77539 9.79199C7.59964 9.96759 7.31436 9.96768 7.13867 9.79199L6.73047 9.38477C6.55506 9.20908 6.55504 8.92372 6.73047 8.74805L9.34961 6.12988C9.45019 6.02929 9.53239 5.91733 9.60059 5.7998H0.5C0.223897 5.7998 6.33352e-05 5.57589 0 5.2998V0.400391C0 0.179477 0.179477 0 0.400391 0H1.19922Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
-            </form>
+          <div className="newsletter-form-success-message body-14 absolute top-0 left-0 py-3 translate-y-full">
+            Thanks for joining!
           </div>
+          <button
+            type="submit"
+            aria-label="Submit"
+            className="relative w-6 h-6 flex items-center justify-center cursor-pointer bg-transparent border-0 text-inherit py-3"
+          >
+            <svg
+              width="13"
+              height="10"
+              viewBox="0 0 13 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.19922 0C1.42013 0 1.59961 0.179477 1.59961 0.400391V3.9502C1.59967 4.08821 1.71158 4.2002 1.84961 4.2002H9.60352C9.5349 4.0811 9.45139 3.96801 9.34961 3.86621L6.73047 1.24805C6.555 1.07238 6.55504 0.787026 6.73047 0.611328L7.13867 0.204102C7.31436 0.028412 7.59964 0.0285033 7.77539 0.204102L12.1094 4.53809C12.3632 4.79193 12.3632 5.20417 12.1094 5.45801L7.77539 9.79199C7.59964 9.96759 7.31436 9.96768 7.13867 9.79199L6.73047 9.38477C6.55506 9.20908 6.55504 8.92372 6.73047 8.74805L9.34961 6.12988C9.45019 6.02929 9.53239 5.91733 9.60059 5.7998H0.5C0.223897 5.7998 6.33352e-05 5.57589 0 5.2998V0.400391C0 0.179477 0.179477 0 0.400391 0H1.19922Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          {/* </form> */}
+          {/* </div> */}
         </div>
 
         {/* Col 7–8: Nav links + Back to top */}
         <div className="col-span-full xl:col-start-7 xl:col-end-9 flex flex-col items-start gap-40 mb-8 xl:mb-0">
           <div className="w-full flex justify-between">
             <div className="flex flex-col gap-1.5 items-start">
-              {["Home", "Work", "Studio", "Process", "Contact"].map((link) => (
+              {[
+                { label: t("footer.home"), href: "/" },
+                { label: t("footer.work"), href: "/works" },
+                { label: t("footer.studio"), href: "/studio" },
+                { label: t("footer.process"), href: "/process" },
+                { label: t("footer.contact"), href: "/contact" },
+              ].map((link) => (
                 <a
-                  key={link}
-                  href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
+                  key={link.href}
+                  href={link.href}
                   className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>
@@ -130,7 +138,7 @@ export function Footer() {
             className="body-14 flex gap-4 cursor-pointer text-(--color-mist) bg-transparent border-0 font-inherit p-0 hover:text-black transition-colors duration-300"
             onClick={scrollToTop}
           >
-            Back to top
+            {t("footer.backToTop")}
           </button>
         </div>
 
@@ -139,16 +147,14 @@ export function Footer() {
           <div className="flex flex-col gap-1.5">
             {/* Location */}
             <div className="flex gap-12">
-              <div className="body-14 opacity-40">L</div>
-              <p className="body-14 m-0 leading-relaxed">
-                Dieffenbachstraße 37 2.HH Fabrik
-                <br />
-                10967 Berlin
+              <div className="body-14 opacity-40">{t("footer.location")}</div>
+              <p className="body-14 m-0 leading-relaxed whitespace-pre-line">
+                {t("footer.address")}
               </p>
             </div>
 
             {/* Phone */}
-            <div className="flex gap-12">
+            {/* <div className="flex gap-12">
               <div className="body-14 opacity-40">P</div>
               <a
                 href="tel:+493012345678"
@@ -156,16 +162,18 @@ export function Footer() {
               >
                 +49 30 1234 5678
               </a>
-            </div>
+            </div> */}
 
             {/* Email */}
             <div className="flex gap-12">
-              <div className="body-14 opacity-40">C</div>
+              <div className="body-14 opacity-40">
+                {t("footer.contactLabel")}
+              </div>
               <a
-                href="mailto:contact@brandplus.berlin"
+                href="mailto:home@brandplus.berlin"
                 className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
               >
-                contact@brandplus.berlin
+                {t("footer.email")}
               </a>
             </div>
           </div>
@@ -178,7 +186,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
             >
-              Instagram,
+              {t("footer.instagram")},
             </a>
             <a
               href="https://www.linkedin.com"
@@ -186,15 +194,16 @@ export function Footer() {
               rel="noopener noreferrer"
               className="body-14 no-underline text-inherit hover:text-(--color-mist) transition-colors duration-300"
             >
-              Linkedin
+              {t("footer.linkedin")}
             </a>
           </div>
         </div>
 
         {/* Mobile: copyright + legal */}
         <div className="xl:hidden col-span-3 mt-6 body-12 text-(--color-mist)">
-          All rights reserved
-          <br />© brand+ 2025
+          {t("footer.allRightsReserved")}
+          <br />
+          {t("footer.copyright")}
         </div>
         <div className="xl:hidden col-span-3 flex justify-end mt-6">
           <div className="flex flex-col items-end text-(--color-mist)">
@@ -202,13 +211,13 @@ export function Footer() {
               href="/privacy-policy"
               className="body-12 no-underline text-inherit"
             >
-              Privacy policy
+              {t("footer.privacyPolicy")}
             </a>
             <a
               href="/terms-of-service"
               className="body-12 no-underline text-inherit"
             >
-              Terms of services
+              {t("footer.termsOfService")}
             </a>
           </div>
         </div>
@@ -249,24 +258,25 @@ export function Footer() {
             {/* Desktop: copyright + legal row */}
             <div className="hidden xl:flex justify-between text-white body-12">
               <div className="opacity-50">
-                All rights reserved
-                <br />© brand+ 2025
+                {t("footer.allRightsReserved")}
+                <br />
+                {t("footer.copyright")}
               </div>
               <a
                 href="/privacy-policy"
                 className="opacity-50 no-underline text-inherit hover:opacity-100 transition-opacity duration-300 body-12"
               >
-                Privacy policy
+                {t("footer.privacyPolicy")}
               </a>
               <a
                 href="/terms-of-service"
                 className="opacity-50 no-underline text-inherit hover:opacity-100 transition-opacity duration-300 body-12"
               >
-                Terms of services
+                {t("footer.termsOfService")}
               </a>
               <div className="flex gap-1.5 opacity-50">
-                <span>Made with passion in</span>
-                <span className="opacity-100">Berlin</span>
+                <span>{t("footer.madeWithPassionIn")}</span>
+                <span className="opacity-100">{t("footer.berlin")}</span>
               </div>
             </div>
           </div>

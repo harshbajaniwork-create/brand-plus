@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * StudioTeam — matches inspo DOM exactly
@@ -63,6 +64,7 @@ const MEMBERS = [
 ];
 
 export function StudioTeam() {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const nameRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -121,7 +123,7 @@ export function StudioTeam() {
                   01
                 </span>
                 <span className="body-12 tracking-widest uppercase font-medium">
-                  Meet the Team
+                  {t("studio.team.label")}
                 </span>
               </div>
             )}

@@ -8,6 +8,7 @@ import {
   useMotionValueEvent,
   useMotionValue,
 } from "motion/react";
+import { useLanguage } from "@/lib/i18n/context";
 
 const VISION_ITEMS = [
   {
@@ -15,18 +16,21 @@ const VISION_ITEMS = [
     body: "Our design aesthetic is established through a consistent process and a detailed concept brief, which considers client needs, site context, and the future occupiers. We combine and test these elements to create a singular design vision concealing many influencing layers. This singular vision, like a piece of artwork, is unique and individual. We believe the principles of design quality should always be present no matter the project brief or building scale.",
     image:
       "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/f87a5d21-7111-4811-871d-818e4a45cf81/BFA_20019_modulesWohnen_Int_HR_Rework_V1.JPG?format=2500w",
+    i18nKey: "designIntegrity",
   },
   {
     title: "Innovation",
     body: "brand+ welcomes innovation through research and technology to contribute new ideas and challenging theories. We see technology as a tool — integral to our work — however we believe human intelligence must drive creativity. We heavily invest time in research through leading industry seminars and international study tours.",
     image:
       "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/9a637c6e-0d1b-40a9-ac31-d6c9f4dd8e10/DER-%C2%A9Ebener-2750-1.jpg?format=1500w",
+    i18nKey: "innovation",
   },
   {
     title: "Enhanced Living",
     body: "We believe enhanced user experience and well-being should be at the forefront of design. We constantly consider the impact of design on the end user to ensure our work promotes positive human interaction and encourages healthier, enriched experiences.",
     image:
       "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/80b00597-acef-42c7-805f-965c4d12e5f2/DER-%C2%A9Ebener-7760-1.jpg?format=1500w",
+    i18nKey: "enhancedLiving",
   },
 ];
 
@@ -43,6 +47,7 @@ const BP = {
 };
 
 export function StudioValuesVision() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeVision, setActiveVision] = useState(0);
 
@@ -123,7 +128,9 @@ export function StudioValuesVision() {
           }}
         >
           <span style={{ color: "rgba(255,255,255,0.4)" }}>02</span>
-          <span className="tracking-widest font-medium">Our Values</span>
+          <span className="tracking-widest font-medium">
+            {t("studio.values.label")}
+          </span>
         </motion.div>
 
         {/* Values body text — bottom right over image */}
@@ -137,12 +144,10 @@ export function StudioValuesVision() {
           }}
         >
           <p className="body-16 leading-[1.75] mb-4">
-            We provide a boutique level of service and a hands-on approach.
+            {t("studio.values.paragraph1")}
           </p>
           <p className="body-16 leading-[1.75]">
-            Underpinning all of our work is an understanding of context, client
-            needs and user experience, so that buildings and spaces are
-            meaningful and remain relevant over time.
+            {t("studio.values.paragraph2")}
           </p>
         </motion.div>
 
@@ -160,7 +165,7 @@ export function StudioValuesVision() {
           <div className="relative" style={{ height: "22rem" }}>
             {VISION_ITEMS.map((item, i) => (
               <div
-                key={item.title}
+                key={item.i18nKey}
                 className="absolute bottom-0 left-0 w-full"
                 style={{
                   transition: "opacity 450ms ease, transform 450ms ease",
@@ -173,17 +178,17 @@ export function StudioValuesVision() {
                 <div className="flex items-center gap-3 uppercase body-12 mb-10">
                   <span style={{ color: "#cacfcb" }}>03</span>
                   <span className="tracking-widest font-medium">
-                    Our Vision
+                    {t("studio.vision.label")}
                   </span>
                 </div>
                 <h3 className="body-48 md:body-60 font-medium mb-5">
-                  {item.title}
+                  {t(`studio.vision.${item.i18nKey}.title`)}
                 </h3>
                 <p
-                  className="text-4xl! max-w-6xl"
+                  className="text-4xl! max-w-6xl whitespace-pre-line"
                   style={{ color: "rgba(0,0,0,0.65)" }}
                 >
-                  {item.body}
+                  {t(`studio.vision.${item.i18nKey}.body`)}
                 </p>
               </div>
             ))}

@@ -1,6 +1,7 @@
 import type { Route } from "./+types/home";
 import { Navigation } from "@/components/navigation";
 import { ContactView } from "@/modules/contact/ui/view/contact-view";
+import { LoaderWrapper } from "@/components/loader";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,7 +18,9 @@ export default function Contact() {
   return (
     <>
       <Navigation />
-      <ContactView />
+      <LoaderWrapper>
+        <ContactView />
+      </LoaderWrapper>
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ProcessView } from "@/modules/process/ui/view/process-view";
+import { LoaderWrapper } from "@/components/loader";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,7 +20,9 @@ export default function Process() {
     <>
       {/* Force light theme — no dark hero on this page */}
       <Navigation forceTheme="light" />
-      <ProcessView />
+      <LoaderWrapper>
+        <ProcessView />
+      </LoaderWrapper>
       <Footer />
     </>
   );

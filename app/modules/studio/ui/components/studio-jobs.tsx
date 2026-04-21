@@ -1,26 +1,27 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/context";
+import { jobs } from "@/modules/studio/data/jobs-data";
+
 /**
  * StudioJobs
  * Bottom section: paragraph on left, heading + link/arrow on right
  * Arrow button scales on hover, arrow rotates 45° on hover
  */
 export function StudioJobs() {
+  const { t } = useLanguage();
   return (
     <section className="relative bg-white text-black border-t border-black/10">
       <div className="grid-w py-24 md:py-32">
         {/* Left — label + paragraph */}
         <div className="col-span-full md:col-span-2 flex items-start gap-4 uppercase body-12 mb-8 md:mb-0">
           <span className="text-[#cacfcb]">05</span>
-          <span className="tracking-widest">Opportunities</span>
+          <span className="tracking-widest">{t("studio.jobs.label")}</span>
         </div>
 
         <div className="col-span-full md:col-start-3 md:col-end-7 xl:col-start-3 xl:col-end-7">
           <p className="body-16 leading-[1.75] text-black/70">
-            We're always looking for talented individuals who are passionate
-            about brand, strategy, and design. If you believe in the power of
-            identity and want to work with brands that matter, we'd love to hear
-            from you.
+            {t("studio.jobs.paragraph")}
           </p>
         </div>
 
@@ -30,30 +31,32 @@ export function StudioJobs() {
             className="body-36 md:body-48 font-bold leading-[1.05] mb-12"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Job Offers
+            {t("studio.jobs.heading")}
           </h3>
 
           {/* Job listing row */}
           <div className="flex flex-col gap-6">
             {[
               {
-                title: "Brand Strategist",
-                type: "Full-time · Berlin",
+                title: t("studio.jobs.detail.jobs.brandStrategist.title"),
+                type: t("studio.jobs.detail.jobs.brandStrategist.type"),
                 slug: "brand-strategist",
               },
               {
-                title: "Senior Identity Designer",
-                type: "Full-time · Berlin",
+                title: t(
+                  "studio.jobs.detail.jobs.seniorIdentityDesigner.title",
+                ),
+                type: t("studio.jobs.detail.jobs.seniorIdentityDesigner.type"),
                 slug: "senior-identity-designer",
               },
               {
-                title: "Digital Brand Director",
-                type: "Full-time · Remote",
+                title: t("studio.jobs.detail.jobs.digitalBrandDirector.title"),
+                type: t("studio.jobs.detail.jobs.digitalBrandDirector.type"),
                 slug: "digital-brand-director",
               },
             ].map((job) => (
               <a
-                key={job.title}
+                key={job.slug}
                 href={`/studio/jobs/${job.slug}`}
                 className="group flex items-center justify-between py-5 border-t border-black/10 no-underline text-black hover:text-black transition-colors"
               >

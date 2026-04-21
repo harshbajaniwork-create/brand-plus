@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { useLanguage } from "@/lib/i18n/context";
 
 /* ─── Scattered grid image data ─── */
 const gridImages = [
@@ -154,6 +155,7 @@ function ParallaxImage({
 }
 
 export default function WorksGrid() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -195,7 +197,7 @@ export default function WorksGrid() {
     [0, 1, 1, 0],
   );
   const ctaLabel = useTransform(scrollYProgress, (p): string =>
-    p < 0.3 ? "All Work" : "Vision",
+    p < 0.3 ? t("home.worksGrid.allWork") : t("home.worksGrid.vision"),
   );
 
   return (
@@ -238,7 +240,7 @@ export default function WorksGrid() {
             className="text-6xl md:text-8xl lg:text-9xl font-serif tracking-tight"
             style={{ lineHeight: 1 }}
           >
-            All Work
+            {t("home.worksGrid.allWork")}
           </span>
           <sup className="text-lg md:text-2xl lg:text-3xl mt-1 md:mt-2">
             (27)

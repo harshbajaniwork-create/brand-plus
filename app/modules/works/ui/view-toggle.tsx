@@ -1,4 +1,5 @@
 import { StickyPill } from "@/components/sticky-pill";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface ViewToggleProps {
   viewMode: "grid" | "list";
@@ -9,6 +10,7 @@ export default function ViewToggle({
   viewMode,
   onChangeView,
 }: ViewToggleProps) {
+  const { t } = useLanguage();
   return (
     <StickyPill className="p-0">
       <button
@@ -29,7 +31,7 @@ export default function ViewToggle({
           <circle cx="3" cy="11" r="2" fill="currentColor" />
           <circle cx="11" cy="11" r="2" fill="currentColor" />
         </svg>
-        Grid view
+        {t("works.gridView")}
       </button>
 
       {/* Small divider between buttons */}
@@ -51,7 +53,7 @@ export default function ViewToggle({
           <rect x="0" y="3" width="14" height="2" rx="1" fill="currentColor" />
           <rect x="0" y="9" width="14" height="2" rx="1" fill="currentColor" />
         </svg>
-        List view
+        {t("works.listView")}
       </button>
     </StickyPill>
   );

@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/context";
+
 /**
  * ProcessPhilosophy
  * Section 01 — two-column layout with a small "01 OUR PHILOSOPHY" label on
@@ -7,6 +9,7 @@
  * side-by-side images.
  */
 export function ProcessPhilosophy() {
+  const { t } = useLanguage();
   return (
     <section className="relative bg-white text-black">
       {/* ── 01 Philosophy — two-column text ── */}
@@ -14,18 +17,15 @@ export function ProcessPhilosophy() {
         {/* Left label */}
         <div className="col-span-full md:col-span-3 flex items-start gap-4 uppercase body-12 mb-10 md:mb-0">
           <span className="text-[#cacfcb]">01</span>
-          <span className="tracking-widest">Our Philosophy</span>
+          <span className="tracking-widest">
+            {t("process.philosophy.label")}
+          </span>
         </div>
 
         {/* Right body text */}
         <div className="col-span-full md:col-start-5 md:col-end-11 xl:col-start-7 xl:col-end-13">
-          <p className="body-16 leading-[1.6] text-black">
-            We are driven by a belief that brand identity can deepen people's
-            connection to a business, enrich the way they interact with it, and
-            preserve the cultural narratives that give it meaning. Our lasting
-            impact will be thoughtful, context-led identities that honour their
-            roots, strengthen their communities, and stand as enduring
-            contributions to a more purposeful world.
+          <p className="body-16 leading-[1.6] text-black whitespace-pre-line">
+            {t("process.philosophy.text")}
           </p>
         </div>
       </div>

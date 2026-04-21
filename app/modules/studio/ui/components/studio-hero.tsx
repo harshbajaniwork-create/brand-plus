@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/context";
+
 /**
  * StudioHero
  *
@@ -14,6 +16,7 @@
  *  - Section height is driven by the tall image, creating scroll room
  */
 export function StudioHero() {
+  const { t } = useLanguage();
   const bottomMargin = "var(--bottom-margin, 2rem)";
 
   return (
@@ -29,7 +32,7 @@ export function StudioHero() {
         >
           {/* Heading — scrolls naturally */}
           <h1 className="body-48 md:body-60 xl:text-7xl! font-bold leading-[1.05]">
-            Brand+ is a Berlin‑based branding & identity studio.
+            {t("studio.hero.heading")}
           </h1>
 
           {/* Spacer — pushes paragraph to bottom */}
@@ -37,22 +40,14 @@ export function StudioHero() {
 
           {/* Paragraph — sticky at BOTTOM of viewport */}
           <p
-            className="body-16 leading-[1.75] text-black/80 max-w-md"
+            className="body-16 leading-[1.75] text-black/80 max-w-md whitespace-pre-line"
             style={{
               position: "sticky",
               bottom: "2rem",
               alignSelf: "flex-start",
             }}
           >
-            We provide a strategic, hands-on approach to brand building.
-            Underpinning all of our work is an understanding of context, client
-            ambition, and cultural relevance — so that identities are
-            meaningful, enduring, and deeply resonant.
-            <br />
-            <br />
-            With experience spanning challenger brands, heritage institutions,
-            and category-defining startups, we believe human intelligence must
-            drive every creative decision.
+            {t("studio.hero.paragraph")}
           </p>
         </div>
 

@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/context";
+
 /**
  * StudioAwards
  * Clean table listing awards/recognition
@@ -51,13 +53,14 @@ const awards = [
 ];
 
 export function StudioAwards() {
+  const { t } = useLanguage();
   return (
     <section className="relative bg-white text-black border-t border-black/10">
       <div className="grid-w py-24 md:py-32">
         {/* Label */}
         <div className="col-span-full md:col-span-2 flex items-start gap-4 uppercase body-12 mb-16 md:mb-0">
           <span className="text-[#cacfcb]">04</span>
-          <span className="tracking-widest">Recognition</span>
+          <span className="tracking-widest">{t("studio.awards.label")}</span>
         </div>
 
         {/* Table */}

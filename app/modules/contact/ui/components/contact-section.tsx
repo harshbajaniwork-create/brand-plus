@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/lib/i18n/context";
 
-const ROTATING_WORDS = [
+const ROTATING_WORDS_EN = [
   "Queensland",
   "New South Wales",
   "South Australia",
@@ -12,14 +13,28 @@ const ROTATING_WORDS = [
   "the rest of the World",
 ];
 
+const ROTATING_WORDS_DE = [
+  "Berlin",
+  "München",
+  "Hamburg",
+  "Köln",
+  "Frankfurt",
+  "Stuttgart",
+  "der Rest der Welt",
+];
+
 export function ContactSection() {
+  const { t, language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(1);
   const [phase, setPhase] = useState<"idle" | "animating">("idle");
 
+  const rotatingWords =
+    language === "de" ? ROTATING_WORDS_DE : ROTATING_WORDS_EN;
+
   useEffect(() => {
     const interval = setInterval(() => {
-      const next = (currentIndex + 1) % ROTATING_WORDS.length;
+      const next = (currentIndex + 1) % rotatingWords.length;
       setNextIndex(next);
       setPhase("animating");
       setTimeout(() => {
@@ -28,7 +43,7 @@ export function ContactSection() {
       }, 600);
     }, 3000);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [currentIndex, rotatingWords]);
 
   const getTransform = (i: number) => {
     if (i === currentIndex && phase === "idle") return "translateY(0%)";
@@ -64,7 +79,7 @@ export function ContactSection() {
         }}
       >
         {/* ╔══════════════════════════════════════════╗
-            ║   ROW 1 – LEFT: Heading                 ║
+            ║   ROW 1 – LEFT: Heading                  ║
             ╚══════════════════════════════════════════╝ */}
         <div
           style={{ gridColumn: "1 / 8", gridRow: "1 / 2" }}
@@ -77,10 +92,7 @@ export function ContactSection() {
               fontSize: "clamp(2rem, 4.5vw, 3.75rem)",
             }}
           >
-            <span style={{ display: "block" }}>Based in Melbourne but</span>
-            <span style={{ display: "block" }}>
-              available for your projects
-            </span>
+            <span style={{ display: "block" }}>{t("contact.heading")}</span>
             <span>in </span>
             {/* Rotating word container */}
             <span
@@ -92,7 +104,7 @@ export function ContactSection() {
               }}
             >
               {/* All words positioned absolutely */}
-              {ROTATING_WORDS.map((word, i) => (
+              {rotatingWords.map((word: string, i: number) => (
                 <span
                   key={word}
                   style={{
@@ -119,7 +131,7 @@ export function ContactSection() {
                   visibility: "hidden",
                 }}
               >
-                {ROTATING_WORDS.reduce((a, b) =>
+                {rotatingWords.reduce((a: string, b: string) =>
                   a.length >= b.length ? a : b,
                 )}
               </span>
@@ -137,33 +149,33 @@ export function ContactSection() {
           {/* BUSINESS */}
           <div className="flex items-baseline gap-x-8 flex-wrap">
             <span className="uppercase text-2xl tracking-wider shrink-0">
-              Business
+              {t("contact.business")}
             </span>
             <a
-              href="m.unger@brandplus.berlin"
+              href="mailto:home@brandplus.berlin"
               className="text-2xl no-underline hover:text-white transition-colors duration-200"
               style={{ color: "inherit" }}
             >
-              m.unger@brandplus.berlin
+              home@brandplus.berlin
             </a>
           </div>
 
           {/* PHONE */}
-          <div className="flex items-baseline gap-x-8 flex-wrap mt-6">
+          {/* <div className="flex items-baseline gap-x-8 flex-wrap mt-6">
             <span
               className="uppercase text-2xl tracking-wider shrink-0"
               style={{ minWidth: "6rem" }}
             >
-              Phone
+              {t("contact.phone")}
             </span>
             <a
-              href="tel:+61386725999"
+              href="tel:+4930123456789"
               className="text-2xl no-underline hover:text-white transition-colors duration-200"
               style={{ color: "inherit" }}
             >
-              0171 2705910
+              +49 30 1234 5678
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* ╔══════════════════════════════════════════╗
@@ -175,13 +187,13 @@ export function ContactSection() {
         >
           <div className="flex gap-2 text-2xl" style={{ paddingTop: "6rem" }}>
             <a
-              href="https://www.instagram.com/brandplusberlin/"
+              href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="no-underline hover:text-white transition-colors duration-200"
               style={{ color: "inherit" }}
             >
-              Instagram,
+              {t("contact.instagram")},
             </a>
             <a
               href="https://www.linkedin.com"
@@ -190,7 +202,7 @@ export function ContactSection() {
               className="no-underline hover:text-white transition-colors duration-200"
               style={{ color: "inherit" }}
             >
-              Linkedin
+              {t("contact.linkedin")}
             </a>
           </div>
         </div>
@@ -211,9 +223,11 @@ export function ContactSection() {
         >
           {/* Address */}
           <div className="flex flex-col justify-between">
-            <span className="uppercase text-2xl tracking-wider">Address</span>
+            <span className="uppercase text-2xl tracking-wider">
+              {t("contact.address")}
+            </span>
             <div className="text-2xl mt-3" style={{ lineHeight: "1.6" }}>
-              Dieffenbachstrasse 37
+              Dieffenbachstraße 37
               <br />
               10967 Berlin
             </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { categories } from "@/modules/works/data/works-data";
+import { getLocalizedCategories } from "@/modules/works/data/works-data";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface FiltersDrawerProps {
   open: boolean;
@@ -14,6 +15,9 @@ export default function FiltersDrawer({
   activeFilter,
   onSelect,
 }: FiltersDrawerProps) {
+  const { t } = useLanguage();
+  const categories = getLocalizedCategories(t);
+
   return (
     <AnimatePresence>
       {open && (

@@ -32,6 +32,28 @@ export const categories: FilterCategory[] = [
   { key: "seniors-living", label: "Seniors' Living", count: 0 },
 ];
 
+export function getLocalizedCategories(
+  t: (key: string) => string,
+): FilterCategory[] {
+  return [
+    { key: "all", label: t("works.allWork"), count: 22 },
+    { key: "commercial", label: t("works.categories.commercial"), count: 15 },
+    { key: "hospitality", label: t("works.categories.hospitality"), count: 0 },
+    {
+      key: "multi-residential",
+      label: t("works.categories.multiResidential"),
+      count: 5,
+    },
+    { key: "residential", label: t("works.categories.residential"), count: 0 },
+    { key: "retail", label: t("works.categories.retail"), count: 2 },
+    {
+      key: "seniors-living",
+      label: t("works.categories.seniorsLiving"),
+      count: 0,
+    },
+  ];
+}
+
 export const projects: Project[] = [
   {
     slug: "expo",

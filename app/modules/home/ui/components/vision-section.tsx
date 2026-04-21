@@ -1,27 +1,20 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { useLanguage } from "@/lib/i18n/context";
 
 /* ─── Same image used as the center hero in WorksGrid ─── */
 const VISION_BG =
   "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w";
 
-const visionSlides = [
-  {
-    heading: "Nachhaltig bauen mit Holz.",
-    text: "Nachhaltigkeit im Bauen heißt, Verantwortung zu übernehmen – mit Materialien, die erneuerbar sind, wiederverwendet werden können und unsere Umwelt schonen.",
-  },
-  {
-    heading: "Innovation & Ästhetik",
-    text: "Besonders Holz zeigt, wie sich Ästhetik, Ökologie und Innovation vereinen lassen. Als nachwachsender Rohstoff steht es für klimafreundliche Architektur und stellt zugleich besondere Anforderungen an den Brandschutz.",
-  },
-  {
-    heading: "Sicher gestalten.",
-    text: "Genau hier setzen wir an: Mit Erfahrung und Weitblick entwickeln wir Brandschutzlösungen, die nachhaltige Bauprojekte möglich machen, ohne ihre kreative Kraft zu bremsen.",
-  },
-];
-
 export default function VisionSection() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLElement | null>(null);
+  const visionSlides = t("home.vision.slides", {
+    returnObjects: true,
+  }) as Array<{
+    heading: string;
+    text: string;
+  }>;
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -123,7 +116,7 @@ export default function VisionSection() {
             />
             <div className="overflow-hidden min-w-[50px] text-right">
               <span className="text-white text-xs md:text-sm uppercase font-medium">
-                Vision
+                {t("home.vision.label")}
               </span>
             </div>
           </div>

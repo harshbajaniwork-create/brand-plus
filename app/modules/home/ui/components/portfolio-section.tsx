@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { RevealText } from "@/components/reveal-text";
+import { useLanguage } from "@/lib/i18n/context";
 
 const WorkItem: React.FC<{
   title: string;
@@ -74,6 +75,7 @@ const WorkItem: React.FC<{
 };
 
 export default function SelectedWorks() {
+  const { t } = useLanguage();
   const works = [
     {
       title: "German Expo Pavilion",
@@ -107,10 +109,12 @@ export default function SelectedWorks() {
       {/* Header */}
       <div className="flex justify-between px-4 md:px-12 mb-20 md:mb-32 uppercase text-sm">
         <div className="flex gap-4">
-          <span className="text-mist">02</span>
-          <h2>Selected Works</h2>
+          <span className="text-mist">{t("home.portfolio.number")}</span>
+          <h2>{t("home.portfolio.title")}</h2>
         </div>
-        <div className="hidden md:block text-mist">02</div>
+        <div className="hidden md:block text-mist">
+          {t("home.portfolio.number")}
+        </div>
         <div>17 - 25'</div>
       </div>
 

@@ -1,16 +1,9 @@
 import { useParams } from "react-router";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { lazy, Suspense } from "react";
+import { LoaderWrapper } from "@/components/loader";
 import { projects } from "@/modules/works/data/works-data";
-import Loader from "@/components/loader";
-
-// Lazy load project detail components
-const ProjectDetailPage = lazy(() =>
-  import("@/modules/works/ui/project-detail-page").then((module) => ({
-    default: module.default,
-  })),
-);
+import ProjectDetailPage from "@/modules/works/ui/project-detail-page";
 
 export function meta({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
@@ -44,9 +37,9 @@ export default function WorkDetail() {
       <Navigation forceTheme="light" />
       <div className="relative w-full bg-white">
         <main>
-          <Suspense fallback={<Loader />}>
+          <LoaderWrapper>
             <ProjectDetailPage project={project} />
-          </Suspense>
+          </LoaderWrapper>
         </main>
       </div>
       <Footer />

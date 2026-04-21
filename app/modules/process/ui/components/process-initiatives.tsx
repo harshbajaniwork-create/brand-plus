@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/context";
+
 /**
  * ProcessInitiatives — Section 02
  *
@@ -25,87 +27,71 @@
 const NAV_H = 62; // px — fixed navbar height
 const STACK_OFFSET = 83; // px — visible peek of each card above the next
 
-const initiatives = [
+const initiativesConfig = [
   {
     id: "01",
-    title: "Brand Strategy",
+    i18nKey: "brandStrategy",
     image:
       "https://telhaclarke.com.au/wp-content/uploads/2025/11/SD-TRANSPARENT-1200x824.png",
     bgColor: "#9b2d1f",
-    leftText: [
-      "We believe strategy is the invisible architecture of every great brand. Before a single colour is chosen or a wordmark drawn, we immerse ourselves in what drives your organisation.",
-      "Our strategic process uncovers territory no competitor has claimed, revealing the authentic positioning that makes your brand not just seen, but felt.",
-    ],
-    rightText: [
-      "At brand+, strategy is never a document — it's a living framework. Every strategic recommendation is rooted in research, tension-tested against competitors, and stress-tested for longevity.",
-      "The outcome: a clear brand platform that orients every creative decision from identity to communication.",
-    ],
   },
   {
     id: "02",
-    title: "Visual Identity",
+    i18nKey: "visualIdentity",
     image:
       "https://telhaclarke.com.au/wp-content/uploads/2025/11/RAP-TEST-2-TRANSPARENT-1-1200x824.png",
     bgColor: "#c8c8c8",
-    leftText: [
-      "Visual identity is the language through which a brand speaks without words. We craft systems that are immediately recognisable and infinitely adaptable — from a business card to a billboard.",
-      "Every mark we make is grounded in the strategic platform: the logo, typography, colour, and imagery all working in concert.",
-    ],
-    rightText: [
-      "We develop comprehensive brand identity systems that account for every touchpoint your audience will encounter — digital, environmental, print, and motion.",
-      "Our process moves from concept exploration through refinement to a rigorous brand standards document your team can use with confidence.",
-    ],
   },
   {
     id: "03",
-    title: "Digital Branding",
+    i18nKey: "digitalBranding",
     image:
       "https://telhaclarke.com.au/wp-content/uploads/2025/11/QMS-Test-V4-TRANSPARENT-1200x824.png",
     bgColor: "#9b2d1f",
-    leftText: [
-      "Digital is where brands are increasingly experienced. We design digital presences that feel as cohesive and intentional as they do innovative — from website UX to social identity systems.",
-      "We understand that digital branding is not static. It must perform across rapidly evolving platforms while remaining unmistakably yours.",
-    ],
-    rightText: [
-      "Our digital branding work encompasses web design direction, UI component libraries, motion guidelines, and social content frameworks.",
-      "The result is a digital identity that lives and breathes — adapting to context while maintaining the integrity of your brand.",
-    ],
   },
   {
     id: "04",
-    title: "Brand Governance",
+    i18nKey: "brandGovernance",
     image:
       "https://telhaclarke.com.au/wp-content/uploads/2025/11/Green-Power-TRANSPARENT-1200x824.png",
     bgColor: "#2d6a4f",
-    leftText: [
-      "A powerful brand is only as strong as its implementation. We develop the frameworks, guidelines, and tools that ensure your brand is activated consistently across every team, agency, and partner.",
-      "Brand governance is not creative policing — it is the infrastructure that lets your brand grow without losing cohesion.",
-    ],
-    rightText: [
-      "We create living brand guidelines, stakeholder training programmes, and brand audit processes that help organisations sustain identity quality over time.",
-      "Centralising brand intelligence within your organisation enables every team member to become a confident custodian of the brand.",
-    ],
   },
 ];
 
 export function ProcessInitiatives() {
+  const { t } = useLanguage();
+
+  const initiatives = initiativesConfig.map((item) => ({
+    ...item,
+    title: t(`process.initiatives.${item.i18nKey}.title`),
+    leftText: [
+      t(`process.initiatives.${item.i18nKey}.leftText1`),
+      t(`process.initiatives.${item.i18nKey}.leftText2`),
+    ],
+    rightText: [
+      t(`process.initiatives.${item.i18nKey}.rightText1`),
+      t(`process.initiatives.${item.i18nKey}.rightText2`),
+    ],
+  }));
+
   return (
     <section className="relative bg-white text-black">
       {/* ── Section header ── */}
       <div className="grid-w py-20 md:py-28 border-t border-black/10">
         <div className="col-span-full md:col-span-2 flex items-start gap-4 uppercase body-12 mb-10 md:mb-0">
           <span className="text-[#cacfcb]">02</span>
-          <span className="tracking-widest">Our Initiatives</span>
+          <span className="tracking-widest">
+            {t("process.initiatives.label")}
+          </span>
         </div>
         <div className="col-span-full md:col-start-3 md:col-end-9">
           <h2 className="body-36 md:body-48 xl:body-60 font-bold leading-[1.05] tracking-wide">
-            Building trust, inspiring confidence, delivering excellence.
+            {t("process.initiatives.heading")}
           </h2>
         </div>
         <div className="col-span-full md:col-start-10 md:col-end-13 flex items-end mt-10 md:mt-0">
           <p className="body-14 leading-[1.7] text-black/70">
-            Driven by purpose and guided by values, we turn our commitments into
-            meaningful actions that inspire confidence and create lasting trust.
+            {t("process.initiatives.subheading")}
           </p>
         </div>
       </div>

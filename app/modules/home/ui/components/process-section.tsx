@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { RevealText } from "@/components/react-bits/reveal-text";
+import { useLanguage } from "@/lib/i18n/context";
 
 const steps = [
   {
@@ -48,6 +49,7 @@ const steps = [
 ];
 
 export default function ProcessSection() {
+  const { t } = useLanguage();
   const [activeStep, setActiveStep] = useState(0);
 
   return (
@@ -111,19 +113,12 @@ export default function ProcessSection() {
       {/* Footer of section */}
       <div className="grid grid-cols-1 md:grid-cols-12 mt-32">
         <div className="col-span-1 md:col-span-2 flex gap-4 uppercase text-sm">
-          <span className="text-mist">04</span>
-          <span>Method</span>
+          <span className="text-mist">{t("home.process.number")}</span>
+          <span>{t("home.process.label")}</span>
         </div>
         <div className="col-span-1 md:col-start-7 md:col-end-11">
           <div className="text-xl md:text-2xl leading-relaxed">
-            <RevealText>
-              The scope of our Studio covers all stages within
-            </RevealText>
-            <RevealText>
-              Architecture and Interior Design. We offer an end
-            </RevealText>
-            <RevealText>to end level of service from early concepts</RevealText>
-            <RevealText>through to practical completion.</RevealText>
+            <RevealText>{t("home.process.description")}</RevealText>
           </div>
         </div>
       </div>
