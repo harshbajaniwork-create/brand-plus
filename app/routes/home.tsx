@@ -2,13 +2,11 @@ import type { Route } from "./+types/home";
 import { Navigation } from "@/components/navigation";
 import { StickyBottomNav } from "@/components/sticky-bottom-nav";
 import { Footer } from "@/components/footer";
-import { HomeView } from "@/modules/home/ui/view/home-view";
 import { LoadingScreen } from "@/modules/home/ui/components/loading-screen";
 import { HeroSection } from "@/modules/home/ui/components/hero-section";
 import { StudioSection } from "@/modules/home/ui/components/studio-section";
 import SelectedWorks from "@/modules/home/ui/components/portfolio-section";
 import WorksGrid from "@/modules/home/ui/components/works-grid";
-import VisionSection from "@/modules/home/ui/components/vision-section";
 import ProcessSection from "@/modules/home/ui/components/process-section";
 
 export function meta({}: Route.MetaArgs) {
@@ -44,8 +42,7 @@ export default function Home() {
           <div id="portfolio">
             <SelectedWorks />
           </div>
-          {/* <WorksGrid /> */}
-          <VisionSection />
+          <WorksGrid />
           <ProcessSection />
         </main>
       </div>

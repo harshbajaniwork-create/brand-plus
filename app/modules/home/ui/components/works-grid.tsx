@@ -109,7 +109,7 @@ const gridImages = [
 
 /* ─── The center image — same one used in Vision section ─── */
 const CENTER_IMAGE =
-  "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/feb0e197-21dd-4668-a5ab-9bfcc74d2470/IMG_8113.jpg?format=1500w";
+  "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w";
 
 function ParallaxImage({
   src,
@@ -162,43 +162,113 @@ export default function WorksGrid() {
     offset: ["start start", "end end"],
   });
 
-  /* ─── Phase 1: Title (0 → 0.15) ─── */
+  /* ─── Phase 1: Title (0 → 0.2) ─── */
   // Heading starts massive (scale ~2.5) and shrinks to 1 as user scrolls in
-  const titleScale = useTransform(scrollYProgress, [0, 0.12], [2.5, 1]);
-  const titleOpacity = useTransform(scrollYProgress, [0.14, 0.2], [1, 0]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.15], [2.5, 1]);
+  const titleOpacity = useTransform(scrollYProgress, [0.12, 0.25], [1, 0]);
 
-  /* ─── Phase 2: Center image scales to full screen (0.15 → 0.3) ─── */
+  /* ─── Phase 2: Center image scales to full screen (0.1 → 0.8) ─── */
   const heroWidth = useTransform(
     scrollYProgress,
-    [0.12, 0.3],
+    [0.1, 0.8],
     ["22vw", "100vw"],
   );
   const heroHeight = useTransform(
     scrollYProgress,
-    [0.12, 0.3],
+    [0.1, 0.8],
     ["32vh", "100vh"],
   );
 
   /* ─── Dark overlay on hero (for Vision section readability) ─── */
-  const heroOverlay = useTransform(scrollYProgress, [0.25, 0.35], [0, 0.45]);
+  const heroOverlay = useTransform(scrollYProgress, [0.7, 0.8], [0, 0.45]);
 
-  /* ─── Phase 3: Horizontal scroll content (0.35 → 0.9) ─── */
-  const contentOpacity = useTransform(scrollYProgress, [0.32, 0.38], [0, 1]);
-  const contentX = useTransform(
-    scrollYProgress,
-    [0.38, 0.9],
-    ["100%", "-100%"],
-  );
+  /* ─── Background vertical parallax for Vision section ─── */
+  const heroBgY = useTransform(scrollYProgress, [0.8, 1], ["0%", "-10%"]);
 
   /* ─── CTA button ─── */
   const ctaOpacity = useTransform(
     scrollYProgress,
-    [0.08, 0.12, 0.9, 0.95],
+    [0.08, 0.12, 0.4, 0.45],
     [0, 1, 1, 0],
   );
   const ctaLabel = useTransform(scrollYProgress, (p): string =>
     p < 0.3 ? t("home.worksGrid.allWork") : t("home.worksGrid.vision"),
   );
+
+  /* ─── Vision content animations (0.8 → 1) ─── */
+  const visionSlides = t("home.vision.slides", {
+    returnObjects: true,
+  }) as Array<{
+    heading: string;
+    text: string;
+  }>;
+
+  /* ─── Horizontal text sliding ─── */
+  const headingX = useTransform(
+    scrollYProgress,
+    [0.8, 0.9, 0.92, 0.95, 0.97, 1],
+    ["0%", "0%", "-100%", "-100%", "-200%", "-200%"],
+  );
+
+  /* ─── Individual heading opacities ─── */
+  const opacity1 = useTransform(
+    scrollYProgress,
+    [0, 0.8, 0.85, 0.9],
+    [0, 1, 1, 0.2],
+  );
+  const opacity2 = useTransform(
+    scrollYProgress,
+    [0, 0.85, 0.9, 0.93, 0.95],
+    [0, 0.2, 1, 1, 0.2],
+  );
+  const opacity3 = useTransform(
+    scrollYProgress,
+    [0, 0.93, 0.95, 1],
+    [0, 0.2, 1, 1],
+  );
+
+  /* ─── Description text fade swap ─── */
+  const textOpacity1 = useTransform(
+    scrollYProgress,
+    [0, 0.8, 0.85, 0.9],
+    [0, 1, 1, 0],
+  );
+  const textOpacity2 = useTransform(
+    scrollYProgress,
+    [0, 0.9, 0.92, 0.93, 0.95],
+    [0, 0, 1, 1, 0],
+  );
+  const textOpacity3 = useTransform(
+    scrollYProgress,
+    [0, 0.95, 0.97, 1],
+    [0, 0, 1, 1],
+  );
+
+  /* ─── Separator line expand ─── */
+  const lineWidth = useTransform(
+    scrollYProgress,
+    [0, 0.8, 0.85],
+    ["0%", "0%", "100%"],
+  );
+  const separatorOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.75, 0.8],
+    [0, 0, 1],
+  );
+
+  /* ─── Overall Vision content opacity ─── */
+  const visionContentOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.75, 0.8],
+    [0, 0, 1],
+  );
+
+  /* ─── Step counter ─── */
+  const stepNumber = useTransform(scrollYProgress, (pos): string => {
+    if (pos < 0.9) return "01";
+    if (pos < 0.95) return "02";
+    return "03";
+  });
 
   return (
     <section
@@ -219,11 +289,16 @@ export default function WorksGrid() {
           }}
           className="absolute z-10 overflow-hidden"
         >
-          <img
-            src={CENTER_IMAGE}
-            alt="Works Hero"
-            className="w-full h-full object-cover"
-          />
+          <motion.div
+            className="absolute inset-0 w-full h-[130%] -top-[15%]"
+            style={{ y: heroBgY }}
+          >
+            <img
+              src={CENTER_IMAGE}
+              alt="Works Hero"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
           {/* Dark overlay for Vision text readability */}
           <motion.div
             style={{ opacity: heroOverlay }}
@@ -247,76 +322,74 @@ export default function WorksGrid() {
           </sup>
         </motion.div>
 
-        {/* ── Horizontal scrolling featured projects ── */}
+        {/* ── Vision content overlay (appears after image enlarges) ── */}
         <motion.div
-          style={{ x: contentX, opacity: contentOpacity }}
-          className="absolute top-0 left-0 h-full flex gap-24 md:gap-32 pl-[80vw] items-center z-30"
+          style={{ opacity: visionContentOpacity }}
+          className="relative z-30 w-full h-full flex flex-col justify-center"
         >
-          {/* Project 1 */}
-          <div className="w-[350px] md:w-[500px] shrink-0 flex flex-col gap-4 bg-white p-4">
-            <div className="w-full aspect-4/3 overflow-hidden">
-              <img
-                src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/feb0e197-21dd-4668-a5ab-9bfcc74d2470/IMG_8113.jpg?format=1500w"
-                className="w-full h-full object-cover"
-                alt="Deutscher EXPO"
-              />
-            </div>
-            <div>
-              <h3 className="text-2xl font-serif">Deutscher EXPO</h3>
-              <p className="text-sm uppercase text-mist">Ausstellung </p>
-            </div>
+          {/* ── Horizontal sliding headings ── */}
+          <div className="absolute top-[18%] md:top-[22%] w-full overflow-hidden px-4 md:px-12">
+            <motion.div
+              className="flex whitespace-nowrap"
+              style={{ x: headingX }}
+            >
+              {visionSlides.map((slide, i) => {
+                const opacities = [opacity1, opacity2, opacity3];
+                return (
+                  <motion.span
+                    key={i}
+                    className="inline-block w-full shrink-0 text-4xl md:text-7xl lg:text-8xl font-serif tracking-tight text-white"
+                    style={{ opacity: opacities[i] }}
+                  >
+                    {slide.heading}
+                  </motion.span>
+                );
+              })}
+            </motion.div>
           </div>
 
-          {/* Project 2 */}
-          <div className="w-[280px] md:w-[380px] shrink-0 flex flex-col gap-4 mt-24 bg-white p-4">
-            <div className="w-full aspect-3/4 overflow-hidden">
-              <img
-                src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ea0e18df-6c64-46ad-a179-dca86b107350/02%2BStrasse%2BNacht%2B008_Bildrechte.jpg?format=1500w"
-                className="w-full h-full object-cover"
-                alt="Elsternwick"
-              />
+          {/* ── Separator line with counter ── */}
+          <motion.div
+            style={{ opacity: separatorOpacity }}
+            className="absolute top-1/2 -translate-y-1/2 w-full px-4 md:px-12 flex items-center gap-4 md:gap-8"
+          >
+            <div className="overflow-hidden min-w-[20px]">
+              <motion.span className="text-white/80 text-xs md:text-sm uppercase">
+                {stepNumber}
+              </motion.span>
             </div>
-            <div>
-              <h3 className="text-2xl font-serif">Neo</h3>
-              <p className="text-sm uppercase text-mist">
-                Mehrgeschossiger Neubau eines Bürogebäudes mit
-                Veranstaltungsbereich
-              </p>
+            <motion.div
+              style={{ width: lineWidth }}
+              className="h-px bg-white/40 flex-1 origin-left"
+            />
+            <div className="overflow-hidden min-w-[50px] text-right">
+              <span className="text-white text-xs md:text-sm uppercase font-medium">
+                {t("home.vision.label")}
+              </span>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Project 3 */}
-          <div className="w-[450px] md:w-[650px] shrink-0 flex flex-col gap-4 -mt-16 bg-white p-4">
-            <div className="w-full aspect-video overflow-hidden">
-              <img
-                src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/df34b30f-aba3-4519-8eb6-7859b4660f7b/220422_FUHUB_FOYER.jpg?format=2500w"
-                className="w-full h-full object-cover"
-                alt="Kensington Rd"
-              />
-            </div>
-            <div>
-              <h3 className="text-2xl font-serif">Fuhub</h3>
-              <p className="text-sm uppercase text-mist">
-                Mehrgeschossiger Neubau eines Büro- und Laborgebäudes
-              </p>
-            </div>
-          </div>
-
-          {/* Project 4 */}
-          <div className="w-[320px] md:w-[440px] shrink-0 flex flex-col gap-4 mt-16 bg-white p-4">
-            <div className="w-full aspect-3/4 overflow-hidden">
-              <img
-                src="https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w"
-                className="w-full h-full object-cover"
-                alt="Soho"
-              />
-            </div>
-            <div>
-              <h3 className="text-2xl font-serif">The Benjamin</h3>
-              <p className="text-sm uppercase text-mist">
-                6-geschossiger Neubau eines Bürogebäudes mit Restauration im EG
-                und Tiefgarage
-              </p>
+          {/* ── Description text (right-aligned, fading swap) ── */}
+          <div className="absolute bottom-[20%] md:bottom-[22%] right-0 w-full md:w-1/2 px-4 md:px-12 flex justify-end">
+            <div className="relative w-full max-w-lg min-h-[160px]">
+              {visionSlides.map((slide, i) => {
+                const textOpacities = [
+                  textOpacity1,
+                  textOpacity2,
+                  textOpacity3,
+                ];
+                return (
+                  <motion.div
+                    key={i}
+                    style={{ opacity: textOpacities[i] }}
+                    className="absolute top-0 left-0 w-full"
+                  >
+                    <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-white/90 font-serif italic">
+                      {slide.text}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </motion.div>
