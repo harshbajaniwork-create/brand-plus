@@ -12,6 +12,7 @@ const gridImages = [
     w: "14vw",
     h: "55vh",
     speed: 0.15,
+    opacity: 0.6,
   },
   // top-center-left small
   {
@@ -21,6 +22,7 @@ const gridImages = [
     w: "10vw",
     h: "20vh",
     speed: 0.08,
+    opacity: 0.3,
   },
   // top-center large
   {
@@ -30,6 +32,7 @@ const gridImages = [
     w: "18vw",
     h: "32vh",
     speed: 0.12,
+    opacity: 1,
   },
   // top-right large
   {
@@ -39,6 +42,7 @@ const gridImages = [
     w: "15vw",
     h: "34vh",
     speed: 0.18,
+    opacity: 0.5,
   },
   // top-right edge small
   {
@@ -48,6 +52,7 @@ const gridImages = [
     w: "12vw",
     h: "28vh",
     speed: 0.06,
+    opacity: 0.4,
   },
   // mid-left small
   {
@@ -57,6 +62,7 @@ const gridImages = [
     w: "12vw",
     h: "22vh",
     speed: 0.1,
+    opacity: 0.7,
   },
   // mid-left-center small (faded)
   {
@@ -66,7 +72,7 @@ const gridImages = [
     w: "8vw",
     h: "18vh",
     speed: 0.05,
-    opacity: 0.4,
+    opacity: 0.3,
   },
   // bottom-center-left
   {
@@ -76,6 +82,7 @@ const gridImages = [
     w: "12vw",
     h: "28vh",
     speed: 0.14,
+    opacity: 0.8,
   },
   // bottom-right large
   {
@@ -85,6 +92,7 @@ const gridImages = [
     w: "14vw",
     h: "30vh",
     speed: 0.16,
+    opacity: 0.6,
   },
   // bottom-right edge
   {
@@ -94,6 +102,7 @@ const gridImages = [
     w: "14vw",
     h: "32vh",
     speed: 0.07,
+    opacity: 0.4,
   },
   // bottom-center small (faded)
   {
@@ -130,12 +139,14 @@ function ParallaxImage({
   opacity?: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
 }) {
+  // Fade in from bottom when images start appearing
+  const fadeIn = useTransform(scrollYProgress, [0, 0.1], [0, baseOpacity]);
   const y = useTransform(
     scrollYProgress,
-    [0, 0.15],
-    [`0vh`, `${speed * -60}vh`],
+    [0, 0.4],
+    [`10vh`, `${speed * -80}vh`],
   );
-  const fadeOut = useTransform(scrollYProgress, [0.12, 0.22], [baseOpacity, 0]);
+  const fadeOut = useTransform(scrollYProgress, [0.5, 0.65], [baseOpacity, 0]);
 
   return (
     <motion.div
@@ -149,7 +160,12 @@ function ParallaxImage({
         opacity: fadeOut,
       }}
     >
-      <img src={src} alt="Work" className="w-full h-full object-cover" />
+      <motion.img
+        src={src}
+        alt="Work"
+        className="w-full h-full object-cover"
+        style={{ opacity: fadeIn }}
+      />
     </motion.div>
   );
 }
@@ -157,33 +173,47 @@ function ParallaxImage({
 export default function WorksGrid() {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLElement | null>(null);
+
+  // Scroll progress for heading animation (from section start to center)
+  const { scrollYProgress: headingScrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "center center"],
+  });
+
+  // Scroll progress for images animation (from center to end)
+  const { scrollYProgress: imagesScrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["center center", "end end"],
+  });
+
+  // Overall scroll progress for other animations (center image, vision)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  /* ─── Phase 1: Title (0 → 0.2) ─── */
-  // Heading starts massive (scale ~2.5) and shrinks to 1 as user scrolls in
-  const titleScale = useTransform(scrollYProgress, [0, 0.15], [2.5, 1]);
-  const titleOpacity = useTransform(scrollYProgress, [0.12, 0.25], [1, 0]);
+  /* ─── Phase 1: Title (0 → 1) ─── */
+  // Heading starts from above, scales down, and pins in center
+  const titleScale = useTransform(headingScrollYProgress, [0, 1], [2.5, 1]);
+  const titleY = useTransform(headingScrollYProgress, [0, 1], ["-30vh", "0vh"]);
+  const titleOpacity = useTransform(scrollYProgress, [0.45, 0.55], [1, 0]);
 
-  /* ─── Phase 2: Center image scales to full screen (0.1 → 0.8) ─── */
-  const heroWidth = useTransform(
-    scrollYProgress,
-    [0.1, 0.8],
-    ["22vw", "100vw"],
-  );
+  /* ─── Phase 2: Center image scales to full screen (0.7 → 0.9) ─── */
+  const heroWidth = useTransform(scrollYProgress, [0.7, 0.9], ["9vw", "100vw"]);
   const heroHeight = useTransform(
     scrollYProgress,
-    [0.1, 0.8],
-    ["32vh", "100vh"],
+    [0.7, 0.9],
+    ["16vh", "100vh"],
   );
+  const heroTop = useTransform(scrollYProgress, [0.7, 0.9], ["80%", "0%"]);
+  const heroLeft = useTransform(scrollYProgress, [0.7, 0.9], ["55%", "0%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0.65, 0.7], [0, 1]);
 
   /* ─── Dark overlay on hero (for Vision section readability) ─── */
-  const heroOverlay = useTransform(scrollYProgress, [0.7, 0.8], [0, 0.45]);
+  const heroOverlay = useTransform(scrollYProgress, [0.85, 0.9], [0, 0.45]);
 
   /* ─── Background vertical parallax for Vision section ─── */
-  const heroBgY = useTransform(scrollYProgress, [0.8, 1], ["0%", "-10%"]);
+  const heroBgY = useTransform(scrollYProgress, [0.9, 1], ["0%", "-10%"]);
 
   /* ─── CTA button ─── */
   const ctaOpacity = useTransform(
@@ -206,60 +236,60 @@ export default function WorksGrid() {
   /* ─── Horizontal text sliding ─── */
   const headingX = useTransform(
     scrollYProgress,
-    [0.8, 0.9, 0.92, 0.95, 0.97, 1],
+    [0.9, 0.95, 0.97, 0.98, 0.99, 1],
     ["0%", "0%", "-100%", "-100%", "-200%", "-200%"],
   );
 
   /* ─── Individual heading opacities ─── */
   const opacity1 = useTransform(
     scrollYProgress,
-    [0, 0.8, 0.85, 0.9],
+    [0, 0.9, 0.95, 0.97],
     [0, 1, 1, 0.2],
   );
   const opacity2 = useTransform(
     scrollYProgress,
-    [0, 0.85, 0.9, 0.93, 0.95],
+    [0, 0.95, 0.97, 0.98, 0.99],
     [0, 0.2, 1, 1, 0.2],
   );
   const opacity3 = useTransform(
     scrollYProgress,
-    [0, 0.93, 0.95, 1],
+    [0, 0.98, 0.99, 1],
     [0, 0.2, 1, 1],
   );
 
   /* ─── Description text fade swap ─── */
   const textOpacity1 = useTransform(
     scrollYProgress,
-    [0, 0.8, 0.85, 0.9],
+    [0, 0.9, 0.95, 0.97],
     [0, 1, 1, 0],
   );
   const textOpacity2 = useTransform(
     scrollYProgress,
-    [0, 0.9, 0.92, 0.93, 0.95],
+    [0, 0.97, 0.98, 0.99, 1],
     [0, 0, 1, 1, 0],
   );
   const textOpacity3 = useTransform(
     scrollYProgress,
-    [0, 0.95, 0.97, 1],
+    [0, 0.99, 1, 1],
     [0, 0, 1, 1],
   );
 
   /* ─── Separator line expand ─── */
   const lineWidth = useTransform(
     scrollYProgress,
-    [0, 0.8, 0.85],
+    [0, 0.9, 0.95],
     ["0%", "0%", "100%"],
   );
   const separatorOpacity = useTransform(
     scrollYProgress,
-    [0, 0.75, 0.8],
+    [0, 0.85, 0.9],
     [0, 0, 1],
   );
 
   /* ─── Overall Vision content opacity ─── */
   const visionContentOpacity = useTransform(
     scrollYProgress,
-    [0, 0.75, 0.8],
+    [0, 0.85, 0.9],
     [0, 0, 1],
   );
 
@@ -278,7 +308,11 @@ export default function WorksGrid() {
       <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center will-change-transform">
         {/* ── Scattered collage images with individual parallax ── */}
         {gridImages.map((img, i) => (
-          <ParallaxImage key={i} {...img} scrollYProgress={scrollYProgress} />
+          <ParallaxImage
+            key={i}
+            {...img}
+            scrollYProgress={imagesScrollYProgress}
+          />
         ))}
 
         {/* ── Center hero image — scales to full screen, becomes Vision bg ── */}
@@ -286,6 +320,9 @@ export default function WorksGrid() {
           style={{
             width: heroWidth,
             height: heroHeight,
+            top: heroTop,
+            left: heroLeft,
+            opacity: heroOpacity,
           }}
           className="absolute z-10 overflow-hidden"
         >
@@ -306,9 +343,9 @@ export default function WorksGrid() {
           />
         </motion.div>
 
-        {/* ── Title: "All Work (27)" — starts huge, scales down, then fades ── */}
+        {/* ── Title: "All Work (27)" — starts from above, scales down, pins, then fades ── */}
         <motion.div
-          style={{ scale: titleScale, opacity: titleOpacity }}
+          style={{ scale: titleScale, y: titleY, opacity: titleOpacity }}
           className="z-20 flex items-start gap-3 absolute pointer-events-none"
         >
           <span
