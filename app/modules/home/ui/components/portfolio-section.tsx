@@ -1,7 +1,141 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useGSAP } from "@gsap/react";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useRef } from "react";
 import { RevealText } from "@/components/reveal-text";
 import { useLanguage } from "@/lib/i18n/context";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+function getScrollPhaseWeights(titleRow: HTMLElement) {
+  const titleHeight = titleRow.offsetHeight;
+  const viewportHeight = window.innerHeight;
+  const rootFontSize = parseFloat(
+    getComputedStyle(document.documentElement).fontSize,
+  );
+  const headerHeight = 3.8 * rootFontSize;
+
+  const entryDistance = Math.max(viewportHeight - headerHeight, 1);
+  const holdDistance = Math.max(headerHeight, 1);
+  const exitDistance = Math.max(titleHeight, 1);
+  const total = entryDistance + holdDistance + exitDistance;
+
+  return {
+    entry: entryDistance / total,
+    hold: holdDistance / total,
+    exit: exitDistance / total,
+  };
+}
+
+function buildWorkScrollTimeline(
+  titleRow: HTMLElement,
+  brackets?: {
+    left: HTMLElement;
+    right: HTMLElement;
+    title: HTMLElement;
+  },
+) {
+  const weights = getScrollPhaseWeights(titleRow);
+
+  if (brackets) {
+    gsap.set([brackets.left, brackets.right], { xPercent: 0 });
+    gsap.set(brackets.title, { letterSpacing: "0em" });
+  }
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: titleRow,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  if (brackets) {
+    tl.to(
+      brackets.left,
+      { xPercent: -90, ease: "none", duration: weights.entry },
+      0,
+    )
+      .to(
+        brackets.right,
+        { xPercent: 90, ease: "none", duration: weights.entry },
+        0,
+      )
+      .to(
+        brackets.title,
+        { letterSpacing: "0.04em", ease: "none", duration: weights.entry },
+        0,
+      );
+  }
+
+  tl.to({}, { duration: weights.hold });
+
+  if (brackets) {
+    tl.to(
+      brackets.left,
+      { xPercent: 0, ease: "none", duration: weights.exit },
+    )
+      .to(
+        brackets.right,
+        { xPercent: 0, ease: "none", duration: weights.exit },
+        "<",
+      )
+      .to(
+        brackets.title,
+        { letterSpacing: "0em", ease: "none", duration: weights.exit },
+        "<",
+      );
+  }
+
+  return tl;
+}
+
+function buildImageRevealTimeline(
+  imageWrap: HTMLElement,
+  imageContainer: HTMLElement,
+) {
+  gsap.fromTo(
+    imageWrap,
+    { scale: 0, transformOrigin: "center center" },
+    {
+      scale: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: imageContainer,
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: true,
+        invalidateOnRefresh: true,
+      },
+    },
+  );
+}
+
+function buildImageVanishTimeline(
+  imageWrap: HTMLElement,
+  titleRow: HTMLElement,
+  imageContainer: HTMLElement,
+) {
+  gsap.fromTo(
+    imageWrap,
+    { scale: 1, transformOrigin: "center center" },
+    {
+      scale: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: titleRow,
+        start: "top top",
+        endTrigger: imageContainer,
+        end: "bottom 3.8rem",
+        scrub: true,
+        invalidateOnRefresh: true,
+      },
+    },
+  );
+}
 
 const WorkItem: React.FC<{
   title: string;
@@ -11,13 +145,57 @@ const WorkItem: React.FC<{
   href: string;
 }> = ({ title, category, year, image, href }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center center"],
-  });
+  const titleRowRef = useRef<HTMLDivElement>(null);
+  const bracketLeftRef = useRef<HTMLDivElement>(null);
+  const bracketRightRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const imageWrapRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
 
-  const bracketOffset = useTransform(scrollYProgress, [0, 1], [0, 40]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  useGSAP(
+    () => {
+      const titleRow = titleRowRef.current;
+      const bracketLeft = bracketLeftRef.current;
+      const bracketRight = bracketRightRef.current;
+      const titleEl = titleRef.current;
+      const imageWrap = imageWrapRef.current;
+      const imageContainer = imageContainerRef.current;
+
+      if (
+        !titleRow ||
+        !bracketLeft ||
+        !bracketRight ||
+        !titleEl ||
+        !imageWrap ||
+        !imageContainer
+      ) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      gsap.set(imageWrap, { transformOrigin: "center center" });
+
+      mm.add("(min-width: 1280px)", () => {
+        buildWorkScrollTimeline(titleRow, {
+          left: bracketLeft,
+          right: bracketRight,
+          title: titleEl,
+        });
+        buildImageRevealTimeline(imageWrap, imageContainer);
+        buildImageVanishTimeline(imageWrap, titleRow, imageContainer);
+      });
+
+      mm.add("(max-width: 1279px)", () => {
+        buildWorkScrollTimeline(titleRow);
+        buildImageRevealTimeline(imageWrap, imageContainer);
+        buildImageVanishTimeline(imageWrap, titleRow, imageContainer);
+      });
+
+      return () => mm.revert();
+    },
+    { scope: ref, dependencies: [title] },
+  );
 
   return (
     <div
@@ -28,32 +206,38 @@ const WorkItem: React.FC<{
     >
       <div className="flex flex-col gap-8 md:gap-16">
         {/* Title with Brackets */}
-        <div className="relative w-full flex justify-center items-center px-4 md:px-12">
+        <div
+          ref={titleRowRef}
+          className="relative w-full flex justify-center items-center gap-4 md:gap-8 xl:gap-0 px-4 md:px-12 text-4xl md:text-6xl lg:text-8xl font-serif"
+        >
           <div className="absolute top-1/2 left-4 w-8 md:w-12 h-px bg-black -translate-y-4 md:-translate-y-8 transition-all duration-500 group-hover:w-16 md:group-hover:w-24"></div>
           <div className="absolute top-1/2 right-4 w-8 md:w-12 h-px bg-black -translate-y-4 md:-translate-y-8 transition-all duration-500 group-hover:w-16 md:group-hover:w-24"></div>
 
-          <div className="flex items-center gap-4 md:gap-8 text-4xl md:text-6xl lg:text-8xl font-serif">
-            <motion.span
-              style={{ x: useTransform(bracketOffset, (v) => -v) }}
-              className="opacity-100"
-            >
-              [
-            </motion.span>
-            <h3 className="text-center mx-4">{title}</h3>
-            <motion.span style={{ x: bracketOffset }} className="opacity-100">
-              ]
-            </motion.span>
+          <div
+            ref={bracketLeftRef}
+            className="flex xl:justify-end xl:flex-1"
+          >
+            [
+          </div>
+          <h3
+            ref={titleRef}
+            className="text-center max-xl:flex-1 mx-4 xl:mx-0"
+          >
+            {title}
+          </h3>
+          <div ref={bracketRightRef} className="xl:flex-1">
+            ]
           </div>
         </div>
 
         {/* Image */}
         <div className="grid grid-cols-1 md:grid-cols-12 w-full">
           <div className="col-span-1 md:col-start-3 md:col-end-11 lg:col-start-4 lg:col-end-10">
-            <div className="relative w-full aspect-[4/3] overflow-hidden flex justify-center items-center">
-              <motion.div
-                className="w-full h-full"
-                style={{ scale: imageScale }}
-              >
+            <div
+              ref={imageContainerRef}
+              className="relative w-full aspect-[4/3] overflow-hidden flex justify-center items-center"
+            >
+              <div ref={imageWrapRef} className="w-full h-full">
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7, ease: "easeOut" }}
@@ -61,7 +245,7 @@ const WorkItem: React.FC<{
                   alt={title}
                   className="w-full h-full object-cover"
                 />
-              </motion.div>
+              </div>
             </div>
             <div className="flex justify-between mt-4 text-sm uppercase">
               <RevealText>{category}</RevealText>
