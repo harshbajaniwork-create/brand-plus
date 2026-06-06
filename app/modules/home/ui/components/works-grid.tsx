@@ -1,10 +1,42 @@
 import { motion, useScroll, useTransform } from "motion/react";
+import type { MotionValue } from "motion/react";
 import { useRef } from "react";
 import { useLanguage } from "@/lib/i18n/context";
 
-/* ─── Scattered grid image data ─── */
+function parseSize(value: string) {
+  return Number.parseFloat(value) || 0;
+}
+
+/** Larger tiles read as foreground (full opacity), smaller tiles feel distant. */
+function depthOpacity(w: string, h: string) {
+  const area = parseSize(w) * parseSize(h);
+  const t = Math.min(1, Math.max(0, (area - 72) / (220 - 72)));
+  return 0.22 + t * 0.78;
+}
+
+function depthScale(w: string, h: string) {
+  const area = parseSize(w) * parseSize(h);
+  const t = Math.min(1, Math.max(0, (area - 72) / (220 - 72)));
+  return 0.82 + t * 0.18;
+}
+
+const CENTER_IMAGE =
+  "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w";
+
+const BATCH_SIZE = 3;
+const BATCH_SCROLL = 0.2;
+const ENTRANCE_LEN = 0.13;
+
+function getBatchEntrance(index: number, isHero = false) {
+  const batch = isHero
+    ? Math.ceil(gridImages.length / BATCH_SIZE)
+    : Math.floor(index / BATCH_SIZE);
+  const entranceStart = batch * BATCH_SCROLL;
+  return { entranceStart, entranceEnd: entranceStart + ENTRANCE_LEN };
+}
+
+/* ─── Scattered grid — revealed in waves of 3, hero tile last ─── */
 const gridImages = [
-  // top-left large (bleeding off edge)
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/feb0e197-21dd-4668-a5ab-9bfcc74d2470/IMG_8113.jpg?format=1500w",
     top: "0%",
@@ -12,9 +44,7 @@ const gridImages = [
     w: "14vw",
     h: "55vh",
     speed: 0.15,
-    opacity: 0.6,
   },
-  // top-center-left small
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ccd7c34a-e2be-4e5b-92af-b7a889037a6b/IMG_8117.jpg?format=1500w",
     top: "2%",
@@ -22,9 +52,7 @@ const gridImages = [
     w: "10vw",
     h: "20vh",
     speed: 0.08,
-    opacity: 0.3,
   },
-  // top-center large
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/dd5c6831-b2a4-413e-a357-2f2ad17936ba/IMG_8103.jpg?format=1500w",
     top: "0%",
@@ -32,9 +60,7 @@ const gridImages = [
     w: "18vw",
     h: "32vh",
     speed: 0.12,
-    opacity: 1,
   },
-  // top-right large
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/4c63f65b-dec7-484a-9f1f-c2a322873910/04%2BHof%2Bschwebend%2BUpdate%2B006_Bildrechte.jpg?format=1000w",
     top: "0%",
@@ -42,9 +68,7 @@ const gridImages = [
     w: "15vw",
     h: "34vh",
     speed: 0.18,
-    opacity: 0.5,
   },
-  // top-right edge small
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ad5002e2-1034-4504-83df-a2d948116cc9/03%2BBlick%2Bnach%2Boben%2BUpdate%2B005_Bildrechte.jpg?format=750w",
     top: "8%",
@@ -52,9 +76,7 @@ const gridImages = [
     w: "12vw",
     h: "28vh",
     speed: 0.06,
-    opacity: 0.4,
   },
-  // mid-left small
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/ea0e18df-6c64-46ad-a179-dca86b107350/02%2BStrasse%2BNacht%2B008_Bildrechte.jpg?format=1500w",
     top: "52%",
@@ -62,9 +84,7 @@ const gridImages = [
     w: "12vw",
     h: "22vh",
     speed: 0.1,
-    opacity: 0.7,
   },
-  // mid-left-center small (faded)
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/df34b30f-aba3-4519-8eb6-7859b4660f7b/220422_FUHUB_FOYER.jpg?format=2500w",
     top: "45%",
@@ -72,9 +92,7 @@ const gridImages = [
     w: "8vw",
     h: "18vh",
     speed: 0.05,
-    opacity: 0.3,
   },
-  // bottom-center-left
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/dbf5305c-5f3d-4017-ba63-65d8639baac2/220422_FUHUB_LABOR.jpg?format=1500w",
     top: "72%",
@@ -82,9 +100,7 @@ const gridImages = [
     w: "12vw",
     h: "28vh",
     speed: 0.14,
-    opacity: 0.8,
   },
-  // bottom-right large
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/bb71c161-9dc9-464f-ac9a-c406598521c8/PERSPEKTIVE_Eingang-himmelblau.jpg?format=1500w",
     top: "55%",
@@ -92,9 +108,7 @@ const gridImages = [
     w: "14vw",
     h: "30vh",
     speed: 0.16,
-    opacity: 0.6,
   },
-  // bottom-right edge
   {
     src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/d0d8cbb8-472e-464e-a6f4-b71323e02f9f/PERSPEKTIVE_Strasse-himmelblau.jpg?format=1500w",
     top: "70%",
@@ -102,23 +116,17 @@ const gridImages = [
     w: "14vw",
     h: "32vh",
     speed: 0.07,
-    opacity: 0.4,
-  },
-  // bottom-center small (faded)
-  {
-    src: "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w",
-    top: "80%",
-    left: "55%",
-    w: "9vw",
-    h: "16vh",
-    speed: 0.09,
-    opacity: 0.35,
   },
 ];
 
-/* ─── The center image — same one used in Vision section ─── */
-const CENTER_IMAGE =
-  "https://images.squarespace-cdn.com/content/v1/61323486bd579669f1017ee9/09cf5bf2-8667-4dba-bd2d-536378112cc4/BENJAMIN-%C2%A9Ebener-0872-1.jpg?format=2500w";
+const heroTile = {
+  src: CENTER_IMAGE,
+  top: "80%",
+  left: "55%",
+  w: "9vw",
+  h: "16vh",
+  speed: 0.09,
+};
 
 function ParallaxImage({
   src,
@@ -127,8 +135,9 @@ function ParallaxImage({
   w,
   h,
   speed,
-  opacity: baseOpacity = 1,
+  index,
   scrollYProgress,
+  heroExpandProgress,
 }: {
   src: string;
   top: string;
@@ -136,35 +145,138 @@ function ParallaxImage({
   w: string;
   h: string;
   speed: number;
-  opacity?: number;
+  index: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  heroExpandProgress: MotionValue<number>;
 }) {
-  // Fade in from bottom when images start appearing
-  const fadeIn = useTransform(scrollYProgress, [0, 0.1], [0, baseOpacity]);
-  const y = useTransform(
+  const baseOpacity = depthOpacity(w, h);
+  const baseScale = depthScale(w, h);
+  const { entranceStart, entranceEnd } = getBatchEntrance(index);
+  const driftMid = Math.min(entranceEnd + 0.12, 0.92);
+  const driftEnd = Math.min(entranceEnd + 0.28, 0.98);
+
+  const gridOpacity = useTransform(
     scrollYProgress,
-    [0, 0.4],
-    [`10vh`, `${speed * -80}vh`],
+    [entranceStart, entranceEnd],
+    [0, baseOpacity],
   );
-  const fadeOut = useTransform(scrollYProgress, [0.5, 0.65], [baseOpacity, 0]);
+  const opacity = useTransform(
+    [gridOpacity, heroExpandProgress],
+    ([grid, expand]: number[]) => grid * (1 - Math.min(1, expand * 1.4)),
+  );
+  const scale = useTransform(
+    scrollYProgress,
+    [entranceStart, entranceEnd],
+    [baseScale, 1],
+  );
+  const gridY = useTransform(
+    scrollYProgress,
+    [entranceStart, entranceEnd, driftMid, driftEnd],
+    [110, 0, speed * -35, speed * -115],
+  );
+  const y = useTransform(
+    [gridY, heroExpandProgress],
+    ([grid, expand]: number[]) => `${grid - expand * 90}vh`,
+  );
+
+  return (
+    <motion.div
+      className="absolute z-[5] overflow-hidden"
+      style={{ top, left, width: w, height: h, y, opacity, scale }}
+    >
+      <img src={src} alt="Work" className="w-full h-full object-cover" />
+    </motion.div>
+  );
+}
+
+function ExpandableHeroTile({
+  top,
+  left,
+  w,
+  h,
+  speed,
+  gridScrollYProgress,
+  heroExpandProgress,
+  heroOverlay,
+  heroBgY,
+}: {
+  top: string;
+  left: string;
+  w: string;
+  h: string;
+  speed: number;
+  gridScrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  heroExpandProgress: MotionValue<number>;
+  heroOverlay: MotionValue<number>;
+  heroBgY: MotionValue<string>;
+}) {
+  const baseOpacity = depthOpacity(w, h);
+  const baseScale = depthScale(w, h);
+  const { entranceStart, entranceEnd } = getBatchEntrance(0, true);
+  const driftMid = Math.min(entranceEnd + 0.08, 0.95);
+
+  const gridOpacity = useTransform(
+    gridScrollYProgress,
+    [entranceStart, entranceEnd],
+    [0, baseOpacity],
+  );
+  const opacity = useTransform(
+    [gridOpacity, heroExpandProgress],
+    ([grid, expand]: number[]) => Math.max(grid, expand),
+  );
+  const gridScale = useTransform(
+    gridScrollYProgress,
+    [entranceStart, entranceEnd],
+    [baseScale, 1],
+  );
+  const scale = useTransform(
+    [gridScale, heroExpandProgress],
+    ([grid, expand]: number[]) => (expand > 0 ? 1 : grid),
+  );
+
+  const gridY = useTransform(
+    gridScrollYProgress,
+    [entranceStart, entranceEnd, driftMid],
+    [110, 0, speed * -20],
+  );
+  const y = useTransform(
+    [gridY, heroExpandProgress],
+    ([grid, expand]: number[]) => `${grid * (1 - expand)}vh`,
+  );
+
+  const width = useTransform(heroExpandProgress, [0, 1], [w, "100vw"]);
+  const height = useTransform(heroExpandProgress, [0, 1], [h, "100vh"]);
+  const topPos = useTransform(heroExpandProgress, [0, 1], [top, "0%"]);
+  const leftPos = useTransform(heroExpandProgress, [0, 1], [left, "0%"]);
+  const zIndex = useTransform(heroExpandProgress, (p) => (p > 0.02 ? 10 : 5));
 
   return (
     <motion.div
       className="absolute overflow-hidden"
       style={{
-        top,
-        left,
-        width: w,
-        height: h,
+        top: topPos,
+        left: leftPos,
+        width,
+        height,
         y,
-        opacity: fadeOut,
+        opacity,
+        scale,
+        zIndex,
       }}
     >
-      <motion.img
-        src={src}
-        alt="Work"
-        className="w-full h-full object-cover"
-        style={{ opacity: fadeIn }}
+      <motion.div
+        className="absolute inset-0 w-full h-[130%] -top-[15%]"
+        style={{ y: heroBgY }}
+      >
+        <img
+          src={CENTER_IMAGE}
+          alt="Works Hero"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+      <motion.div
+        style={{ opacity: heroOverlay }}
+        className="absolute inset-0 bg-black"
       />
     </motion.div>
   );
@@ -174,58 +286,48 @@ export default function WorksGrid() {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLElement | null>(null);
 
-  // Scroll progress for heading animation (from section start to center)
-  const { scrollYProgress: headingScrollYProgress } = useScroll({
+  const { scrollYProgress: headingApproachProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "center center"],
+    offset: ["start end", "start start"],
   });
 
-  // Scroll progress for images animation (from center to end)
-  const { scrollYProgress: imagesScrollYProgress } = useScroll({
+  const { scrollYProgress: headingShrinkProgress } = useScroll({
     target: containerRef,
-    offset: ["center center", "end end"],
+    offset: ["start start", "20% start"],
   });
 
-  // Overall scroll progress for other animations (center image, vision)
+  const { scrollYProgress: gridScrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["14% start", "68% start"],
+  });
+
+  const { scrollYProgress: heroExpandProgress } = useScroll({
+    target: containerRef,
+    offset: ["64% start", "74% start"],
+  });
+
+  const { scrollYProgress: visionScrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["74% start", "end end"],
+  });
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  /* ─── Phase 1: Title (0 → 1) ─── */
-  // Heading starts from above, scales down, and pins in center
-  const titleScale = useTransform(headingScrollYProgress, [0, 1], [2.5, 1]);
-  const titleY = useTransform(headingScrollYProgress, [0, 1], ["-30vh", "0vh"]);
-  const titleOpacity = useTransform(scrollYProgress, [0.45, 0.55], [1, 0]);
-
-  /* ─── Phase 2: Center image scales to full screen (0.7 → 0.9) ─── */
-  const heroWidth = useTransform(scrollYProgress, [0.7, 0.9], ["9vw", "100vw"]);
-  const heroHeight = useTransform(
-    scrollYProgress,
-    [0.7, 0.9],
-    ["16vh", "100vh"],
-  );
-  const heroTop = useTransform(scrollYProgress, [0.7, 0.9], ["80%", "0%"]);
-  const heroLeft = useTransform(scrollYProgress, [0.7, 0.9], ["55%", "0%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0.65, 0.7], [0, 1]);
-
-  /* ─── Dark overlay on hero (for Vision section readability) ─── */
-  const heroOverlay = useTransform(scrollYProgress, [0.85, 0.9], [0, 0.45]);
-
-  /* ─── Background vertical parallax for Vision section ─── */
-  const heroBgY = useTransform(scrollYProgress, [0.9, 1], ["0%", "-10%"]);
-
-  /* ─── CTA button ─── */
-  const ctaOpacity = useTransform(
-    scrollYProgress,
-    [0.08, 0.12, 0.4, 0.45],
-    [0, 1, 1, 0],
-  );
-  const ctaLabel = useTransform(scrollYProgress, (p): string =>
-    p < 0.3 ? t("home.worksGrid.allWork") : t("home.worksGrid.vision"),
+  const titleY = useTransform(headingApproachProgress, [0, 1], [-30, 0]);
+  const titleScale = useTransform(headingShrinkProgress, [0, 1], [2.5, 1]);
+  const titleExitY = useTransform(heroExpandProgress, [0, 0.25], [0, -55]);
+  const titleOpacity = useTransform(heroExpandProgress, [0, 0.18], [1, 0]);
+  const titleCombinedY = useTransform(
+    [titleY, titleExitY],
+    ([approach, exit]: number[]) => `${approach + exit}vh`,
   );
 
-  /* ─── Vision content animations (0.8 → 1) ─── */
+  const heroOverlay = useTransform(visionScrollYProgress, [0, 0.08], [0, 0.45]);
+  const heroBgY = useTransform(visionScrollYProgress, [0.82, 1], ["0%", "-10%"]);
+
   const visionSlides = t("home.vision.slides", {
     returnObjects: true,
   }) as Array<{
@@ -233,120 +335,100 @@ export default function WorksGrid() {
     text: string;
   }>;
 
-  /* ─── Horizontal text sliding ─── */
+  // ~1 viewport of scroll per vision point (spread across dedicated vision track)
+  const slide1End = 0.3;
+  const slide2Start = 0.28;
+  const slide2End = 0.62;
+  const slide3Start = 0.6;
+
   const headingX = useTransform(
-    scrollYProgress,
-    [0.9, 0.95, 0.97, 0.98, 0.99, 1],
+    visionScrollYProgress,
+    [0, slide1End, slide2Start + 0.04, slide2End, slide3Start + 0.04, 1],
     ["0%", "0%", "-100%", "-100%", "-200%", "-200%"],
   );
 
-  /* ─── Individual heading opacities ─── */
   const opacity1 = useTransform(
-    scrollYProgress,
-    [0, 0.9, 0.95, 0.97],
-    [0, 1, 1, 0.2],
+    visionScrollYProgress,
+    [0, 0.05, slide1End, slide1End + 0.06],
+    [0, 1, 1, 0.15],
   );
   const opacity2 = useTransform(
-    scrollYProgress,
-    [0, 0.95, 0.97, 0.98, 0.99],
-    [0, 0.2, 1, 1, 0.2],
+    visionScrollYProgress,
+    [0, slide2Start, slide2Start + 0.05, slide2End, slide2End + 0.06],
+    [0, 0.15, 1, 1, 0.15],
   );
   const opacity3 = useTransform(
-    scrollYProgress,
-    [0, 0.98, 0.99, 1],
-    [0, 0.2, 1, 1],
+    visionScrollYProgress,
+    [0, slide3Start, slide3Start + 0.05, 1],
+    [0, 0.15, 1, 1],
   );
 
-  /* ─── Description text fade swap ─── */
   const textOpacity1 = useTransform(
-    scrollYProgress,
-    [0, 0.9, 0.95, 0.97],
+    visionScrollYProgress,
+    [0, 0.05, slide1End, slide1End + 0.05],
     [0, 1, 1, 0],
   );
   const textOpacity2 = useTransform(
-    scrollYProgress,
-    [0, 0.97, 0.98, 0.99, 1],
+    visionScrollYProgress,
+    [0, slide2Start, slide2Start + 0.05, slide2End, slide2End + 0.05],
     [0, 0, 1, 1, 0],
   );
   const textOpacity3 = useTransform(
-    scrollYProgress,
-    [0, 0.99, 1, 1],
+    visionScrollYProgress,
+    [0, slide3Start, slide3Start + 0.05, 1],
     [0, 0, 1, 1],
   );
 
-  /* ─── Separator line expand ─── */
   const lineWidth = useTransform(
-    scrollYProgress,
-    [0, 0.9, 0.95],
-    ["0%", "0%", "100%"],
+    visionScrollYProgress,
+    [0, 0.1],
+    ["0%", "100%"],
   );
-  const separatorOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.85, 0.9],
-    [0, 0, 1],
-  );
+  const separatorOpacity = useTransform(visionScrollYProgress, [0, 0.06], [0, 1]);
 
-  /* ─── Overall Vision content opacity ─── */
   const visionContentOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.85, 0.9],
-    [0, 0, 1],
+    visionScrollYProgress,
+    [0, 0.06],
+    [0, 1],
   );
 
-  /* ─── Step counter ─── */
-  const stepNumber = useTransform(scrollYProgress, (pos): string => {
-    if (pos < 0.9) return "01";
-    if (pos < 0.95) return "02";
+  const stepNumber = useTransform(visionScrollYProgress, (pos): string => {
+    if (pos < slide2Start + 0.02) return "01";
+    if (pos < slide3Start + 0.02) return "02";
     return "03";
   });
 
   return (
     <section
       ref={containerRef}
-      className="relative h-[500vh] bg-white text-black works-grid"
+      className="relative h-[1500vh] bg-white text-black works-grid"
     >
       <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center will-change-transform">
-        {/* ── Scattered collage images with individual parallax ── */}
         {gridImages.map((img, i) => (
           <ParallaxImage
             key={i}
+            index={i}
             {...img}
-            scrollYProgress={imagesScrollYProgress}
+            scrollYProgress={gridScrollYProgress}
+            heroExpandProgress={heroExpandProgress}
           />
         ))}
 
-        {/* ── Center hero image — scales to full screen, becomes Vision bg ── */}
+        <ExpandableHeroTile
+          {...heroTile}
+          gridScrollYProgress={gridScrollYProgress}
+          heroExpandProgress={heroExpandProgress}
+          heroOverlay={heroOverlay}
+          heroBgY={heroBgY}
+        />
+
         <motion.div
           style={{
-            width: heroWidth,
-            height: heroHeight,
-            top: heroTop,
-            left: heroLeft,
-            opacity: heroOpacity,
+            scale: titleScale,
+            y: titleCombinedY,
+            opacity: titleOpacity,
           }}
-          className="absolute z-10 overflow-hidden"
-        >
-          <motion.div
-            className="absolute inset-0 w-full h-[130%] -top-[15%]"
-            style={{ y: heroBgY }}
-          >
-            <img
-              src={CENTER_IMAGE}
-              alt="Works Hero"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-          {/* Dark overlay for Vision text readability */}
-          <motion.div
-            style={{ opacity: heroOverlay }}
-            className="absolute inset-0 bg-black"
-          />
-        </motion.div>
-
-        {/* ── Title: "All Work (27)" — starts from above, scales down, pins, then fades ── */}
-        <motion.div
-          style={{ scale: titleScale, y: titleY, opacity: titleOpacity }}
-          className="z-20 flex items-start gap-3 absolute pointer-events-none"
+          className="z-20 flex items-start gap-3 absolute pointer-events-none isolate"
         >
           <span
             className="text-6xl md:text-8xl lg:text-9xl font-serif tracking-tight"
@@ -359,12 +441,10 @@ export default function WorksGrid() {
           </sup>
         </motion.div>
 
-        {/* ── Vision content overlay (appears after image enlarges) ── */}
         <motion.div
           style={{ opacity: visionContentOpacity }}
-          className="relative z-30 w-full h-full flex flex-col justify-center"
+          className="relative z-30 w-full h-full flex flex-col justify-center pointer-events-none"
         >
-          {/* ── Horizontal sliding headings ── */}
           <div className="absolute top-[18%] md:top-[22%] w-full overflow-hidden px-4 md:px-12">
             <motion.div
               className="flex whitespace-nowrap"
@@ -385,7 +465,6 @@ export default function WorksGrid() {
             </motion.div>
           </div>
 
-          {/* ── Separator line with counter ── */}
           <motion.div
             style={{ opacity: separatorOpacity }}
             className="absolute top-1/2 -translate-y-1/2 w-full px-4 md:px-12 flex items-center gap-4 md:gap-8"
@@ -406,7 +485,6 @@ export default function WorksGrid() {
             </div>
           </motion.div>
 
-          {/* ── Description text (right-aligned, fading swap) ── */}
           <div className="absolute bottom-[20%] md:bottom-[22%] right-0 w-full md:w-1/2 px-4 md:px-12 flex justify-end">
             <div className="relative w-full max-w-lg min-h-[160px]">
               {visionSlides.map((slide, i) => {
