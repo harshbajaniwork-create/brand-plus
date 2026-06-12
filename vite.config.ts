@@ -11,4 +11,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./app"),
     },
   },
+  // Add this build block to force proper sourcemap generation
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        sourcemapExcludeSources: false,
+      },
+    },
+  },
 });
